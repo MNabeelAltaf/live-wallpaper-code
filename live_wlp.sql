@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2024 at 05:36 AM
+-- Generation Time: Dec 02, 2024 at 12:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,47 +47,47 @@ CREATE TABLE `3d_wallpapers` (
 --
 
 INSERT INTO `3d_wallpapers` (`id`, `blur_path`, `thumb_path`, `zip_path`, `category`, `cat_id`, `likes`, `downloads`, `set_wp`, `hash_tags`, `wp_show`, `featured`) VALUES
-(1, '3D_Wallpapers/birds/blur/00001_blur.webp', '3D_Wallpapers/birds/thumb/00001_thu.webp', '3D_Wallpapers/birds/zip/00001.zip', 'birds', 0, 1668, 8183, 0, '#parrot #grayparrot', 0, 1),
-(2, '3D_Wallpapers/birds/blur/00009_blur.webp', '3D_Wallpapers/birds/thumb/00009_thu.webp', '3D_Wallpapers/birds/zip/00009.zip', 'birds', 0, 994, 11501, 0, '#parrot #tree', 0, 0),
-(3, '3D_Wallpapers/birds/blur/00016_blur.webp', '3D_Wallpapers/birds/thumb/00016_thu.webp', '3D_Wallpapers/birds/zip/00016.zip', 'birds', 0, 1819, 24740, 0, '#parrot #macow', 0, 1),
-(4, '3D_Wallpapers/birds/blur/00033_blur.webp', '3D_Wallpapers/birds/thumb/00033_thu.webp', '3D_Wallpapers/birds/zip/00033.zip', 'birds', 0, 717, 5422, 0, '#birds #sparrow', 0, 0),
-(5, '3D_Wallpapers/black/blur/00006_blur.webp', '3D_Wallpapers/black/thumb/00006_thu.webp', '3D_Wallpapers/black/zip/00006.zip', 'black', 0, 781, 9381, 0, '#black eyes #dreams', 0, 0),
-(6, '3D_Wallpapers/black/blur/00007_blur.webp', '3D_Wallpapers/black/thumb/00007_thu.webp', '3D_Wallpapers/black/zip/00007.zip', 'black', 0, 634, 6175, 0, '#blackdevil #blackball #black', 0, 0),
-(7, '3D_Wallpapers/butterflies/blur/00010_blur.webp', '3D_Wallpapers/butterflies/thumb/00010_thu.webp', '3D_Wallpapers/butterflies/zip/00010.zip', 'butterflies', 0, 1027, 9707, 0, '#butterfly', 0, 1),
-(8, '3D_Wallpapers/dolls/blur/00003_blur.webp', '3D_Wallpapers/dolls/thumb/00003_thu.webp', '3D_Wallpapers/dolls/zip/00003.zip', 'dolls', 0, 709, 4836, 0, '#Barbie #butterfly', 0, 0),
-(9, '3D_Wallpapers/dolls/blur/00008_blur.webp', '3D_Wallpapers/dolls/thumb/00008_thu.webp', '3D_Wallpapers/dolls/zip/00008.zip', 'dolls', 0, 598, 4580, 0, '#child #missingsomething', 0, 0),
-(10, '3D_Wallpapers/dolls/blur/00011_blur.webp', '3D_Wallpapers/dolls/thumb/00011_thu.webp', '3D_Wallpapers/dolls/zip/00011.zip', 'dolls', 0, 781, 7407, 0, '#ferry #girl', 0, 0),
-(11, '3D_Wallpapers/dolls/blur/00026_blur.webp', '3D_Wallpapers/dolls/thumb/00026_thu.webp', '3D_Wallpapers/dolls/zip/00026.zip', 'dolls', 0, 623, 5441, 0, '#doll #barbie', 0, 1),
-(12, '3D_Wallpapers/dolls/blur/00030_blur.webp', '3D_Wallpapers/dolls/thumb/00030_thu.webp', '3D_Wallpapers/dolls/zip/00030.zip', 'dolls', 0, 500, 1961, 0, '#selfie #cute girl', 0, 0),
-(13, '3D_Wallpapers/flowers/blur/00000_blur.webp', '3D_Wallpapers/flowers/thumb/00000_thu.webp', '3D_Wallpapers/flowers/zip/00000.zip', 'flowers', 0, 2937, 17859, 0, '', 0, 0),
-(14, '3D_Wallpapers/flowers/blur/00020_blur.webp', '3D_Wallpapers/flowers/thumb/00020_thu.webp', '3D_Wallpapers/flowers/zip/00020.zip', 'flowers', 0, 1655, 16877, 0, '#flower', 0, 0),
-(15, '3D_Wallpapers/games/blur/00015_blur.webp', '3D_Wallpapers/games/thumb/00015_thu.webp', '3D_Wallpapers/games/zip/00015.zip', 'games', 0, 1167, 10128, 0, '#pubg #fight', 0, 0),
-(16, '3D_Wallpapers/games/blur/00035_blur.webp', '3D_Wallpapers/games/thumb/00035_thu.webp', '3D_Wallpapers/games/zip/00035.zip', 'games', 0, 624, 4234, 0, '#devil', 0, 0),
-(17, '3D_Wallpapers/ghost/blur/00029_blur.webp', '3D_Wallpapers/ghost/thumb/00029_thu.webp', '3D_Wallpapers/ghost/zip/00029.zip', 'ghost', 0, 0, 0, 0, '', 0, 0),
-(18, '3D_Wallpapers/landscapes/blur/00002_blur.webp', '3D_Wallpapers/landscapes/thumb/00002_thu.webp', '3D_Wallpapers/landscapes/zip/00002.zip', 'landscapes', 0, 830, 8977, 0, '#night #girl', 0, 0),
-(19, '3D_Wallpapers/landscapes/blur/00005_blur.webp', '3D_Wallpapers/landscapes/thumb/00005_thu.webp', '3D_Wallpapers/landscapes/zip/00005.zip', 'landscapes', 0, 682, 7034, 0, '#sky #hotairbaloon', 0, 0),
-(20, '3D_Wallpapers/movies/blur/00013_blur.webp', '3D_Wallpapers/movies/thumb/00013_thu.webp', '3D_Wallpapers/movies/zip/00013.zip', 'movies', 0, 1090, 11388, 0, '#moneyheist', 0, 0),
-(21, '3D_Wallpapers/movies/blur/00017_blur.webp', '3D_Wallpapers/movies/thumb/00017_thu.webp', '3D_Wallpapers/movies/zip/00017.zip', 'movies', 0, 2850, 21526, 0, '#spider #spiderman', 0, 1),
-(22, '3D_Wallpapers/movies/blur/00018_blur.webp', '3D_Wallpapers/movies/thumb/00018_thu.webp', '3D_Wallpapers/movies/zip/00018.zip', 'movies', 0, 727, 3542, 0, '#fighting girl #brave', 0, 0),
-(23, '3D_Wallpapers/movies/blur/00019_blur.webp', '3D_Wallpapers/movies/thumb/00019_thu.webp', '3D_Wallpapers/movies/zip/00019.zip', 'movies', 0, 1296, 6205, 0, '#allien', 0, 1),
-(24, '3D_Wallpapers/movies/blur/00021_blur.webp', '3D_Wallpapers/movies/thumb/00021_thu.webp', '3D_Wallpapers/movies/zip/00021.zip', 'movies', 0, 1549, 16989, 0, '#america #superhero', 0, 1),
-(25, '3D_Wallpapers/movies/blur/00022_blur.webp', '3D_Wallpapers/movies/thumb/00022_thu.webp', '3D_Wallpapers/movies/zip/00022.zip', 'movies', 0, 1413, 10812, 0, '#mongli #tiger', 0, 0),
-(26, '3D_Wallpapers/movies/blur/00023_blur.webp', '3D_Wallpapers/movies/thumb/00023_thu.webp', '3D_Wallpapers/movies/zip/00023.zip', 'movies', 0, 525, 1934, 0, '#dragon', 0, 0),
-(27, '3D_Wallpapers/movies/blur/00024_blur.webp', '3D_Wallpapers/movies/thumb/00024_thu.webp', '3D_Wallpapers/movies/zip/00024.zip', 'movies', 0, 646, 7749, 0, '#tiger #boy', 0, 0),
-(28, '3D_Wallpapers/movies/blur/00025_blur.webp', '3D_Wallpapers/movies/thumb/00025_thu.webp', '3D_Wallpapers/movies/zip/00025.zip', 'movies', 0, 699, 6197, 0, '#girls', 0, 0),
-(29, '3D_Wallpapers/movies/blur/00032_blur.webp', '3D_Wallpapers/movies/thumb/00032_thu.webp', '3D_Wallpapers/movies/zip/00032.zip', 'movies', 0, 763, 8498, 0, '#batman', 0, 1),
-(30, '3D_Wallpapers/movies/blur/00034_blur.webp', '3D_Wallpapers/movies/thumb/00034_thu.webp', '3D_Wallpapers/movies/zip/00034.zip', 'movies', 0, 708, 8283, 0, '#batman', 0, 1),
-(31, '3D_Wallpapers/movies/blur/00036_blur.webp', '3D_Wallpapers/movies/thumb/00036_thu.webp', '3D_Wallpapers/movies/zip/00036.zip', 'movies', 0, 746, 9306, 0, '#panda', 0, 1),
-(32, '3D_Wallpapers/movies/blur/00038_blur.webp', '3D_Wallpapers/movies/thumb/00038_thu.webp', '3D_Wallpapers/movies/zip/00038.zip', 'movies', 0, 0, 0, 0, '', 0, 0),
-(33, '3D_Wallpapers/movies/blur/00039_blur.webp', '3D_Wallpapers/movies/thumb/00039_thu.webp', '3D_Wallpapers/movies/zip/00039.zip', 'movies', 0, 0, 0, 0, '', 0, 0),
-(34, '3D_Wallpapers/movies/blur/00040_blur.webp', '3D_Wallpapers/movies/thumb/00040_thu.webp', '3D_Wallpapers/movies/zip/00040.zip', 'movies', 0, 0, 0, 0, '', 0, 0),
-(35, '3D_Wallpapers/others/blur/00028_blur.webp', '3D_Wallpapers/others/thumb/00028_thu.webp', '3D_Wallpapers/others/zip/00028.zip', 'others', 0, 545, 3636, 0, '#one eye #blue', 0, 0),
-(36, '3D_Wallpapers/others/blur/00037_blur.webp', '3D_Wallpapers/others/thumb/00037_thu.webp', '3D_Wallpapers/others/zip/00037.zip', 'others', 0, 882, 12169, 0, '#money', 0, 1),
-(37, '3D_Wallpapers/others/blur/00041_blur.webp', '3D_Wallpapers/others/thumb/00041_thu.webp', '3D_Wallpapers/others/zip/00041.zip', 'others', 0, 886, 9803, 0, '#man #buildings', 0, 1),
-(38, '3D_Wallpapers/others/blur/00042_blur.webp', '3D_Wallpapers/others/thumb/00042_thu.webp', '3D_Wallpapers/others/zip/00042.zip', 'others', 0, 1215, 9981, 0, '#man #buildings', 0, 1),
-(39, '3D_Wallpapers/space/blur/00012_blur.webp', '3D_Wallpapers/space/thumb/00012_thu.webp', '3D_Wallpapers/space/zip/00012.zip', 'space', 0, 1716, 12363, 0, '#spaceship #scientist', 0, 1),
-(40, '3D_Wallpapers/underwater/blur/00004_blur.webp', '3D_Wallpapers/underwater/thumb/00004_thu.webp', '3D_Wallpapers/underwater/zip/00004.zip', 'underwater', 0, 1175, 16530, 0, '#fish #water #grass', 0, 0),
-(41, '3D_Wallpapers/underwater/blur/00014_blur.webp', '3D_Wallpapers/underwater/thumb/00014_thu.webp', '3D_Wallpapers/underwater/zip/00014.zip', 'underwater', 0, 629, 5480, 0, '#rabbit', 0, 0);
+(1, '3D_Wallpapers/birds/blur/00001_blur.webp', '3D_Wallpapers/birds/thumb/00001_thu.webp', '3D_Wallpapers/birds/zip/00001.zip', 'birds', 21, 1668, 8183, 0, '#parrot #grayparrot', 0, 1),
+(2, '3D_Wallpapers/birds/blur/00009_blur.webp', '3D_Wallpapers/birds/thumb/00009_thu.webp', '3D_Wallpapers/birds/zip/00009.zip', 'birds', 21, 994, 11501, 0, '#parrot #tree', 0, 0),
+(3, '3D_Wallpapers/birds/blur/00016_blur.webp', '3D_Wallpapers/birds/thumb/00016_thu.webp', '3D_Wallpapers/birds/zip/00016.zip', 'birds', 21, 1819, 24740, 0, '#parrot #macow', 0, 1),
+(4, '3D_Wallpapers/birds/blur/00033_blur.webp', '3D_Wallpapers/birds/thumb/00033_thu.webp', '3D_Wallpapers/birds/zip/00033.zip', 'birds', 21, 717, 5422, 0, '#birds #sparrow', 0, 0),
+(5, '3D_Wallpapers/black/blur/00006_blur.webp', '3D_Wallpapers/black/thumb/00006_thu.webp', '3D_Wallpapers/black/zip/00006.zip', 'black', 4, 781, 9381, 0, '#black eyes #dreams', 0, 0),
+(6, '3D_Wallpapers/black/blur/00007_blur.webp', '3D_Wallpapers/black/thumb/00007_thu.webp', '3D_Wallpapers/black/zip/00007.zip', 'black', 4, 634, 6175, 0, '#blackdevil #blackball #black', 0, 0),
+(7, '3D_Wallpapers/butterflies/blur/00010_blur.webp', '3D_Wallpapers/butterflies/thumb/00010_thu.webp', '3D_Wallpapers/butterflies/zip/00010.zip', 'butterflies', 15, 1027, 9707, 0, '#butterfly', 0, 1),
+(8, '3D_Wallpapers/dolls/blur/00003_blur.webp', '3D_Wallpapers/dolls/thumb/00003_thu.webp', '3D_Wallpapers/dolls/zip/00003.zip', 'dolls', 9, 709, 4836, 0, '#Barbie #butterfly', 0, 0),
+(9, '3D_Wallpapers/dolls/blur/00008_blur.webp', '3D_Wallpapers/dolls/thumb/00008_thu.webp', '3D_Wallpapers/dolls/zip/00008.zip', 'dolls', 9, 598, 4580, 0, '#child #missingsomething', 0, 0),
+(10, '3D_Wallpapers/dolls/blur/00011_blur.webp', '3D_Wallpapers/dolls/thumb/00011_thu.webp', '3D_Wallpapers/dolls/zip/00011.zip', 'dolls', 9, 781, 7407, 0, '#ferry #girl', 0, 0),
+(11, '3D_Wallpapers/dolls/blur/00026_blur.webp', '3D_Wallpapers/dolls/thumb/00026_thu.webp', '3D_Wallpapers/dolls/zip/00026.zip', 'dolls', 9, 623, 5441, 0, '#doll #barbie', 0, 1),
+(12, '3D_Wallpapers/dolls/blur/00030_blur.webp', '3D_Wallpapers/dolls/thumb/00030_thu.webp', '3D_Wallpapers/dolls/zip/00030.zip', 'dolls', 9, 500, 1961, 0, '#selfie #cute girl', 0, 0),
+(13, '3D_Wallpapers/flowers/blur/00000_blur.webp', '3D_Wallpapers/flowers/thumb/00000_thu.webp', '3D_Wallpapers/flowers/zip/00000.zip', 'flowers', 15, 2937, 17859, 0, '', 0, 0),
+(14, '3D_Wallpapers/flowers/blur/00020_blur.webp', '3D_Wallpapers/flowers/thumb/00020_thu.webp', '3D_Wallpapers/flowers/zip/00020.zip', 'flowers', 15, 1655, 16877, 0, '#flower', 0, 0),
+(15, '3D_Wallpapers/games/blur/00015_blur.webp', '3D_Wallpapers/games/thumb/00015_thu.webp', '3D_Wallpapers/games/zip/00015.zip', 'games', 10, 1167, 10128, 0, '#pubg #fight', 0, 0),
+(16, '3D_Wallpapers/games/blur/00035_blur.webp', '3D_Wallpapers/games/thumb/00035_thu.webp', '3D_Wallpapers/games/zip/00035.zip', 'games', 10, 624, 4234, 0, '#devil', 0, 0),
+(17, '3D_Wallpapers/ghost/blur/00029_blur.webp', '3D_Wallpapers/ghost/thumb/00029_thu.webp', '3D_Wallpapers/ghost/zip/00029.zip', 'ghost', 39, 0, 0, 0, '', 0, 0),
+(18, '3D_Wallpapers/landscapes/blur/00002_blur.webp', '3D_Wallpapers/landscapes/thumb/00002_thu.webp', '3D_Wallpapers/landscapes/zip/00002.zip', 'landscapes', 2, 830, 8977, 0, '#night #girl', 0, 0),
+(19, '3D_Wallpapers/landscapes/blur/00005_blur.webp', '3D_Wallpapers/landscapes/thumb/00005_thu.webp', '3D_Wallpapers/landscapes/zip/00005.zip', 'landscapes', 2, 682, 7034, 0, '#sky #hotairbaloon', 0, 0),
+(20, '3D_Wallpapers/movies/blur/00013_blur.webp', '3D_Wallpapers/movies/thumb/00013_thu.webp', '3D_Wallpapers/movies/zip/00013.zip', 'movies', 9, 1090, 11388, 0, '#moneyheist', 0, 0),
+(21, '3D_Wallpapers/movies/blur/00017_blur.webp', '3D_Wallpapers/movies/thumb/00017_thu.webp', '3D_Wallpapers/movies/zip/00017.zip', 'movies', 9, 2850, 21526, 0, '#spider #spiderman', 0, 1),
+(22, '3D_Wallpapers/movies/blur/00018_blur.webp', '3D_Wallpapers/movies/thumb/00018_thu.webp', '3D_Wallpapers/movies/zip/00018.zip', 'movies', 9, 727, 3542, 0, '#fighting girl #brave', 0, 0),
+(23, '3D_Wallpapers/movies/blur/00019_blur.webp', '3D_Wallpapers/movies/thumb/00019_thu.webp', '3D_Wallpapers/movies/zip/00019.zip', 'movies', 9, 1296, 6205, 0, '#allien', 0, 1),
+(24, '3D_Wallpapers/movies/blur/00021_blur.webp', '3D_Wallpapers/movies/thumb/00021_thu.webp', '3D_Wallpapers/movies/zip/00021.zip', 'movies', 9, 1549, 16989, 0, '#america #superhero', 0, 1),
+(25, '3D_Wallpapers/movies/blur/00022_blur.webp', '3D_Wallpapers/movies/thumb/00022_thu.webp', '3D_Wallpapers/movies/zip/00022.zip', 'movies', 9, 1413, 10812, 0, '#mongli #tiger', 0, 0),
+(26, '3D_Wallpapers/movies/blur/00023_blur.webp', '3D_Wallpapers/movies/thumb/00023_thu.webp', '3D_Wallpapers/movies/zip/00023.zip', 'movies', 9, 525, 1934, 0, '#dragon', 0, 0),
+(27, '3D_Wallpapers/movies/blur/00024_blur.webp', '3D_Wallpapers/movies/thumb/00024_thu.webp', '3D_Wallpapers/movies/zip/00024.zip', 'movies', 9, 646, 7749, 0, '#tiger #boy', 0, 0),
+(28, '3D_Wallpapers/movies/blur/00025_blur.webp', '3D_Wallpapers/movies/thumb/00025_thu.webp', '3D_Wallpapers/movies/zip/00025.zip', 'movies', 9, 699, 6197, 0, '#girls', 0, 0),
+(29, '3D_Wallpapers/movies/blur/00032_blur.webp', '3D_Wallpapers/movies/thumb/00032_thu.webp', '3D_Wallpapers/movies/zip/00032.zip', 'movies', 9, 763, 8498, 0, '#batman', 0, 1),
+(30, '3D_Wallpapers/movies/blur/00034_blur.webp', '3D_Wallpapers/movies/thumb/00034_thu.webp', '3D_Wallpapers/movies/zip/00034.zip', 'movies', 9, 708, 8283, 0, '#batman', 0, 1),
+(31, '3D_Wallpapers/movies/blur/00036_blur.webp', '3D_Wallpapers/movies/thumb/00036_thu.webp', '3D_Wallpapers/movies/zip/00036.zip', 'movies', 9, 746, 9306, 0, '#panda', 0, 1),
+(32, '3D_Wallpapers/movies/blur/00038_blur.webp', '3D_Wallpapers/movies/thumb/00038_thu.webp', '3D_Wallpapers/movies/zip/00038.zip', 'movies', 9, 0, 0, 0, '', 0, 0),
+(33, '3D_Wallpapers/movies/blur/00039_blur.webp', '3D_Wallpapers/movies/thumb/00039_thu.webp', '3D_Wallpapers/movies/zip/00039.zip', 'movies', 9, 0, 0, 0, '', 0, 0),
+(34, '3D_Wallpapers/movies/blur/00040_blur.webp', '3D_Wallpapers/movies/thumb/00040_thu.webp', '3D_Wallpapers/movies/zip/00040.zip', 'movies', 9, 0, 0, 0, '', 0, 0),
+(35, '3D_Wallpapers/others/blur/00028_blur.webp', '3D_Wallpapers/others/thumb/00028_thu.webp', '3D_Wallpapers/others/zip/00028.zip', 'others', 6, 545, 3636, 0, '#one eye #blue', 0, 0),
+(36, '3D_Wallpapers/others/blur/00037_blur.webp', '3D_Wallpapers/others/thumb/00037_thu.webp', '3D_Wallpapers/others/zip/00037.zip', 'others', 6, 882, 12169, 0, '#money', 0, 1),
+(37, '3D_Wallpapers/others/blur/00041_blur.webp', '3D_Wallpapers/others/thumb/00041_thu.webp', '3D_Wallpapers/others/zip/00041.zip', 'others', 6, 886, 9803, 0, '#man #buildings', 0, 1),
+(38, '3D_Wallpapers/others/blur/00042_blur.webp', '3D_Wallpapers/others/thumb/00042_thu.webp', '3D_Wallpapers/others/zip/00042.zip', 'others', 6, 1215, 9981, 0, '#man #buildings', 0, 1),
+(39, '3D_Wallpapers/space/blur/00012_blur.webp', '3D_Wallpapers/space/thumb/00012_thu.webp', '3D_Wallpapers/space/zip/00012.zip', 'space', 20, 1716, 12363, 0, '#spaceship #scientist', 0, 1),
+(40, '3D_Wallpapers/underwater/blur/00004_blur.webp', '3D_Wallpapers/underwater/thumb/00004_thu.webp', '3D_Wallpapers/underwater/zip/00004.zip', 'underwater', 6, 1175, 16530, 0, '#fish #water #grass', 0, 0),
+(41, '3D_Wallpapers/underwater/blur/00014_blur.webp', '3D_Wallpapers/underwater/thumb/00014_thu.webp', '3D_Wallpapers/underwater/zip/00014.zip', 'underwater', 6, 629, 5480, 0, '#rabbit', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -134,29 +134,33 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `thumbnail`, `show`, `type`, `created_at`, `updated_at`) VALUES
-(27, 'Animal', 'Categories_thumbnail/Animal.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(28, 'Anime', 'Categories_thumbnail/Anime.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(29, 'Candle', 'Categories_thumbnail/Candle.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(30, 'Car', 'Categories_thumbnail/Car.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(31, 'Character', 'Categories_thumbnail/Character.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(32, 'Dark', 'Categories_thumbnail/Dark.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(33, 'Entertainment', 'Categories_thumbnail/Entertainment.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(34, 'Fairy', 'Categories_thumbnail/Fairy.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(35, 'Flower', 'Categories_thumbnail/Flower.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(36, 'Galaxy', 'Categories_thumbnail/Galaxy.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(37, 'Game', 'Categories_thumbnail/Game.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(38, 'Halloween', 'Categories_thumbnail/Halloween.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(1, 'Car', 'Categories_thumbnail/Car.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(2, 'Mountain', 'Categories_thumbnail/Mountain.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(3, 'Nature', 'Categories_thumbnail/Nature.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(4, 'Dark', 'Categories_thumbnail/Dark.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(5, 'Candle', 'Categories_thumbnail/Candle.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(6, 'Other', 'Categories_thumbnail/Other.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(8, 'Anime', 'Categories_thumbnail/Anime.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(9, 'Entertainment', 'Categories_thumbnail/Entertainment.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(10, 'Game', 'Categories_thumbnail/Game.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(11, 'Love', 'Categories_thumbnail/Game.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(12, 'Pattern', 'Categories_thumbnail/Pattern.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(13, 'Quote', 'Categories_thumbnail/Quote.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(14, 'Technology', 'Categories_thumbnail/Technology.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(15, 'Flower', 'Categories_thumbnail/Flower.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(16, 'Fairy', 'Categories_thumbnail/Fairy.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(17, 'Character', 'Categories_thumbnail/Character.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(18, 'Skull', 'Categories_thumbnail/Skull.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(19, 'Interior', 'Categories_thumbnail/Interior.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(20, 'Galaxy', 'Categories_thumbnail/Galaxy.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(21, 'Animal', 'Categories_thumbnail/Animal.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(22, 'Halloween', 'Categories_thumbnail/Halloween.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(23, 'Winter', 'Categories_thumbnail/Animal.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(24, 'Christmas', 'Categories_thumbnail/Super_hero.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
+(25, 'New_Year', 'Categories_thumbnail/Super_hero.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
 (39, 'Horror', 'Categories_thumbnail/Horror.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(40, 'Interior', 'Categories_thumbnail/Interior.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(41, 'Mountain', 'Categories_thumbnail/Mountain.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(42, 'Nature', 'Categories_thumbnail/Nature.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
 (43, 'Neon', 'Categories_thumbnail/Neon.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(44, 'Other', 'Categories_thumbnail/Other.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(45, 'Pattern', 'Categories_thumbnail/Pattern.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(46, 'Quote', 'Categories_thumbnail/Quote.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(47, 'Skull', 'Categories_thumbnail/Skull.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(48, 'Super_hero', 'Categories_thumbnail/Super_hero.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03'),
-(49, 'Technology', 'Categories_thumbnail/Technology.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03');
+(48, 'Super_hero', 'Categories_thumbnail/Super_hero.png', 1, 1, '2024-11-27 08:02:03', '2024-11-27 08:02:03');
 
 -- --------------------------------------------------------
 
@@ -173,6 +177,162 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `four_dwallpapers`
+--
+
+CREATE TABLE `four_dwallpapers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `thumbPath` text NOT NULL,
+  `no_of_layers` int(11) NOT NULL,
+  `likes` int(11) NOT NULL DEFAULT 0,
+  `downloads` int(11) DEFAULT 0,
+  `effect` int(11) NOT NULL,
+  `bg_zoom_speed` int(11) NOT NULL,
+  `bg_zoom_intensity` int(11) NOT NULL,
+  `background_rotation_xaxis` int(11) NOT NULL,
+  `background_rotation_yaxis` int(11) NOT NULL,
+  `featured` int(11) NOT NULL DEFAULT 1,
+  `tags` text NOT NULL,
+  `wp_show` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `four_dwallpapers`
+--
+
+INSERT INTO `four_dwallpapers` (`id`, `category_id`, `thumbPath`, `no_of_layers`, `likes`, `downloads`, `effect`, `bg_zoom_speed`, `bg_zoom_intensity`, `background_rotation_xaxis`, `background_rotation_yaxis`, `featured`, `tags`, `wp_show`, `created_at`, `updated_at`) VALUES
+(1, 15, '4D_Wallpapers/Flowers/gWBj37OZRQdw9nRIKoWV/flowers_gWBj37OZRQdw9nRIKoWV_thumb.jpg', 2, 977, 901, 5, 1, 2, 5, 2, 1, 'panda', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(2, 14, '4D_Wallpapers/Robots/qJmkqrG48v9ovhi4O3TU/Robots_qJmkqrG48v9ovhi4O3TU_thumb.png', 2, 395, 705, 6, 4, 10, 10, 5, 1, 'robot, 4d, effects', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(3, 14, '4D_Wallpapers/Robots/slsPkMIUd7rGJf0Z2w5Q/Robots_slsPkMIUd7rGJf0Z2w5Q_thumb.png', 2, 747, 897, 5, 1, 10, 10, 5, 1, '4d, robot', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(4, 15, '4D_Wallpapers/Flowers/jCjtwIacPde5zV613AA2/Flowers_jCjtwIacPde5zV613AA2_thumb.png', 2, 745, 380, 5, 2, 10, 10, 5, 1, 'flower, 4d, effects', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(5, 17, '4D_Wallpapers/Super_Heros/TWEn7KCgiehKimulH8hp/Super_Heros_TWEn7KCgiehKimulH8hp_thumb.png', 2, 837, 896, 7, 1, 10, 10, 5, 1, 'super hero, flying, girl', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(6, 8, '4D_Wallpapers/Cartoons/bpNXCHTTKUsDoFl1boua/Cartoons_bpNXCHTTKUsDoFl1boua_thumb.png', 2, 562, 683, 5, 2, 10, 10, 5, 1, 'cartoon, girl, neon', 1, '2024-11-29 01:45:31', '2024-11-29 07:25:22'),
+(7, 21, '4D_Wallpapers/Insects/lO7xs94aPeyMRHdA2bp2/Insects_lO7xs94aPeyMRHdA2bp2_thumb.png', 2, 496, 669, 5, 1, 1, 10, 5, 1, 'Bug, insects, red, golden, white, Firozi, Insects', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(8, 17, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_thumb.jpg', 5, 66, 70, 4, 2, 1, 4, 5, 1, 'Spider, mountain, green, white, smoke, gun, Super Heros, Super Heros', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(9, 20, '4D_Wallpapers/galaxy/4ncjbaVa6LDCXeZOpWiZ/galaxy_4ncjbaVa6LDCXeZOpWiZ_thumb.png', 3, 112, 36, 9, 1, 1, 10, 5, 1, 'galaxy, space, universe, stars, astronomy, milkyway, moon, galaxy', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(10, 20, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_thumb.png', 6, 49, 0, 5, 1, 1, 5, 5, 1, 'galaxy, space, universe, stars, astronomy, milkyway, moon, galaxy', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(11, 8, '4D_Wallpapers/Cartoons/8VCychKwSGRBBhscwJOK/Cartoons_8VCychKwSGRBBhscwJOK_thumb.png', 2, 44, 0, 5, 1, 3, 10, 5, 1, 'doll, girl, cartoon, pretty, Cartoons', 1, '2024-11-29 01:45:31', '2024-11-29 07:19:18'),
+(12, 21, '4D_Wallpapers/Animals/fPKI4ViefGplCHh7Nbzo/Animals_fPKI4ViefGplCHh7Nbzo_thumb.png', 2, 17, 0, 8, 1, 10, 10, 5, 1, 'monkey, skiting, road, animal, Animals', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(13, 21, '4D_Wallpapers/Animals/q5X4rSBFn8E7kpObf18M/Animals_q5X4rSBFn8E7kpObf18M_thumb.png', 2, 19, 0, 5, 1, 1, 10, 5, 1, 'dog, animal, pet, street, Animals', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(14, 17, '4D_Wallpapers/Super_Heros/Er4t25Ku2O3FnSMZX2q4/Super_Heros_Er4t25Ku2O3FnSMZX2q4_thumb.png', 2, 37, 0, 4, 1, 10, 10, 5, 1, 'girl, super hero, pretty, Super Heros', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(15, 20, '4D_Wallpapers/galaxy/e5W4FwmFaBbTIRalIZv5/galaxy_e5W4FwmFaBbTIRalIZv5_thumb.png', 2, 22, 0, 5, 1, 10, 10, 5, 1, 'astronaut, galaxy', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(16, 12, '4D_Wallpapers/Neons/AGvdVMsCnlDYSV2FPqpe/Neons_AGvdVMsCnlDYSV2FPqpe_thumb.png', 2, 73, 0, 5, 1, 10, 10, 5, 1, 'neon, attractive, Neons', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(17, 21, '4D_Wallpapers/Animals/cBk8EyNPM2hKPCNdkboE/Birds_cBk8EyNPM2hKPCNdkboE_thumb.png', 2, 33, 0, 4, 2, 10, 10, 5, 1, 'owl, birds, fantasy, Birds', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(18, 21, '4D_Wallpapers/Animals/0ND9rzsmdPIBGD8ExvfT/Animals_0ND9rzsmdPIBGD8ExvfT_thumb.png', 2, 20, 0, 5, 1, 10, 10, 5, 1, 'snail, animal, shell, eyes, forest, Animals', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(19, 8, '4D_Wallpapers/Cartoons/AocaRX1DT19IPfUg65pb/Cartoons_AocaRX1DT19IPfUg65pb_thumb.png', 2, 37, 0, 6, 1, 10, 10, 5, 1, 'girl, cartoon, pretty, Cartoons', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(20, 21, '4D_Wallpapers/Animals/BPJkydvGsfSPKY28k4UY/Animals_BPJkydvGsfSPKY28k4UY_thumb.png', 2, 64, 0, 7, 1, 10, 7, 2, 1, 'dolphin, fish, animal, sea, water, Animals', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(21, 17, '4D_Wallpapers/Super_Heros/xZc3CrBlZtirD0wYqiib/Super_Heros_xZc3CrBlZtirD0wYqiib_thumb.png', 2, 19, 0, 7, 2, 10, 10, 5, 1, 'superhero, super, Super Heros', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(22, 15, '4D_Wallpapers/Flowers/3xtLNQ4dsOwlj59rAQra/Flowers_3xtLNQ4dsOwlj59rAQra_thumb.png', 2, 83, 0, 9, 2, 10, 10, 5, 1, 'flower, colorful, nature, Flowers', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(23, 20, '4D_Wallpapers/galaxy/RzzBv2oLhk2DEmgLP2QB/galaxy_RzzBv2oLhk2DEmgLP2QB_thumb.png', 2, 52, 0, 8, 2, 10, 5, 3, 1, 'galaxy, sky, dark, night, galaxy', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(24, 37, 'Animes_lYgVfg0jdNJ9i2rm7Dt8_thumb.png', 2, 25, 0, 5, 1, 5, 10, 5, 1, 'animes, anime, boy, Animes', 1, '2024-11-29 01:45:31', '2024-11-29 01:45:31'),
+(25, 8, '4D_Wallpapers/Cartoons/NSG6gqAd9nrp5OeYSIml/Cartoons_NSG6gqAd9nrp5OeYSIml_thumb.png', 2, 12, 0, 5, 1, 2, 10, 5, 1, 'cartoon, mouse, skiting, snow, Cartoons', 1, '2024-11-29 01:45:32', '2024-11-29 01:45:32'),
+(26, 8, '4D_Wallpapers/Cartoons/lSSylk8JVlJufAMP6XIc/Cartoons_lSSylk8JVlJufAMP6XIc_thumb.png', 2, 9, 0, 5, 1, 10, 10, 5, 1, 'winter, snowman, snow, cartoon, Cartoons', 1, '2024-11-29 01:45:32', '2024-11-29 01:45:32'),
+(27, 8, '4D_Wallpapers/Cartoons/0vt1uTCn60Lm9UR3rxFx/Cartoons_0vt1uTCn60Lm9UR3rxFx_thumb.png', 2, 17, 0, 7, 1, 10, 10, 5, 1, 'winter, snow, snowman, cartoon, Cartoons', 1, '2024-11-29 01:45:32', '2024-11-29 01:45:32'),
+(28, 8, '4D_Wallpapers/Cartoons/GQHPVgIeMCZcsaRNLTcf/Cartoons_GQHPVgIeMCZcsaRNLTcf_thumb.png', 2, 12, 0, 7, 1, 10, 10, 5, 1, 'winter, snow, snowman, Cartoons', 1, '2024-11-29 01:45:32', '2024-11-29 01:45:32'),
+(29, 24, '4D_Wallpapers/Christmas/OOAawIQHtOjdUPknc115/Christmas_OOAawIQHtOjdUPknc115_thumb.png', 2, 14, 0, 5, 1, 8, 10, 5, 1, 'santa, christmas, happy, happy christmas, Christmas 123 ', 1, '2024-11-29 01:45:32', '2024-11-29 01:45:32'),
+(30, 8, '4D_Wallpapers/Cartoons/5fmFjCmk0bUsvm6RB7Ay/Cartoons_5fmFjCmk0bUsvm6RB7Ay_thumb.png', 2, 13, 0, 5, 1, 10, 10, 5, 1, 'christmas, happy, happy christmas, december, snow, snowman, Cartoons', 1, '2024-11-29 01:45:32', '2024-11-29 01:45:32'),
+(31, 24, '4D_Wallpapers/Christmas/SWWLVCFhVRCzxUt6aCzB/Christmas_SWWLVCFhVRCzxUt6aCzB_thumb.png', 2, 7, 1, 5, 1, 10, 10, 5, 1, 'christmas, happy, happy christmas, december, santa, christmasgift, gift, Christmas 123 ', 1, '2024-11-29 01:45:32', '2024-11-29 01:45:32'),
+(32, 4, '4D_Wallpapers/black/lD9pvC4T3RrfBIlPby4W/black_lD9pvC4T3RrfBIlPby4W_thumb.png', 2, 30, 0, 5, 1, 10, 10, 5, 1, 'coffee, coffee beans, cup, coffeetime, black, black', 1, '2024-11-29 01:45:32', '2024-11-29 01:45:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `four_d_images`
+--
+
+CREATE TABLE `four_d_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `wallpaper_id` bigint(20) UNSIGNED NOT NULL,
+  `img_path` text NOT NULL,
+  `order` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `four_d_images`
+--
+
+INSERT INTO `four_d_images` (`id`, `wallpaper_id`, `img_path`, `order`, `created_at`, `updated_at`) VALUES
+(1, 1, '4D_Wallpapers/flowers/gWBj37OZRQdw9nRIKoWV/flowers_gWBj37OZRQdw9nRIKoWV_img_0.png', 2, '2024-11-29 07:14:43', '2024-11-29 07:14:43'),
+(2, 1, '4D_Wallpapers/flowers/gWBj37OZRQdw9nRIKoWV/flowers_gWBj37OZRQdw9nRIKoWV_img_1.png', 2, '2024-11-29 07:14:43', '2024-11-29 07:14:43'),
+(3, 1, '4D_Wallpapers/Robots/qJmkqrG48v9ovhi4O3TU/Robots_qJmkqrG48v9ovhi4O3TU_img_0.png', 2, '2024-11-29 07:14:43', '2024-11-29 07:14:43'),
+(4, 1, '4D_Wallpapers/Robots/qJmkqrG48v9ovhi4O3TU/Robots_qJmkqrG48v9ovhi4O3TU_img_1.png', 2, '2024-11-29 07:14:43', '2024-11-29 07:14:43'),
+(5, 1, '4D_Wallpapers/Robots/slsPkMIUd7rGJf0Z2w5Q/Robots_slsPkMIUd7rGJf0Z2w5Q_img_0.png', 2, '2024-11-29 07:14:43', '2024-11-29 07:14:43'),
+(6, 1, '4D_Wallpapers/Robots/slsPkMIUd7rGJf0Z2w5Q/Robots_slsPkMIUd7rGJf0Z2w5Q_img_1.png', 2, '2024-11-29 07:14:43', '2024-11-29 07:14:43'),
+(7, 1, '4D_Wallpapers/Flowers/jCjtwIacPde5zV613AA2/Flowers_jCjtwIacPde5zV613AA2_img_0.png', 2, '2024-11-29 07:14:43', '2024-11-29 07:14:43'),
+(8, 1, '4D_Wallpapers/Flowers/jCjtwIacPde5zV613AA2/Flowers_jCjtwIacPde5zV613AA2_img_1.png', 2, '2024-11-29 07:14:43', '2024-11-29 07:14:43'),
+(9, 1, '4D_Wallpapers/Super_Heros/TWEn7KCgiehKimulH8hp/Super_Heros_TWEn7KCgiehKimulH8hp_img_0.png', 2, '2024-11-29 07:14:43', '2024-11-29 07:14:43'),
+(10, 1, '4D_Wallpapers/Super_Heros/TWEn7KCgiehKimulH8hp/Super_Heros_TWEn7KCgiehKimulH8hp_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(11, 1, '4D_Wallpapers/Cartoons/bpNXCHTTKUsDoFl1boua/Cartoons_bpNXCHTTKUsDoFl1boua_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(12, 1, '4D_Wallpapers/Cartoons/bpNXCHTTKUsDoFl1boua/Cartoons_bpNXCHTTKUsDoFl1boua_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(13, 1, '4D_Wallpapers/Insects/lO7xs94aPeyMRHdA2bp2/Insects_lO7xs94aPeyMRHdA2bp2_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(14, 1, '4D_Wallpapers/Insects/lO7xs94aPeyMRHdA2bp2/Insects_lO7xs94aPeyMRHdA2bp2_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(15, 1, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_img_0.png', 5, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(16, 1, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_img_1.png', 5, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(17, 1, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_img_2.png', 5, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(18, 1, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_img_3.png', 5, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(19, 1, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_img_4.png', 5, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(20, 1, '4D_Wallpapers/galaxy/4ncjbaVa6LDCXeZOpWiZ/galaxy_4ncjbaVa6LDCXeZOpWiZ_img_0.png', 3, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(21, 1, '4D_Wallpapers/galaxy/4ncjbaVa6LDCXeZOpWiZ/galaxy_4ncjbaVa6LDCXeZOpWiZ_img_1.png', 3, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(22, 1, '4D_Wallpapers/galaxy/4ncjbaVa6LDCXeZOpWiZ/galaxy_4ncjbaVa6LDCXeZOpWiZ_img_2.png', 3, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(23, 1, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_img_0.png', 6, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(24, 1, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_img_1.png', 6, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(25, 1, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_img_2.png', 6, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(26, 1, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_img_3.png', 6, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(27, 1, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_img_4.png', 6, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(28, 1, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_img_5.png', 6, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(29, 1, '4D_Wallpapers/Cartoons/8VCychKwSGRBBhscwJOK/Cartoons_8VCychKwSGRBBhscwJOK_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(30, 1, '4D_Wallpapers/Cartoons/8VCychKwSGRBBhscwJOK/Cartoons_8VCychKwSGRBBhscwJOK_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(31, 1, '4D_Wallpapers/Animals/fPKI4ViefGplCHh7Nbzo/Animals_fPKI4ViefGplCHh7Nbzo_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(32, 1, '4D_Wallpapers/Animals/fPKI4ViefGplCHh7Nbzo/Animals_fPKI4ViefGplCHh7Nbzo_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(33, 1, '4D_Wallpapers/Animals/q5X4rSBFn8E7kpObf18M/Animals_q5X4rSBFn8E7kpObf18M_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(34, 1, '4D_Wallpapers/Animals/q5X4rSBFn8E7kpObf18M/Animals_q5X4rSBFn8E7kpObf18M_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(35, 1, '4D_Wallpapers/Super_Heros/Er4t25Ku2O3FnSMZX2q4/Super_Heros_Er4t25Ku2O3FnSMZX2q4_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(36, 1, '4D_Wallpapers/Super_Heros/Er4t25Ku2O3FnSMZX2q4/Super_Heros_Er4t25Ku2O3FnSMZX2q4_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(37, 1, '4D_Wallpapers/galaxy/e5W4FwmFaBbTIRalIZv5/galaxy_e5W4FwmFaBbTIRalIZv5_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(38, 1, '4D_Wallpapers/galaxy/e5W4FwmFaBbTIRalIZv5/galaxy_e5W4FwmFaBbTIRalIZv5_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(39, 1, '4D_Wallpapers/Neons/AGvdVMsCnlDYSV2FPqpe/Neons_AGvdVMsCnlDYSV2FPqpe_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(40, 1, '4D_Wallpapers/Neons/AGvdVMsCnlDYSV2FPqpe/Neons_AGvdVMsCnlDYSV2FPqpe_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(41, 1, '4D_Wallpapers/Animals/cBk8EyNPM2hKPCNdkboE/Birds_cBk8EyNPM2hKPCNdkboE_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(42, 1, '4D_Wallpapers/Animals/cBk8EyNPM2hKPCNdkboE/Birds_cBk8EyNPM2hKPCNdkboE_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(43, 1, '4D_Wallpapers/Animals/0ND9rzsmdPIBGD8ExvfT/Animals_0ND9rzsmdPIBGD8ExvfT_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(44, 1, '4D_Wallpapers/Animals/0ND9rzsmdPIBGD8ExvfT/Animals_0ND9rzsmdPIBGD8ExvfT_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(45, 1, '4D_Wallpapers/Cartoons/AocaRX1DT19IPfUg65pb/Cartoons_AocaRX1DT19IPfUg65pb_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(46, 1, '4D_Wallpapers/Cartoons/AocaRX1DT19IPfUg65pb/Cartoons_AocaRX1DT19IPfUg65pb_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(47, 1, '4D_Wallpapers/Animals/BPJkydvGsfSPKY28k4UY/Animals_BPJkydvGsfSPKY28k4UY_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(48, 1, '4D_Wallpapers/Animals/BPJkydvGsfSPKY28k4UY/Animals_BPJkydvGsfSPKY28k4UY_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(49, 1, '4D_Wallpapers/Super_Heros/xZc3CrBlZtirD0wYqiib/Super_Heros_xZc3CrBlZtirD0wYqiib_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(50, 1, '4D_Wallpapers/Super_Heros/xZc3CrBlZtirD0wYqiib/Super_Heros_xZc3CrBlZtirD0wYqiib_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(51, 1, '4D_Wallpapers/Flowers/3xtLNQ4dsOwlj59rAQra/Flowers_3xtLNQ4dsOwlj59rAQra_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(52, 1, '4D_Wallpapers/Flowers/3xtLNQ4dsOwlj59rAQra/Flowers_3xtLNQ4dsOwlj59rAQra_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(53, 1, '4D_Wallpapers/galaxy/RzzBv2oLhk2DEmgLP2QB/galaxy_RzzBv2oLhk2DEmgLP2QB_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(54, 1, '4D_Wallpapers/galaxy/RzzBv2oLhk2DEmgLP2QB/galaxy_RzzBv2oLhk2DEmgLP2QB_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(55, 1, '4D_Wallpapers/Animes/lYgVfg0jdNJ9i2rm7Dt8/Animes_lYgVfg0jdNJ9i2rm7Dt8_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(56, 1, '4D_Wallpapers/Animes/lYgVfg0jdNJ9i2rm7Dt8/Animes_lYgVfg0jdNJ9i2rm7Dt8_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(57, 1, '4D_Wallpapers/Cartoons/NSG6gqAd9nrp5OeYSIml/Cartoons_NSG6gqAd9nrp5OeYSIml_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(58, 1, '4D_Wallpapers/Cartoons/NSG6gqAd9nrp5OeYSIml/Cartoons_NSG6gqAd9nrp5OeYSIml_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(59, 1, '4D_Wallpapers/Cartoons/lSSylk8JVlJufAMP6XIc/Cartoons_lSSylk8JVlJufAMP6XIc_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(60, 1, '4D_Wallpapers/Cartoons/lSSylk8JVlJufAMP6XIc/Cartoons_lSSylk8JVlJufAMP6XIc_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(61, 1, '4D_Wallpapers/Cartoons/0vt1uTCn60Lm9UR3rxFx/Cartoons_0vt1uTCn60Lm9UR3rxFx_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(62, 1, '4D_Wallpapers/Cartoons/0vt1uTCn60Lm9UR3rxFx/Cartoons_0vt1uTCn60Lm9UR3rxFx_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(63, 1, '4D_Wallpapers/Cartoons/GQHPVgIeMCZcsaRNLTcf/Cartoons_GQHPVgIeMCZcsaRNLTcf_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(64, 1, '4D_Wallpapers/Cartoons/GQHPVgIeMCZcsaRNLTcf/Cartoons_GQHPVgIeMCZcsaRNLTcf_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(65, 1, '4D_Wallpapers/Christmas/OOAawIQHtOjdUPknc115/Christmas_OOAawIQHtOjdUPknc115_img_0.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(66, 1, '4D_Wallpapers/Christmas/OOAawIQHtOjdUPknc115/Christmas_OOAawIQHtOjdUPknc115_img_1.png', 2, '2024-11-29 07:14:44', '2024-11-29 07:14:44'),
+(67, 1, '4D_Wallpapers/Cartoons/5fmFjCmk0bUsvm6RB7Ay/Cartoons_5fmFjCmk0bUsvm6RB7Ay_img_0.png', 2, '2024-11-29 07:14:45', '2024-11-29 07:14:45'),
+(68, 1, '4D_Wallpapers/Cartoons/5fmFjCmk0bUsvm6RB7Ay/Cartoons_5fmFjCmk0bUsvm6RB7Ay_img_1.png', 2, '2024-11-29 07:14:45', '2024-11-29 07:14:45'),
+(69, 1, '4D_Wallpapers/Christmas/SWWLVCFhVRCzxUt6aCzB/Christmas_SWWLVCFhVRCzxUt6aCzB_img_0.png', 2, '2024-11-29 07:14:45', '2024-11-29 07:14:45'),
+(70, 1, '4D_Wallpapers/Christmas/SWWLVCFhVRCzxUt6aCzB/Christmas_SWWLVCFhVRCzxUt6aCzB_img_1.png', 2, '2024-11-29 07:14:45', '2024-11-29 07:14:45'),
+(71, 1, '4D_Wallpapers/black/lD9pvC4T3RrfBIlPby4W/black_lD9pvC4T3RrfBIlPby4W_img_0.png', 2, '2024-11-29 07:14:45', '2024-11-29 07:14:45'),
+(72, 1, '4D_Wallpapers/black/lD9pvC4T3RrfBIlPby4W/black_lD9pvC4T3RrfBIlPby4W_img_1.png', 2, '2024-11-29 07:14:45', '2024-11-29 07:14:45');
 
 -- --------------------------------------------------------
 
@@ -208,6 +368,99 @@ CREATE TABLE `job_batches` (
   `created_at` int(11) NOT NULL,
   `finished_at` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `masks`
+--
+
+CREATE TABLE `masks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `wallpaper_id` bigint(20) UNSIGNED NOT NULL,
+  `mask_path` text NOT NULL,
+  `order` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `masks`
+--
+
+INSERT INTO `masks` (`id`, `wallpaper_id`, `mask_path`, `order`, `created_at`, `updated_at`) VALUES
+(1, 1, '4D_Wallpapers/flowers/gWBj37OZRQdw9nRIKoWV/flowers_gWBj37OZRQdw9nRIKoWV_mask_0.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(2, 1, '4D_Wallpapers/flowers/gWBj37OZRQdw9nRIKoWV/flowers_gWBj37OZRQdw9nRIKoWV_mask_1.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(3, 2, '4D_Wallpapers/Robots/qJmkqrG48v9ovhi4O3TU/Robots_qJmkqrG48v9ovhi4O3TU_mask_0.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(4, 2, '4D_Wallpapers/Robots/qJmkqrG48v9ovhi4O3TU/Robots_qJmkqrG48v9ovhi4O3TU_mask_1.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(5, 1, '4D_Wallpapers/Robots/slsPkMIUd7rGJf0Z2w5Q/Robots_slsPkMIUd7rGJf0Z2w5Q_mask_0.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(6, 3, '4D_Wallpapers/Robots/slsPkMIUd7rGJf0Z2w5Q/Robots_slsPkMIUd7rGJf0Z2w5Q_mask_1.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(7, 4, '4D_Wallpapers/Flowers/jCjtwIacPde5zV613AA2/Flowers_jCjtwIacPde5zV613AA2_mask_0.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(8, 4, '4D_Wallpapers/Flowers/jCjtwIacPde5zV613AA2/Flowers_jCjtwIacPde5zV613AA2_mask_1.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(9, 5, '4D_Wallpapers/Super_Heros/TWEn7KCgiehKimulH8hp/Super_Heros_TWEn7KCgiehKimulH8hp_mask_0.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(10, 5, '4D_Wallpapers/Super_Heros/TWEn7KCgiehKimulH8hp/Super_Heros_TWEn7KCgiehKimulH8hp_mask_1.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(11, 6, '4D_Wallpapers/Cartoons/bpNXCHTTKUsDoFl1boua/Cartoons_bpNXCHTTKUsDoFl1boua_mask_0.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(12, 6, '4D_Wallpapers/Cartoons/bpNXCHTTKUsDoFl1boua/Cartoons_bpNXCHTTKUsDoFl1boua_mask_1.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(13, 7, '4D_Wallpapers/Insects/lO7xs94aPeyMRHdA2bp2/Insects_lO7xs94aPeyMRHdA2bp2_mask_0.png', 2, '2024-11-29 06:03:13', '2024-11-29 06:03:13'),
+(14, 7, '4D_Wallpapers/Insects/lO7xs94aPeyMRHdA2bp2/Insects_lO7xs94aPeyMRHdA2bp2_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(15, 8, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_mask_0.png', 5, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(16, 8, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_mask_1.png', 5, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(17, 8, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_mask_2.png', 5, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(18, 8, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_mask_3.png', 5, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(19, 8, '4D_Wallpapers/Super_Heros/qHOw0yJpxMeCkhGVj4e6/Super_Heros_qHOw0yJpxMeCkhGVj4e6_mask_4.png', 5, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(20, 9, '4D_Wallpapers/galaxy/4ncjbaVa6LDCXeZOpWiZ/galaxy_4ncjbaVa6LDCXeZOpWiZ_mask_0.png', 3, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(21, 9, '4D_Wallpapers/galaxy/4ncjbaVa6LDCXeZOpWiZ/galaxy_4ncjbaVa6LDCXeZOpWiZ_mask_1.png', 3, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(22, 9, '4D_Wallpapers/galaxy/4ncjbaVa6LDCXeZOpWiZ/galaxy_4ncjbaVa6LDCXeZOpWiZ_mask_2.png', 3, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(23, 10, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_mask_0.png', 6, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(24, 10, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_mask_1.png', 6, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(25, 10, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_mask_2.png', 6, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(26, 10, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_mask_3.png', 6, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(27, 10, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_mask_4.png', 6, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(28, 10, '4D_Wallpapers/galaxy/T8jRM9YmXsqDIpSAawCX/galaxy_T8jRM9YmXsqDIpSAawCX_mask_5.png', 6, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(29, 11, '4D_Wallpapers/Cartoons/8VCychKwSGRBBhscwJOK/Cartoons_8VCychKwSGRBBhscwJOK_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(30, 11, '4D_Wallpapers/Cartoons/8VCychKwSGRBBhscwJOK/Cartoons_8VCychKwSGRBBhscwJOK_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(31, 12, '4D_Wallpapers/Animals/fPKI4ViefGplCHh7Nbzo/Animals_fPKI4ViefGplCHh7Nbzo_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(32, 12, '4D_Wallpapers/Animals/fPKI4ViefGplCHh7Nbzo/Animals_fPKI4ViefGplCHh7Nbzo_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(33, 13, '4D_Wallpapers/Animals/q5X4rSBFn8E7kpObf18M/Animals_q5X4rSBFn8E7kpObf18M_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(34, 13, '4D_Wallpapers/Animals/q5X4rSBFn8E7kpObf18M/Animals_q5X4rSBFn8E7kpObf18M_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(35, 14, '4D_Wallpapers/Super_Heros/Er4t25Ku2O3FnSMZX2q4/Super_Heros_Er4t25Ku2O3FnSMZX2q4_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(36, 14, '4D_Wallpapers/Super_Heros/Er4t25Ku2O3FnSMZX2q4/Super_Heros_Er4t25Ku2O3FnSMZX2q4_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(37, 15, '4D_Wallpapers/galaxy/e5W4FwmFaBbTIRalIZv5/galaxy_e5W4FwmFaBbTIRalIZv5_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(38, 15, '4D_Wallpapers/galaxy/e5W4FwmFaBbTIRalIZv5/galaxy_e5W4FwmFaBbTIRalIZv5_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(39, 16, '4D_Wallpapers/Neons/AGvdVMsCnlDYSV2FPqpe/Neons_AGvdVMsCnlDYSV2FPqpe_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(40, 16, '4D_Wallpapers/Neons/AGvdVMsCnlDYSV2FPqpe/Neons_AGvdVMsCnlDYSV2FPqpe_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(41, 17, '4D_Wallpapers/Animals/cBk8EyNPM2hKPCNdkboE/Birds_cBk8EyNPM2hKPCNdkboE_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(42, 17, '4D_Wallpapers/Animals/cBk8EyNPM2hKPCNdkboE/Birds_cBk8EyNPM2hKPCNdkboE_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(43, 18, '4D_Wallpapers/Animals/0ND9rzsmdPIBGD8ExvfT/Animals_0ND9rzsmdPIBGD8ExvfT_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(44, 18, '4D_Wallpapers/Animals/0ND9rzsmdPIBGD8ExvfT/Animals_0ND9rzsmdPIBGD8ExvfT_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(45, 19, '4D_Wallpapers/Cartoons/AocaRX1DT19IPfUg65pb/Cartoons_AocaRX1DT19IPfUg65pb_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(46, 19, '4D_Wallpapers/Cartoons/AocaRX1DT19IPfUg65pb/Cartoons_AocaRX1DT19IPfUg65pb_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(47, 20, '4D_Wallpapers/Animals/BPJkydvGsfSPKY28k4UY/Animals_BPJkydvGsfSPKY28k4UY_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(48, 20, '4D_Wallpapers/Animals/BPJkydvGsfSPKY28k4UY/Animals_BPJkydvGsfSPKY28k4UY_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(49, 21, '4D_Wallpapers/Super_Heros/xZc3CrBlZtirD0wYqiib/Super_Heros_xZc3CrBlZtirD0wYqiib_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(50, 21, '4D_Wallpapers/Super_Heros/xZc3CrBlZtirD0wYqiib/Super_Heros_xZc3CrBlZtirD0wYqiib_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(51, 22, '4D_Wallpapers/Flowers/3xtLNQ4dsOwlj59rAQra/Flowers_3xtLNQ4dsOwlj59rAQra_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(52, 22, '4D_Wallpapers/Flowers/3xtLNQ4dsOwlj59rAQra/Flowers_3xtLNQ4dsOwlj59rAQra_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(53, 23, '4D_Wallpapers/galaxy/RzzBv2oLhk2DEmgLP2QB/galaxy_RzzBv2oLhk2DEmgLP2QB_mask_0.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(54, 23, '4D_Wallpapers/galaxy/RzzBv2oLhk2DEmgLP2QB/galaxy_RzzBv2oLhk2DEmgLP2QB_mask_1.png', 2, '2024-11-29 06:03:14', '2024-11-29 06:03:14'),
+(55, 24, '4D_Wallpapers/Animes/lYgVfg0jdNJ9i2rm7Dt8/Animes_lYgVfg0jdNJ9i2rm7Dt8_mask_0.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(56, 24, '4D_Wallpapers/Animes/lYgVfg0jdNJ9i2rm7Dt8/Animes_lYgVfg0jdNJ9i2rm7Dt8_mask_1.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(57, 25, '4D_Wallpapers/Cartoons/NSG6gqAd9nrp5OeYSIml/Cartoons_NSG6gqAd9nrp5OeYSIml_mask_0.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(58, 25, '4D_Wallpapers/Cartoons/NSG6gqAd9nrp5OeYSIml/Cartoons_NSG6gqAd9nrp5OeYSIml_mask_1.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(59, 26, '4D_Wallpapers/Cartoons/lSSylk8JVlJufAMP6XIc/Cartoons_lSSylk8JVlJufAMP6XIc_mask_0.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(60, 26, '4D_Wallpapers/Cartoons/lSSylk8JVlJufAMP6XIc/Cartoons_lSSylk8JVlJufAMP6XIc_mask_1.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(61, 27, '4D_Wallpapers/Cartoons/0vt1uTCn60Lm9UR3rxFx/Cartoons_0vt1uTCn60Lm9UR3rxFx_mask_0.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(62, 27, '4D_Wallpapers/Cartoons/0vt1uTCn60Lm9UR3rxFx/Cartoons_0vt1uTCn60Lm9UR3rxFx_mask_1.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(63, 28, '4D_Wallpapers/Cartoons/GQHPVgIeMCZcsaRNLTcf/Cartoons_GQHPVgIeMCZcsaRNLTcf_mask_0.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(64, 28, '4D_Wallpapers/Cartoons/GQHPVgIeMCZcsaRNLTcf/Cartoons_GQHPVgIeMCZcsaRNLTcf_mask_1.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(65, 29, '4D_Wallpapers/Christmas/OOAawIQHtOjdUPknc115/Christmas_OOAawIQHtOjdUPknc115_mask_0.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(66, 29, '4D_Wallpapers/Christmas/OOAawIQHtOjdUPknc115/Christmas_OOAawIQHtOjdUPknc115_mask_1.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(67, 30, '4D_Wallpapers/Cartoons/5fmFjCmk0bUsvm6RB7Ay/Cartoons_5fmFjCmk0bUsvm6RB7Ay_mask_0.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(68, 30, '4D_Wallpapers/Cartoons/5fmFjCmk0bUsvm6RB7Ay/Cartoons_5fmFjCmk0bUsvm6RB7Ay_mask_1.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(69, 31, '4D_Wallpapers/Christmas/SWWLVCFhVRCzxUt6aCzB/Christmas_SWWLVCFhVRCzxUt6aCzB_mask_0.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(70, 31, '4D_Wallpapers/Christmas/SWWLVCFhVRCzxUt6aCzB/Christmas_SWWLVCFhVRCzxUt6aCzB_mask_1.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(71, 32, '4D_Wallpapers/black/lD9pvC4T3RrfBIlPby4W/black_lD9pvC4T3RrfBIlPby4W_mask_0.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15'),
+(72, 32, '4D_Wallpapers/black/lD9pvC4T3RrfBIlPby4W/black_lD9pvC4T3RrfBIlPby4W_mask_1.png', 2, '2024-11-29 06:03:15', '2024-11-29 06:03:15');
 
 -- --------------------------------------------------------
 
@@ -285,7 +538,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('1dIfww4pukoxNN2UecKWVhhazfuhkbYNivfKoLYp', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWmZZUHJ0cTN4WVNGclNUS0lEZVpTWVlPTklKWllvNGQ0WVpZaUU0MCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC8zZC13YWxscGFwZXJzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1732798697);
+('1Zfp8BSHJfpUqq2axYcleBaNsQxoDznZRpUkkYSo', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidnhoWkRyWWlMdjRsSjhONVZPQXBJd3ZhSzlKUzBaaXZrVHlXc1NCbiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC80ZC13YWxscGFwZXJzP2NhdGVnb3J5PTgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1733132615);
 
 -- --------------------------------------------------------
 
@@ -370,7 +623,7 @@ INSERT INTO `static_wallpapers` (`id`, `img_path`, `thumb_path`, `blur_path`, `c
 (55, 'Static_Wallpapers/Cars/wallpaper/Car_aigenerated7734398.jpg', 'Static_Wallpapers/Cars/thumb/Car_aigenerated7734398thu.webp', 'Static_Wallpapers/Cars/blur/', 1, 393, 24, 0, 0, 'jeeps, cars, vehicles, purple', 1, 1, NULL, NULL),
 (56, 'Static_Wallpapers/Characters/wallpaper/Character_createdbyai7959339.jpg', 'Static_Wallpapers/Characters/thumb/Character_createdbyai7959339thu.webp', 'Static_Wallpapers/Characters/blur/', 17, 24, 68, 0, 0, 'superhero, characters, animated', 1, 1, NULL, NULL),
 (57, 'Static_Wallpapers/Entertainment/wallpaper/Entertainment_guitarwithdragon.jpg', 'Static_Wallpapers/Entertainment/thumb/Entertainment_guitarwithdragonthu.webp', 'Static_Wallpapers/Entertainment/blur/', 9, 50, 123, 0, 0, 'guitars, music, entertainment', 1, 1, NULL, NULL),
-(58, 'Static_Wallpapers/Animals/wallpaper/Animals_aigenerated7904833.jpg', 'Static_Wallpapers/Animals/thumb/Animals_aigenerated7904833thu.webp', 'Static_Wallpapers/Animals/blur/', 21, 58, 75, 0, 0, 'tigers, wild animals, animated', 1, 1, NULL, NULL),
+(58, 'Static_Wallpapers/Animals/wallpaper/Animals_aigenerated7904833.jpg', 'Static_Wallpapers/Animals/thumb/Animals_aigenerated7904833thu.webp', 'Static_Wallpapers/Animals/blur/', 21, 58, 75, 0, 0, 'tigers, wild animals, animated', 1, 0, NULL, '2024-11-29 02:55:35'),
 (59, 'Static_Wallpapers/Cars/wallpaper/Car_aigenerated7734415.jpg', 'Static_Wallpapers/Cars/thumb/Car_aigenerated7734415thu.webp', 'Static_Wallpapers/Cars/blur/', 1, 1294, 99, 0, 0, 'bugatti, orange cars, cars, vehicles, wallpapers', 1, 1, NULL, NULL),
 (60, 'Static_Wallpapers/Characters/wallpaper/Character_cyberpunk7946481.jpg', 'Static_Wallpapers/Characters/thumb/Character_cyberpunk7946481thu.webp', 'Static_Wallpapers/Characters/blur/', 17, 19, 90, 0, 0, 'hero, movie characters, characters, animated', 1, 1, NULL, NULL),
 (61, 'Static_Wallpapers/Animals/wallpaper/Animals_aigenerated7910163.jpg', 'Static_Wallpapers/Animals/thumb/Animals_aigenerated7910163thu.webp', 'Static_Wallpapers/Animals/blur/', 21, 52, 129, 0, 0, 'owls, birds', 1, 1, NULL, NULL),
@@ -1114,6 +1367,19 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `four_dwallpapers`
+--
+ALTER TABLE `four_dwallpapers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `four_d_images`
+--
+ALTER TABLE `four_d_images`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `four_d_images_wallpaper_id_foreign` (`wallpaper_id`);
+
+--
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -1125,6 +1391,13 @@ ALTER TABLE `jobs`
 --
 ALTER TABLE `job_batches`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `masks`
+--
+ALTER TABLE `masks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `masks_wallpaper_id_foreign` (`wallpaper_id`);
 
 --
 -- Indexes for table `migrations`
@@ -1175,13 +1448,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `3d_wallpapers`
 --
 ALTER TABLE `3d_wallpapers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1190,10 +1463,28 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `four_dwallpapers`
+--
+ALTER TABLE `four_dwallpapers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `four_d_images`
+--
+ALTER TABLE `four_d_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `masks`
+--
+ALTER TABLE `masks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1218,6 +1509,22 @@ ALTER TABLE `static_wallpapers`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `four_d_images`
+--
+ALTER TABLE `four_d_images`
+  ADD CONSTRAINT `four_d_images_wallpaper_id_foreign` FOREIGN KEY (`wallpaper_id`) REFERENCES `four_dwallpapers` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `masks`
+--
+ALTER TABLE `masks`
+  ADD CONSTRAINT `masks_wallpaper_id_foreign` FOREIGN KEY (`wallpaper_id`) REFERENCES `four_dwallpapers` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
