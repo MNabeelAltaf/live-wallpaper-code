@@ -3,37 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories as ModelsCategories;
-use App\Models\StaticWallpaper;
+use App\Models\FourDwallpaper;
 use Illuminate\Http\Request;
 
-class StaticWallpaperController extends Controller
+class FourDWallpaperController extends Controller
 {
     public function index(Request $request)
     {
         $categories = ModelsCategories::where('type', '1')->get();
-
-        // Get the selected category or default to the first category
         $selectedCategoryId = $request->query('category', $categories->first()->id);
 
-        // Fetch wallpapers for the selected category
-        $wallpapers = StaticWallpaper::where('cat_id', $selectedCategoryId)->get();
+        $wallpapers = FourDwallpaper::where('category_id', $selectedCategoryId)->get();
 
-        // Format wallpaper data
         $data = $wallpapers->map(function ($wallpaper) {
             return [
                 'id' => $wallpaper->id,
-                'img_path' => $wallpaper->img_path,
-                'thumb_path' => $wallpaper->thumb_path,
+                'thumbPath' => $wallpaper->thumbPath,
+                'no_of_layers' => $wallpaper->no_of_layers,
                 'likes' => $wallpaper->likes,
                 'downloads' => $wallpaper->downloads,
-                'hash_tags' => $wallpaper->hash_tags,
+                'effect' => $wallpaper->effect,
+                'bg_zoom_speed' => $wallpaper->bg_zoom_speed,
+                'bg_zoom_intensity' => $wallpaper->bg_zoom_intensity,
+                'background_rotation_xaxis' => $wallpaper->background_rotation_xaxis,
+                'background_rotation_yaxis' => $wallpaper->background_rotation_yaxis,
+                'tags' => $wallpaper->tags,
                 'wp_show' => $wallpaper->wp_show,
                 'featured' => $wallpaper->featured,
             ];
         });
 
-
-        return view('static_wallpapers', [
+        // dd($data);
+        return view('fourD_wallpapers', [
             'data' => $data,
             'categories' => $categories,
             'selectedCategoryId' => $selectedCategoryId
@@ -47,7 +48,7 @@ class StaticWallpaperController extends Controller
                 'show' => 'required|boolean',
             ]);
 
-            $wallpaper = StaticWallpaper::findOrFail($validated['id']);
+            $wallpaper = FourDwallpaper::findOrFail($validated['id']);
             $wallpaper->wp_show = $validated['show'];
             $wallpaper->save();
 
@@ -59,7 +60,6 @@ class StaticWallpaperController extends Controller
             ], 422);
         }
     }
-
     public function updateFeatured(Request $request)
     {
         try {
@@ -68,7 +68,7 @@ class StaticWallpaperController extends Controller
                 'featured' => 'required|boolean',
             ]);
 
-            $wallpaper = StaticWallpaper::findOrFail($validated['id']);
+            $wallpaper = FourDwallpaper::findOrFail($validated['id']);
             $wallpaper->featured = $validated['featured'];
             $wallpaper->save();
 
@@ -79,30 +79,5 @@ class StaticWallpaperController extends Controller
                 'errors' => $e->errors()
             ], 422);
         }
-    }
-    public function delete($id)
-    {
-        $category = StaticWallpaper::findOrFail($id);
-        $category->delete();
-        return response()->json(['success' => true, 'message' => 'Deleted successfully.']);
-    }
-    public function edit($id)
-    {
-        $data = StaticWallpaper::findOrFail($id);
-        $categories = ModelsCategories::where('type', '1')->get();
-
-        return view('edit_wallpaper', [
-            'data' => $data,
-            'categories' => $categories,
-        ]);
-    }
-    public function create()
-    {
-        $categories = ModelsCategories::where('type', '1')->get();
-
-        return view('create_wallpaper', [
-            'categories' => $categories,
-            'wallpaper_type'=> 'static'
-        ]);
     }
 }

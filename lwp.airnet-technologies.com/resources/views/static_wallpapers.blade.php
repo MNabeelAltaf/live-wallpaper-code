@@ -180,7 +180,7 @@
         }
 
         function filterCategory() {
-            document.getElementById('categoryForm').submit();
+            document.getElementById('categoryForm').submit(); // Submit the form when the dropdown changes
         }
 
         function updateFeaturedStatus(id, status) {

@@ -1,21 +1,15 @@
 <x-app-layout>
     <div class="row">
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
         <div class="card">
             <div class="col-lg-12 col-md-12">
                 <div class="mb-3 mt-3">
                     <form method="GET" id="categoryForm">
-                        <select class="form-control" name="category" id="choices-single-no-sorting"
-                            onchange="filterCategory()">
+                        <select class="form-control" name="category" id="choices-single-no-sorting" onchange="filterCategory()">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}"
-                                    {{ request('category') == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name }}
-                                </option>
+                            <option value="{{ $category->id }}"
+                                {{ request('category') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
                             @endforeach
                         </select>
                     </form>
@@ -31,16 +25,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <h5 class="card-title">3D WallPapers List</h5>
+                                <h5 class="card-title">WallPapers List</h5>
                             </div>
                         </div><!-- end col -->
 
                         <div class="col-md-6">
-                            <div
-                                class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
+                            <div class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
                                 <div>
-                                    <a href="{{ route('3d_wallpapers.create') }}" class="btn btn-light"><i
-                                            class="uil uil-plus me-1"></i> Add New</a>
+                                    <a href="{{route('wallpapers.create')}}" class="btn btn-light"><i class="uil uil-plus me-1"></i> Add New</a>
                                 </div>
                             </div>
                         </div><!-- end col -->
@@ -66,8 +58,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <img id="modalImage" src="" alt="Thumbnail"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                    <img id="modalImage" src="" alt="Thumbnail" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
                 </div>
             </div>
         </div>
@@ -79,37 +70,28 @@
             columns: [
                 'ID',
                 {
-                    name: 'thumb_path',
+                    name: 'thumbPath',
                     formatter: (cell) => {
                         return gridjs.html(`
-                <a href="javascript:void(0);" onclick="openImageModal('{{ asset('storage/${cell}') }}')">
-                    <img src="{{ asset('storage/${cell}') }}" alt="Thumbnail" class="avatar-xl" />
-                </a>
-                `);
+                        <a href="javascript:void(0);" onclick="openImageModal('{{ asset('storage/${cell}') }}')">
+                            <img src="{{ asset('storage/${cell}') }}" alt="Thumbnail" class="avatar-xl" />
+                        </a>
+                        `);
                     }
                 },
+                'no_of_layers',
+                'effect',
+                'bg_zoom_speed',
+                'bg_zoom_intensity',
+                'background_rotation_xaxis',
+                'background_rotation_yaxis',
                 'likes',
                 'downloads',
                 {
-                    name: 'hash_tags',
+                    name: 'tags',
                     formatter: (cell) => {
-                        const tags = cell.split(',').map(tag =>
-                            `<span class="badge bg-primary mx-1">${tag.trim()}</span>`).join('');
+                        const tags = cell.split(',').map(tag => `<span class="badge bg-primary mx-1">${tag.trim()}</span>`).join('');
                         return gridjs.html(tags);
-                    }
-                },
-                {
-                    name: 'wp_show',
-                    formatter: (cell, row) => {
-                        const isChecked = cell === 1 ? 'checked' : '';
-                        return gridjs.html(`
-                <div class="square-switch">
-                    <input type="checkbox" id="wp-show-${row.cells[0].data}" switch="info" ${isChecked}
-                           onchange="updateShowStatus(${row.cells[0].data}, this.checked)" />
-                    <label for="wp-show-${row.cells[0].data}" data-on-label="Yes"
-                           data-off-label="No" class="mb-0"></label>
-                </div>
-                `);
                     }
                 },
                 {
@@ -124,6 +106,20 @@
                                     data-off-label="No" class="mb-0"></label>
                             </div>
                         `);
+                    }
+                },
+                {
+                    name: 'wp_show',
+                    formatter: (cell, row) => {
+                        const isChecked = cell === 1 ? 'checked' : '';
+                        return gridjs.html(`
+                <div class="square-switch">
+                    <input type="checkbox" id="wp-show-${row.cells[0].data}" switch="info" ${isChecked}
+                           onchange="updateShowStatus(${row.cells[0].data}, this.checked)" />
+                    <label for="wp-show-${row.cells[0].data}" data-on-label="Yes"
+                           data-off-label="No" class="mb-0"></label>
+                </div>
+                `);
                     }
                 },
                 {
@@ -157,7 +153,7 @@
                 show: status ? 1 : 0
             }); // Log the payload
 
-            axios.post('{{ route('wallpapers.updateShow') }}', {
+            axios.post('{{ route("4d_wallpapers.updateShow") }}', {
                     id: id,
                     show: status ? 1 : 0, // Ensure `show` matches server expectations
                 })
@@ -184,7 +180,7 @@
         }
 
         function updateFeaturedStatus(id, status) {
-            axios.post('{{ route('wallpapers.updateFeatured') }}', {
+            axios.post('{{ route("4d_wallpapers.updateFeatured") }}', {
                     id: id,
                     featured: status ? 1 : 0,
                 })
@@ -207,12 +203,12 @@
                 text: "You won't be able to revert this!",
                 icon: "warning",
                 showCancelButton: true,
-                confirmButtonColor: "#f34e4e",
-                cancelButtonColor:  "#786ACF",
+                confirmButtonColor: "#51d28c",
+                cancelButtonColor: "#f34e4e",
                 confirmButtonText: "Yes, delete it!",
             }).then(function(t) {
                 if (t.value) {
-                    axios.get(`/3d-wallpapers/${id}/delete`) // Adjust URL if needed
+                    axios.get(`/4d-wallpapers/${id}/delete`) // Adjust URL if needed
                         .then(response => {
                             location.reload();
                         })
