@@ -19,7 +19,6 @@ class ThreeDWallpaperController extends Controller
             return [
                 'id' => $wallpaper->id,
                 'thumb_path' => $wallpaper->thumb_path,
-                'category' => $wallpaper->category,
                 'likes' => $wallpaper->likes,
                 'downloads' => $wallpaper->downloads,
                 'hash_tags' => $wallpaper->hash_tags,
@@ -50,73 +49,5 @@ class ThreeDWallpaperController extends Controller
         $category = threeD_table::findOrFail($id);
         $category->delete();
         return response()->json(['success' => true, 'message' => 'Deleted successfully.']);
-    }
-
-
-    public function edit($id)
-    {
-        $data = threeD_table::findOrFail($id);
-        $categories = ModelsCategories::where('type', '1')->get();
-
-        return view('edit_wallpaper', [
-            'data' => $data,
-            'categories' => $categories,
-            'wallpaper_type' => '3d'
-        ]);
-    }
-
-    public function updateShow(Request $request)
-    {
-        try {
-            $validated = $request->validate([
-                'id' => 'required|exists:3d_wallpapers,id',
-                'show' => 'required|boolean',
-            ]);
-
-            $three_d_wallpaper = threeD_table::findOrFail($validated['id']);
-            $three_d_wallpaper->wp_show = $validated['show'];
-            $three_d_wallpaper->save();
-
-            return response()->json(['success' => true, 'message' => 'Show status updated successfully.']);
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                'success' => false,
-                'errors' => $e->errors()
-            ], 422);
-        }
-    }
-
-    public function updateFeatured(Request $request)
-    {
-        try {
-            $validated = $request->validate([
-                'id' => 'required|exists:3d_wallpapers,id',
-                'featured' => 'required|boolean',
-            ]);
-
-            $three_d_wallpaper = threeD_table::findOrFail($validated['id']);
-            $three_d_wallpaper->featured = $validated['featured'];
-            $three_d_wallpaper->save();
-
-            return response()->json(['success' => true, 'message' => 'featured status updated successfully.']);
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                'success' => false,
-                'errors' => $e->errors()
-            ], 422);
-        }
-    }
-
-
-    public function showCategoryRecords(Request $request) {
-
-        $records = threeD_table::where('cat_id', $request->category)->get();
-        $categories = ModelsCategories::all();
-
-        return view('threeD_wallpapers', [
-            'categories' => $categories,
-            'data' => $records
-        ]);
-
     }
 }

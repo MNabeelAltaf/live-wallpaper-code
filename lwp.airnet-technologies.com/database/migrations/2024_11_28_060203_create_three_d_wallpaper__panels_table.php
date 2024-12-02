@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('three_d_wallpaper__panels', function (Blueprint $table) {
+        Schema::create('3d_wallpapers', function (Blueprint $table) {
             $table->id();
             $table->string('blur_path', 255);
             $table->string('thumb_path', 255);

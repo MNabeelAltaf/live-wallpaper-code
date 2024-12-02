@@ -60,7 +60,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-pages" role="button">
+                                    <a class="nav-link dropdown-toggle arrow-none" href="{{ route('4d_wallpapers.index') }}" id="topnav-pages" role="button">
                                         <i class="bx bx-customize icon"></i>
                                         <span data-key="t-apps">4D WallPaper</span>
                                     </a>
