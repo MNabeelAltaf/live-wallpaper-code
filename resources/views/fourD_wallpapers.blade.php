@@ -32,7 +32,7 @@
                         <div class="col-md-6">
                             <div class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
                                 <div>
-                                    <a href="{{route('wallpapers.create')}}" class="btn btn-light"><i class="uil uil-plus me-1"></i> Add New</a>
+                                    <a href="{{route('4d_wallpapers.create')}}" class="btn btn-light"><i class="uil uil-plus me-1"></i> Add New</a>
                                 </div>
                             </div>
                         </div><!-- end col -->
@@ -127,7 +127,7 @@
                     formatter: (cell, row) => {
                         return gridjs.html(`
                         <div class="actions">
-                            <a class="btn btn-sm btn-primary" href="{{ url('wallpapers') }}/${row.cells[0].data}/edit">Edit</a>
+                            <a class="btn btn-sm btn-primary" href="{{ url('4d-wallpapers') }}/${row.cells[0].data}/edit">Edit</a>
                             <button class="btn btn-sm btn-danger" onclick="deleteWallpaper(${row.cells[0].data})">Delete</button>
                         </div>
                     `);
