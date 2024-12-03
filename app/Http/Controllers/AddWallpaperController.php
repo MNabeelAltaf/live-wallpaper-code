@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\LiveWallpapers_Panel;
 use App\Models\ThreeDWallpaper_Panel;
 
 
@@ -12,15 +13,6 @@ class AddWallpaperController extends Controller
 {
     public function addWallpaper(Request $request)
     {
-        // $validated = $request->validate([
-        //     'category' => 'required|exists:categories,id',
-        //     'zip' => 'required|mimes:zip|max:10240',
-        //     'blur' => 'required|mimes:jpeg,jpg,png,gif,webp|max:2048',
-        //     'thumbnail' => 'required|mimes:jpeg,jpg,png,gif,webp|max:2048',
-        //     'tags' => 'required|string',
-        //     'wallpaper_type' => 'required|string',
-        // ]);
-
 
         if ($request->wallpaper_type == '3d') {
 
@@ -38,6 +30,26 @@ class AddWallpaperController extends Controller
 
             if ($isAdded) {
                 return redirect()->route('3d_wallpapers.index')->with([
+                    'success' => 'Wallpaper Added successfully!',
+                ]);
+            }
+        } elseif ($request->wallpaper_type == 'live') {
+
+            $validated = $request->validate([
+                'category_id' => 'required|exists:categories,id',
+                'category_video' => 'required|mimes:mp4,mov|max:12048',
+                'category_thumbnail' => 'required|mimes:jpeg,jpg,png,gif,webp|max:2048',
+                'tags' => 'required|string',
+                'wallpaper_type' => 'required|string',
+            ]);
+
+            $isAdded = $this->add_live_wallpapers($request);
+
+            if ($isAdded) {
+
+                // flash()->success('Wallpaper created successfully!');
+
+                return redirect()->route('live_wallpapers.index')->with([
                     'success' => 'Wallpaper Added successfully!',
                 ]);
             }
@@ -101,6 +113,60 @@ class AddWallpaperController extends Controller
         }
     }
 
+    public function add_live_wallpapers(Request $request)
+    {
+
+
+        $show_wp = $request->has('show') ? 1 : 0;
+        $featured_wp = $request->has('featured') ? 1 : 0;
+        $tags = $request->tags;
+
+
+        $category_id = $request->category_id;
+        $cat_name = Categories::where('id', $category_id)->value('name');
+
+
+        $live_blur_folder = 'Live_Wallpapers/' . $cat_name . '/blur';
+
+        $live_thumb_folder = 'Live_Wallpapers/' . $cat_name . '/thumb';
+        $live_video_folder = 'Live_Wallpapers/' . $cat_name . '/video';
+
+        if ($request->hasFile('category_video')) {
+
+            $video_file = $request->file('category_video');
+            $videoName =  $cat_name . '_' . uniqid() . '_' . $video_file->getClientOriginalName();
+            $videoPath = $video_file->storeAs($live_video_folder, $videoName, 'public');
+        }
+        if ($request->hasFile('category_thumbnail')) {
+
+            $thumb_file = $request->file('category_thumbnail');
+            $thumbName =  $cat_name . '_' . uniqid() . '_' . $thumb_file->getClientOriginalName();
+            $thumbPath = $thumb_file->storeAs($live_thumb_folder, $thumbName, 'public');
+        }
+
+
+
+        $categoryTable = LiveWallpapers_Panel::create([
+            'video_path' => $videoPath,
+            'thumb_path' => $thumbPath,
+            'blur_path' => $live_blur_folder,
+            'category' => $cat_name,
+            'cat_id' => $category_id,
+            'likes' => 0,
+            'downloads' => 0,
+            'set_wp' => 0,
+            'hash_tags' => $tags,
+            'wp_show' => $show_wp,
+            'featured' =>  $featured_wp,
+        ]);
+
+
+        if ($categoryTable) {
+            return True;
+        } else {
+            return False;
+        }
+    }
 
     // --------------------------------
 

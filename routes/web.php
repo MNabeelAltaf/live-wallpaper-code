@@ -39,7 +39,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/wallpapers/{id}/edit', [StaticWallpaperController::class, 'edit'])->name('wallpapers.edit');
     Route::get('/wallpapers/create', [StaticWallpaperController::class, 'create'])->name('wallpapers.create');
 
+    // live wallpapers
     Route::get('/live-wallpapers', [LiveWallpaperController::class, 'index'])->name('live_wallpapers.index');
+    Route::get('/live-wallpapers/show-category-records', [LiveWallpaperController::class, 'showCategoryRecords'])->name('live_wallpapers.showRecords');
+    Route::post('/live-wallpapers/update-featured', [LiveWallpaperController::class, 'updateFeatured'])->name('live_wallpapers.updateFeatured');
+    Route::post('/live-wallpapers/update-show', [LiveWallpaperController::class, 'updateShow'])->name('live_wallpapers.updateShow');
+    Route::get('/live-wallpapers/create', [LiveWallpaperController::class, 'create'])->name('live_wallpapers.create');
+
 
 
     // 3d wallpapers routes
