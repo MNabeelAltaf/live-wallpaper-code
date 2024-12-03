@@ -17,7 +17,6 @@ return new class extends Migration
                 ->constrained('four_dwallpapers')
                 ->onDelete('cascade');
             $table->text('img_path');
-            $table->integer('order');
             $table->timestamps();
         });
     }
