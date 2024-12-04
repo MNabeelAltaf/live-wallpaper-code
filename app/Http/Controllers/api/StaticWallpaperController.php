@@ -17,38 +17,71 @@ class StaticWallpaperController extends Controller
     public function index()
     {
 
-        $static_wallpapers = StaticWallpaper::with(['category', 'events'])->get();
-
-
-        return response()->json(['response' => $static_wallpapers ]);
-
-
-
-        $static_wallpapers = StaticWallpaper::get()->map(function ($wallpaper) {
-            $category = ModelsCategories::find($wallpaper->cat_id);
-
-            $event = event::findOrFail($wallpaper->cat_id);
-
-            $cat_name = $category ? $category->name : '';
-            $event_id = $event ?  $event->id : null;
-
+        $static_wallpapers = StaticWallpaper::with('category.events')->get()->map(function ($wallpaper) {
+            $category = $wallpaper->category;
 
             return [
-                'id' => $wallpaper->id,
-
-                'events'=>$event,
-
-
-                'cat_name' => $cat_name,
-                'thumbPath' => url(Storage::url('Static_Wallpapers/' . $wallpaper->thumb_wp)),
+                'id' => (string) $wallpaper->id,
+                'cat_name' => $category ? $category->name : '',
+                'thumbPath' => url(Storage::url($wallpaper->thumb_path)),
+                'has_event' => $category && $category->events->isNotEmpty(),
             ];
-        })->toArray();
+        })->sortByDesc('has_event')
+            ->values()
+            ->map(function ($wallpaper) {
+                unset($wallpaper['has_event']);
+                return $wallpaper;
+            });
 
-        $response = [
-            'wallpapers' => $static_wallpapers,
+
+        $grouped_wallpapers = $static_wallpapers->groupBy('cat_name');
+
+
+        $response = [];
+
+        $first_item_wallpapers = $grouped_wallpapers->map(function ($wallpapers) {
+            return $wallpapers->first();
+        })->values()->all();
+
+        $response[] = [
+            'viewType' => '1',
+            'wallpapers' => $first_item_wallpapers,
         ];
 
-        return response()->json(['response' => $response]);
+
+        $categories = ModelsCategories::all();
+
+        foreach ($categories as $category) {
+            $category_wallpapers = StaticWallpaper::whereHas('category', function ($query) use ($category) {
+                $query->where('name', $category->name);
+            })->get()->map(function ($wallpaper) use ($category) {
+                return [
+                    'id' => (string) $wallpaper->id,
+                    'blurPath' => url(Storage::url('Static_Wallpapers/' . $category->name . '/blur/' . $wallpaper->blur_path)),
+                    'likes' => (string) $wallpaper->likes,
+                    'downloads' => (string) $wallpaper->Downloads,
+                    'category' => $category->name,
+                    'cat_id' => (string) $wallpaper->cat_id,
+                    'tags' => $wallpaper->hash_tags,
+                    'thumbPath' => url(Storage::url('Static_Wallpapers/' . $category->name . '/thumb/' . $wallpaper->thumb_path)),
+                    'img_path' => url(Storage::url('Static_Wallpapers/' . $category->name . '/wallpaper/' . $wallpaper->img_path)),
+                ];
+            });
+
+
+            if ($category_wallpapers->isNotEmpty()) {
+                $response[] = [
+                    'viewType' => '4',
+                    'wallpapers' => $category_wallpapers,
+                ];
+            }
+        }
+
+        return response()->json([
+            'response' => $response,
+        ]);
+
+
     }
 
     /**

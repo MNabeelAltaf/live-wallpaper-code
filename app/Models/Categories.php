@@ -33,7 +33,7 @@ class Categories extends Model
     // Relation to Events: A category can belong to many events
     public function events()
     {
-        return $this->belongsToMany(Event::class, 'category_event')
+        return $this->belongsToMany(Event::class, 'category_event', 'cat_id', 'event_id')
             ->withTimestamps();
     }
 }
