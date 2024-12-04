@@ -30,4 +30,8 @@ class StaticWallpaper extends Model
     {
         return $this->belongsTo(Categories::class, 'cat_id');
     }
+
+    public function events(){
+        return $this->belongsTo(event::class, 'cat_id');
+    }
 }

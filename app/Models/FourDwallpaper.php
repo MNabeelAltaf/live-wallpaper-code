@@ -39,4 +39,7 @@ class FourDwallpaper extends Model
     {
         return $this->hasMany(FourDImages::class, 'wallpaper_id');
     }
+    public function events(){
+        return $this->belongsTo(event::class, 'cat_id');
+    }
 }

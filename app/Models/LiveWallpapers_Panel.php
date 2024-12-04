@@ -28,4 +28,7 @@ class LiveWallpapers_Panel extends Model
     {
         return $this->belongsTo(Categories::class);
     }
+    public function events(){
+        return $this->belongsTo(event::class, 'cat_id');
+    }
 }

@@ -17,11 +17,11 @@ class StaticWallpaperController extends Controller
     public function index()
     {
 
-        $static_wallpapers  = StaticWallpaper::with('category')->get();
+        $static_wallpapers = StaticWallpaper::with(['category', 'events'])->get();
+
 
         return response()->json(['response' => $static_wallpapers ]);
 
-        dd( vars: $static_wallpapers);
 
 
         $static_wallpapers = StaticWallpaper::get()->map(function ($wallpaper) {
