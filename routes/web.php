@@ -46,6 +46,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/live-wallpapers/update-featured', [LiveWallpaperController::class, 'updateFeatured'])->name('live_wallpapers.updateFeatured');
     Route::post('/live-wallpapers/update-show', [LiveWallpaperController::class, 'updateShow'])->name('live_wallpapers.updateShow');
     Route::get('/live-wallpapers/create', [LiveWallpaperController::class, 'create'])->name('live_wallpapers.create');
+    Route::get('/live-wallpapers/{id}/delete', [LiveWallpaperController::class, 'delete'])->name('live_wallpapers.delete');
+    Route::get('/live-wallpapers/{id}/edit', [LiveWallpaperController::class, 'edit'])->name('live_wallpapers.edit');
 
 
     // 3d wallpapers routes
