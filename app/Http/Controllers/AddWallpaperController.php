@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\LiveWallpapers_Panel;
 use App\Models\StaticWallpaper;
 use App\Models\ThreeDWallpaper_Panel;
+use App\Models\Categories as ModelsCategories;
 
 
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class AddWallpaperController extends Controller
             $isAdded = $this->add_3d_wallpapers($request);
 
             if ($isAdded) {
+                flash()->success('Wallpaper created successfully!');
                 return redirect()->route('3d_wallpapers.index')->with([
                     'success' => 'Wallpaper Added successfully!',
                 ]);
@@ -48,7 +50,7 @@ class AddWallpaperController extends Controller
 
             if ($isAdded) {
 
-                // flash()->success('Wallpaper created successfully!');
+                flash()->success('Wallpaper created successfully!');
 
                 return redirect()->route('live_wallpapers.index')->with([
                     'success' => 'Wallpaper Added successfully!',
@@ -241,7 +243,17 @@ class AddWallpaperController extends Controller
             $isEdited = $this->edit_3d_wallpaper($request);
 
             if ($isEdited) {
+                flash()->success('Wallpaper Edit successfully!');
                 return redirect()->route('3d_wallpapers.index')->with([
+                    'success' => 'Wallpaper Edit successfully!',
+                ]);
+            }
+        } elseif ($request->wallpaper_type == 'live') {
+            $isEdited = $this->edit_live_wallpaper($request);
+
+            if ($isEdited) {
+                flash()->success('Wallpaper Edit successfully!');
+                return redirect()->route('live_wallpapers.index')->with([
                     'success' => 'Wallpaper Edit successfully!',
                 ]);
             }
@@ -366,6 +378,105 @@ class AddWallpaperController extends Controller
             'hash_tags' => $request->tags,
             'wp_show' => $request->has('show') ? 1 : 0,
             'featured' => $request->has('featured') ? 1 : 0,
+        ]);
+
+        if ($updated) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    public function edit_live_wallpaper($request)
+    {
+
+        $validated = $request->validate([
+            'category_id' => 'required',
+            'video' => 'mimes:mp4,mov|max:12048',
+            'thumbnail' => 'mimes:jpeg,jpg,png,gif,webp|max:2048',
+            'tags' => 'required|string',
+            'wallpaper_type' => 'required|string',
+            'cat_id' => 'required',
+        ]);
+
+
+
+        $wallpaper = LiveWallpapers_Panel::findOrFail($request->cat_id);
+        $category = ModelsCategories::where('id', $request->category_id)->first();
+
+        $cat_name = $category->name;
+
+        $old_category = $wallpaper->category;
+        $new_category =  $category->name;
+
+        // Define folder paths
+        $live_blur_folder = 'Live_Wallpapers/' . $cat_name . '/blur';
+        $live_thumb_folder = 'Live_Wallpapers/' . $cat_name . '/thumb';
+        $live_video_folder = 'Live_Wallpapers/' . $cat_name . '/video';
+
+        // Handle file uploads
+        if ($request->hasFile('video')) {
+            $video_file = $request->file('video');
+            $videoName = $cat_name . '_' . uniqid() . '_' . $video_file->getClientOriginalName();
+            $videoPath = $video_file->storeAs($live_video_folder, $videoName, 'public');
+        } else {
+            // if category channges
+            if ($old_category != $new_category) {
+                $oldPath = storage_path('app/public/' . $wallpaper->video_path);
+                $newPath = $live_video_folder . '/' . basename($wallpaper->video_path);
+
+                if (!file_exists(storage_path('app/public/' . $live_video_folder))) {
+                    mkdir(storage_path('app/public/' . $live_video_folder), 0755, true);
+                }
+                if (file_exists($oldPath)) {
+                    rename($oldPath, storage_path('app/public/' . $newPath));
+                }
+                $videoPath = $newPath;
+            } else {
+                // If category hasn't changed,
+                $videoPath = $wallpaper->video_path;
+            }
+        }
+
+        if ($request->hasFile('thumbnail')) {
+            $thumb_file = $request->file('thumbnail');
+            $thumbName = $cat_name . '_' . uniqid() . '_' . $thumb_file->getClientOriginalName();
+            $thumbPath = $thumb_file->storeAs($live_thumb_folder, $thumbName, 'public');
+        } else {
+            // If category changed
+            if ($old_category != $new_category) {
+                $oldThumbPath = storage_path('app/public/' . $wallpaper->thumb_path);
+                $newThumbPath = $live_thumb_folder . '/' . basename($wallpaper->thumb_path);
+                if (!file_exists(storage_path('app/public/' . $live_thumb_folder))) {
+                    mkdir(storage_path('app/public/' . $live_thumb_folder), 0755, true);
+                }
+                if (file_exists($oldThumbPath)) {
+                    rename($oldThumbPath, storage_path('app/public/' . $newThumbPath));
+                }
+                $thumbPath = $newThumbPath;
+            } else {
+                // If category hasn't changed
+                $thumbPath = $wallpaper->thumb_path;
+            }
+        }
+
+        if ($request->hasFile('blur')) {
+            $blur_file = $request->file('blur');
+            $blurName = $cat_name . '_' . uniqid() . '_' . $blur_file->getClientOriginalName();
+            $blurPath = $blur_file->storeAs($live_blur_folder, $blurName, 'public');
+        } else {
+            $blurPath = $wallpaper->blur_path;
+        }
+
+        $updated = $wallpaper->update([
+            'blur_path' => $blurPath,
+            'thumb_path' => $thumbPath,
+            'video_path' => $videoPath,
+            'cat_id' => $request->category_id,
+            'category' => $cat_name,
+            'hash_tags' => $request->tags,
         ]);
 
         if ($updated) {

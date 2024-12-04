@@ -132,7 +132,7 @@
                     formatter: (cell, row) => {
                         return gridjs.html(`
                         <div class="actions">
-                            <a class="btn btn-sm btn-primary" href="{{ url('3d-wallpapers') }}/${row.cells[0].data}/edit">Edit</a>
+                            <a class="btn btn-sm btn-primary" href="{{ url('live-wallpapers') }}/${row.cells[0].data}/edit">Edit</a>
                             <button class="btn btn-sm btn-danger" onclick="deleteWallpaper(${row.cells[0].data})">Delete</button>
                         </div>
                     `);
@@ -213,7 +213,7 @@
                 confirmButtonText: "Yes, delete it!",
             }).then(function(t) {
                 if (t.value) {
-                    axios.get(`/3d-wallpapers/${id}/delete`) // Adjust URL if needed
+                    axios.get(`/live-wallpapers/${id}/delete`)
                         .then(response => {
                             location.reload();
                         })

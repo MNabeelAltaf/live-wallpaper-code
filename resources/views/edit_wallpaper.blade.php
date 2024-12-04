@@ -136,63 +136,63 @@
                         </div>
                     </a>
 
-                    <div id="addproduct-billinginfo-collapse" class="collapse show"
-                        data-bs-parent="#addproduct-accordion">
-                        <div class="p-4 border-top">
-                            <form method="POST" action={{ route('edit-wallpaper') }} enctype="multipart/form-data">
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="choices-single-default" class="form-label">Category</label>
+                        <div id="addproduct-billinginfo-collapse" class="collapse show"
+                            data-bs-parent="#addproduct-accordion">
+                            <div class="p-4 border-top">
+                                <form method="POST" action={{ route('edit-wallpaper') }} enctype="multipart/form-data">
+                                    @csrf
                                     <div class="mb-3">
-                                        <select class="form-control" name="category"
-                                            id="choices-single-no-sorting">
-                                            @foreach ($categories as $category)
-                                            <option value="{{ $category->name }}"
-                                                {{ $data->cat_id == $category->id ? 'selected' : '' }}>
-                                                {{ $category->name }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <div>
-                                        <label for="formFileLg" class="form-label">Zip file</label>
-                                        <input class="form-control form-control" id="formFileLg" accept=".zip"
-                                            name="zip" type="file">
-                                        <div id="file-size-error" class="text-danger mt-2" style="display:none;">
-                                            The file size exceeds the maximum allowed size of 10MB.
+                                        <label for="choices-single-default" class="form-label">Category</label>
+                                        <div class="mb-3">
+                                            <select class="form-control" name="category"
+                                                id="choices-single-no-sorting">
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->name }}"
+                                                        {{ $data->cat_id == $category->id ? 'selected' : '' }}>
+                                                        {{ $category->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
-                                        <a class="btn btn-primary-subtle my-1"
-                                            href="{{ asset('storage/' . $data->zip_path) }}" download>download
-                                            zip</a>
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="choices-single-default" class="form-label">Thumbnail File</label>
-                                    <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp">
-                                    <div>
-                                        <img style="width:5rem;" src="{{ asset('storage/' . $data->thumb_path) }}"
+                                    <div class="mb-3">
+                                        <div>
+                                            <label for="formFileLg" class="form-label">Zip file</label>
+                                            <input class="form-control form-control" id="formFileLg" accept=".zip"
+                                                name="zip" type="file">
+                                            <div id="file-size-error" class="text-danger mt-2" style="display:none;">
+                                                The file size exceeds the maximum allowed size of 10MB.
+                                            </div>
+                                            <a class="btn btn-primary-subtle my-1"
+                                                href="{{ asset('storage/' . $data->zip_path) }}" download>download
+                                                zip</a>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="choices-single-default" class="form-label">Thumbnail File</label>
+                                        <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp">
+                                        <div>
+                                            <img style="width:5rem;" src="{{ asset('storage/' . $data->thumb_path) }}"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="choices-single-default" class="form-label">Blur File</label>
+                                        <input type="file" name="blur" class="form-control"  accept=".jpg,.jpeg,.png,.gif,.webp">
+                                        <img style="width:5rem;" src="{{ asset('storage/' . $data->blur_path) }}"
                                             alt="">
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="choices-single-default" class="form-label">Blur File</label>
-                                    <input type="file" name="blur" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp">
-                                    <img style="width:5rem;" src="{{ asset('storage/' . $data->blur_path) }}"
-                                        alt="">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="editCategoryShow" class="form-label">Hash Tags</label>
-                                    <span><i>(Max 3 tags allowed)</i></span>
-                                    <input type="text" class="form-control" id="editCategoryShow"
-                                        placeholder="Enter tags separated by spaces" />
-                                    <div id="tags-container" class="mt-2 d-flex flex-wrap gap-2">
-                                        <!-- Tags will be preloaded here -->
+                                    <div class="mb-3">
+                                        <label for="editCategoryShow" class="form-label">Hash Tags</label>
+                                        <span><i>(Max 3 tags allowed)</i></span>
+                                        <input type="text" class="form-control" id="editCategoryShow"
+                                            placeholder="Enter tags separated by spaces" />
+                                        <div id="tags-container" class="mt-2 d-flex flex-wrap gap-2">
+                                            <!-- Tags will be preloaded here -->
+                                        </div>
+                                        <input type="hidden" id="tagsField" name="tags" required />
                                     </div>
-                                    <input type="hidden" id="tagsField" name="tags" required />
-                                </div>
-                                <div class="mb-3 ">
+                                    <div class="mb-3 ">
 
                                     <div class="col-md-2 d-flex justify-content-between">
                                         <div>
@@ -209,28 +209,28 @@
                                     </div>
                                     <div class="col-md-10"></div>
 
-                                </div>
-                                <input type="hidden" name="cat_id" value="{{ $data->id }}">
-                                <input type="hidden" name="wallpaper_type" value="3d">
-                                <button class="btn btn-primary mt-5" type="submit">Edit</button>
-                            </form>
+                                    </div>
+                                    <input type="hidden" name="cat_id" value="{{ $data->id }}">
+                                    <input type="hidden" name="wallpaper_type" value="3d">
+                                    <button class="btn btn-primary mt-5" type="submit">Edit</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end row -->
-    <!-- end row -->
-    <script>
-        new Choices(document.getElementById("choices-text-remove-button"), {
-            delimiter: ",",
-            editItems: !0,
-            maxItemCount: 5,
-            removeItemButton: !0,
-        })
-    </script>
-</x-app-layout>
+        <!-- end row -->
+        <!-- end row -->
+        <script>
+            new Choices(document.getElementById("choices-text-remove-button"), {
+                delimiter: ",",
+                editItems: !0,
+                maxItemCount: 5,
+                removeItemButton: !0,
+            })
+        </script>
+    </x-app-layout>
 @endif
 
 

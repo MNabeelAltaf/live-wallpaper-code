@@ -48,6 +48,26 @@ class LiveWallpaperController extends Controller
     }
 
 
+    public function delete($id)
+    {
+        $category = lwp_model::findOrFail($id);
+        $category->delete();
+        return response()->json(['success' => true, 'message' => 'Deleted successfully.']);
+    }
+
+    public function edit($id)
+    {
+        $data = lwp_model::findOrFail($id);
+        $categories = ModelsCategories::where('type', '1')->get();
+
+        return view('edit_wallpaper', [
+            'data' => $data,
+            'categories' => $categories,
+            'wallpaper_type' => 'live'
+        ]);
+    }
+
+
     public function showCategoryRecords(Request $request) {
 
         $records = lwp_model::where('cat_id', $request->category)->get();
