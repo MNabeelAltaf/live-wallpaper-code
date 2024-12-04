@@ -16,7 +16,7 @@ class StaticWallpaperController extends Controller
         $selectedCategoryId = $request->query('category', $categories->first()->id);
 
         // Fetch wallpapers for the selected category
-        $wallpapers = StaticWallpaper::all();
+        $wallpapers = StaticWallpaper::where('cat_id', $selectedCategoryId)->get();
 
         // Format wallpaper data
         $data = $wallpapers->map(function ($wallpaper) {
