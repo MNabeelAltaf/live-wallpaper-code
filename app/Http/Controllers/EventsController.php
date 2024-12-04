@@ -29,8 +29,8 @@ class EventsController extends Controller
     }
     public function edit($id)
     {
-        $events = Event::findOrFail($id);
-        return response()->json($events);
+        $event = Event::with('categories')->findOrFail($id);
+        return response()->json($event);
     }
     public function update(Request $request)
     {
@@ -39,8 +39,34 @@ class EventsController extends Controller
         $category->name = $request->name;
         $category->start_date = $request->start_date;
         $category->end_date = $request->end_date;
+        $category->categories()->sync($request->categories);
         $category->save();
+        return redirect()->back()->with('success', 'Event updated successfully!');
+    }
+    public function delete($id)
+    {
+        $category = Event::findOrFail($id);
+        $category->delete();
+        return response()->json(['success' => true, 'message' => 'Show status updated successfully.']);
+    }
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'categories' => 'required',
+        ]);
 
-        return redirect()->back()->with('success', 'Category updated successfully!');
+        $event = Event::create([
+            'name' => $validated['name'],
+            'start_date' => $validated['start_date'],
+            'end_date' => $validated['end_date'],
+        ]);
+
+        $event->categories()->sync($validated['categories']);
+        $event->save();
+
+        return redirect()->back()->with('success', 'Event created successfully!');
     }
 }
