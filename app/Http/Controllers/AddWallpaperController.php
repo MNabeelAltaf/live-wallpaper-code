@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\LiveWallpapers_Panel;
+use App\Models\StaticWallpaper;
 use App\Models\ThreeDWallpaper_Panel;
 
 
@@ -53,9 +54,71 @@ class AddWallpaperController extends Controller
                     'success' => 'Wallpaper Added successfully!',
                 ]);
             }
+        } elseif ($request->wallpaper_type == 'static') {
+            $isAdded = $this->add_static_wallpapers($request);
+            if ($isAdded) {
+                return redirect()->back()->with([
+                    'success' => 'Wallpaper Added successfully!',
+                ]);
+            }
         }
     }
 
+    public function add_static_wallpapers(Request $request)
+    {
+        $show_wp = 1;
+        $featured = 1;
+        $hash_tags = $request->hash_tags;
+
+
+        $cat_id = $request->cat_id;
+        $cat_name = Categories::where('id', $cat_id)->value('name');
+
+
+        $threeD_blur_folder = 'Static_Wallpapers/' . $cat_name . '/blur';
+        $threeD_thumb_folder = 'Static_Wallpapers/' . $cat_name . '/thumb';
+        $threeD_zip_folder = 'Static_Wallpapers/' . $cat_name . '/wallpaper';
+
+        if ($request->hasFile('img_path')) {
+
+            $zip_file = $request->file('img_path');
+            $zipName =  $cat_name . '_' . uniqid() . '_' . $zip_file->getClientOriginalName();
+            $img_path = $zip_file->storeAs($threeD_zip_folder, $zipName, 'public');
+        }
+        if ($request->hasFile('thumb_path')) {
+
+            $thumb_file = $request->file('thumb_path');
+            $thumbName =  $cat_name . '_' . uniqid() . '_' . $thumb_file->getClientOriginalName();
+            $thumb_path = $thumb_file->storeAs($threeD_thumb_folder, $thumbName, 'public');
+        }
+        if ($request->hasFile('blur_path')) {
+
+            $blur_file = $request->file('blur_path');
+            $blurName =  $cat_name . '_' . uniqid() . '_' . $blur_file->getClientOriginalName();
+            $blur_path = $blur_file->storeAs($threeD_blur_folder, $blurName, 'public');
+        }
+        $categoryTable = StaticWallpaper::create([
+            'blur_path' => $blur_path,
+            'thumb_path' => $thumb_path,
+            'img_path' =>  $img_path,
+            'category' => $cat_name,
+            'cat_id' => $cat_id,
+            'likes' => 0,
+            'downloads' => 0,
+            'set_wp' => 0,
+            'unlike' => 0,
+            'hash_tags' => $hash_tags,
+            'wp_show' => $show_wp,
+            'featured' =>  $featured,
+        ]);
+
+
+        if ($categoryTable) {
+            return True;
+        } else {
+            return False;
+        }
+    }
     public function add_3d_wallpapers(Request $request)
     {
 
@@ -183,6 +246,68 @@ class AddWallpaperController extends Controller
                 ]);
             }
         }
+        if ($request->wallpaper_type == 'static') {
+            $isEdited = $this->edit_static_wallpaper($request);
+            if ($isEdited) {
+                return redirect()->route('wallpapers.index')->with([
+                    'success' => 'Wallpaper Edit successfully!',
+                ]);
+            }
+        }
+    }
+
+
+    public function edit_static_wallpaper($request)
+    {
+        // Validate the request
+        $validated = $request->validate([
+            'hash_tags' => 'required|string',
+            'wallpaper_type' => 'required|string',
+        ]);
+
+        // Find the wallpaper record
+        $wallpaper = StaticWallpaper::findOrFail($request->update_id);
+
+        // Update category details
+        $cat_id = $request->cat_id;
+        $wallpaper->cat_id = $cat_id;
+        $cat_name = Categories::find($cat_id)->name;
+
+        // Define folders
+        $base_folder = 'Static_Wallpapers/' . $cat_name;
+        $blur_folder = $base_folder . '/blur';
+        $thumb_folder = $base_folder . '/thumb';
+        $wallpaper_folder = $base_folder . '/wallpaper';
+
+        // Handle img_path file upload
+        if ($request->hasFile('img_path')) {
+            $zip_file = $request->file('img_path');
+            $zipName = $cat_name . '_' . uniqid() . '_' . $zip_file->getClientOriginalName();
+            $img_path = $zip_file->storeAs($wallpaper_folder, $zipName, 'public');
+            $wallpaper->img_path = $img_path;
+        }
+
+        // Handle thumb_path file upload
+        if ($request->hasFile('thumb_path')) {
+            $thumb_file = $request->file('thumb_path');
+            $thumbName = $cat_name . '_' . uniqid() . '_' . $thumb_file->getClientOriginalName();
+            $thumb_path = $thumb_file->storeAs($thumb_folder, $thumbName, 'public');
+            $wallpaper->thumb_path = $thumb_path;
+        }
+
+        // Handle blur_path file upload
+        if ($request->hasFile('blur_path')) {
+            $blur_file = $request->file('blur_path');
+            $blurName = $cat_name . '_' . uniqid() . '_' . $blur_file->getClientOriginalName();
+            $blur_path = $blur_file->storeAs($blur_folder, $blurName, 'public');
+            $wallpaper->blur_path = $blur_path; // Fixed the typo here
+        }
+
+        // Update other fields
+        $wallpaper->hash_tags = $request->hash_tags;
+        return $wallpaper->save()
+            ? true
+            : false;
     }
 
 

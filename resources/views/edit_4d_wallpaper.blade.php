@@ -6,7 +6,6 @@
             <input type="hidden" name="downloads" value="{{$data->downloads}}">
             <input type="hidden" name="featured" value="{{$data->featured}}">
             <input type="hidden" name="wp_show" value="{{$data->wp_show}}">
-            <input type="hidden" name="wp_show" value="{{$data->wp_show}}">
 
             <div class="row">
                 <div class="col-lg-12">
@@ -40,10 +39,10 @@
                                     <!-- Category -->
                                     <div class="mb-3">
                                         <label for="choices-single-default" class="form-label">Category</label>
-                                        <select class="form-control" data-trigger name="category_id"
+                                        <select class="form-control" data-trigger name="cat_id"
                                             id="choices-single-default">
                                             @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}" {{ $data->category_id == $category->id ? 'selected' : '' }}>
+                                            <option value="{{ $category->id }}" {{ $data->cat_id == $category->id ? 'selected' : '' }}>
                                                 {{ $category->name }}
                                             </option>
                                             @endforeach

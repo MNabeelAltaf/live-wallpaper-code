@@ -14,10 +14,13 @@ class FourDWallpaperController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = ModelsCategories::where('type', '1')->get();
+        $categories = ModelsCategories::where('type', '1')
+            ->whereHas('fourDwallpapers')
+            ->get();
+
         $selectedCategoryId = $request->query('category', $categories->first()->id);
 
-        $wallpapers = FourDwallpaper::where('category_id', $selectedCategoryId)->get();
+        $wallpapers = FourDwallpaper::where('cat_id', $selectedCategoryId)->get();
 
         $data = $wallpapers->map(function ($wallpaper) {
             return [
@@ -177,7 +180,7 @@ class FourDWallpaperController extends Controller
     {
         // Validate the form data
         $request->validate([
-            'category_id' => 'required|exists:categories,id',
+            'cat_id' => 'required|exists:categories,id',
             'thumbPath' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Make it nullable
             'tags' => 'nullable|string',
             'effect' => 'nullable|string',
@@ -191,7 +194,7 @@ class FourDWallpaperController extends Controller
         ]);
 
         // Get the category folder structure
-        $categoryFolder = "4D_Wallpapers/{$request->category_id}";
+        $categoryFolder = "4D_Wallpapers/{$request->cat_id}";
 
         // Create the category folder if it doesn't exist
         if (!Storage::disk('public')->exists($categoryFolder)) {
@@ -200,7 +203,7 @@ class FourDWallpaperController extends Controller
 
         // Create the wallpaper record
         $wallpaperData = [
-            'category_id' => $request->category_id,
+            'cat_id' => $request->cat_id,
             'tags' => $request->tags,
             'effect' => $request->effect,
             'bg_zoom_speed' => $request->bg_zoom_speed,

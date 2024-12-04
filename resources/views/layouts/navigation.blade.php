@@ -74,7 +74,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="index.html" id="topnav-dashboard" role="button"
+                                    <a class="nav-link dropdown-toggle arrow-none" href="{{ route('events.index') }}" id="topnav-dashboard" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="bx bx-home-circle icon"></i>
                                         <span data-key="t-dashboard">Events</span>

@@ -136,6 +136,7 @@ var classicPickr = Pickr.create({
             },
         },
     });
+    
 flatpickr("#datepicker-basic"),
     flatpickr("#datepicker-datetime", {
         enableTime: !0,

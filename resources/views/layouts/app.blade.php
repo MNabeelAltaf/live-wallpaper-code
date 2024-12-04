@@ -52,6 +52,7 @@
     <script src="{{ asset('assets/libs/dropzone/min/dropzone.min.js') }}"></script>
     <!-- swiper js -->
     <script src="{{ asset('assets/libs/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/flatpickr/flatpickr.min.js') }}"></script>
 
 </head>
 
@@ -88,7 +89,6 @@
 
     <!-- init js -->
     <script src="{{ asset('assets/js/pages/ecommerce-choices.init.js') }}"></script>
-    <script src="{{ asset('assets/libs/flatpickr/flatpickr.min.js') }}"></script>
 
     <!-- Modern colorpicker bundle -->
     <script src="{{ asset('assets/libs/%40simonwep/pickr/pickr.min.js') }}"></script>

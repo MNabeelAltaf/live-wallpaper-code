@@ -1,5 +1,7 @@
 @if ($wallpaper_type == 'static')
-    <x-app-layout>
+<x-app-layout>
+    <form method="POST" action="{{ route('edit-wallpaper') }}" enctype="multipart/form-data">
+        @csrf
         <div class="row">
             <div class="col-lg-12">
                 <div id="addproduct-accordion" class="custom-accordion">
@@ -17,52 +19,50 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="font-size-16 mb-1">AddWallpaper</h5>
+                                        <h5 class="font-size-16 mb-1">Edit Wallpaper</h5>
                                         <p class="text-muted text-truncate mb-0">Fill all information below</p>
                                     </div>
                                     <div class="flex-shrink-0">
                                         <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
                                     </div>
-
                                 </div>
-
                             </div>
                         </a>
 
                         <div id="addproduct-billinginfo-collapse" class="collapse show"
                             data-bs-parent="#addproduct-accordion">
                             <div class="p-4 border-top">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="choices-single-default" class="form-label">Category</label>
-                                        <select class="form-control" data-trigger name="choices-single-category"
-                                            id="choices-single-default">
-                                            <option value="">Select</option>
-                                            <option value="EL">Electronic</option>
-                                            <option value="FA">Fashion</option>
-                                            <option value="FI">Fitness</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="choices-single-default" class="form-label">Wallpaper</label>
-                                        <input type="file" name="img_path" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="choices-single-default" class="form-label">Thumbnail</label>
-                                        <input type="file" name="thumb_path" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="choices-single-default" class="form-label">Blur</label>
-                                        <input type="file" name="blur_path" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="choices-text-remove-button"
-                                            class="form-label font-size-13 text-muted">Limited to 5
-                                            values with remove button</label>
-                                        <input class="form-control" id="choices-text-remove-button" type="text"
-                                            value="" />
-                                    </div>
-                                </form>
+                                <input type="hidden" name="update_id" value="{{ $data->id }}">
+                                <input type="hidden" name="wallpaper_type" value="static">
+                                <div class="mb-3">
+                                    <label for="choices-single-default" class="form-label">Category</label>
+                                    <select class="form-control" name="cat_id" id="choices-single-no-sorting">
+                                        @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" {{ $data->cat_id == $category->id ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="choices-single-default" class="form-label">Wallpaper</label>
+                                    <input type="file" name="img_path" class="form-control">
+                                    <img class="img-thumbnail" src="{{ asset('storage/'.$data->img_path) }}" style="height:300px" alt="">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="choices-single-default" class="form-label">Thumbnail</label>
+                                    <input type="file" name="thumb_path" class="form-control">
+                                    <img class="img-thumbnail" src="{{ asset('storage/'.$data->thumb_path) }}" style="height:300px" alt="">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="choices-single-default" class="form-label">Blur</label>
+                                    <input type="file" name="blur_path" class="form-control">
+                                    <img class="img-thumbnail" src="{{ asset('storage/'.$data->blur_path) }}" style="height:300px" alt="">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="choices-single-default" class="form-label">Tags</label>
+                                    <input class="form-control" id="choices-text-remove-button" name="hash_tags" value="{{ old('hash_tags', $data->hash_tags) }}" type="text" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -74,162 +74,163 @@
         <div class="row mb-4">
             <div class="col text-end">
                 <a href="#" class="btn btn-danger"> <i class="bx bx-x me-1"></i> Cancel </a>
-                <a href="#" class="btn btn-success"> <i class=" bx bx-file me-1"></i> Save </a>
+                <button type="submit" class="btn btn-success"> <i class=" bx bx-file me-1"></i> Save </button>
             </div> <!-- end col -->
         </div> <!-- end row-->
         <!-- end row -->
-        <script>
-            new Choices(document.getElementById("choices-text-remove-button"), {
-                delimiter: ",",
-                editItems: !0,
-                maxItemCount: 5,
-                removeItemButton: !0,
-            })
-        </script>
-    </x-app-layout>
+    </form>
+    <script>
+        new Choices(document.getElementById("choices-text-remove-button"), {
+            delimiter: ",",
+            editItems: !0,
+            maxItemCount: 5,
+            removeItemButton: !0,
+        })
+    </script>
+</x-app-layout>
 @elseif($wallpaper_type == '3d')
-    <x-app-layout>
-        <div class="row">
-            <div class="col-lg-12">
+<x-app-layout>
+    <div class="row">
+        <div class="col-lg-12">
 
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
 
-                <div id="addproduct-accordion" class="custom-accordion">
-                    <div class="card">
-                        <a href="#addproduct-billinginfo-collapse" class="text-reset" data-bs-toggle="collapse"
-                            aria-expanded="true" aria-controls="addproduct-billinginfo-collapse">
-                            <div class="p-4">
+            <div id="addproduct-accordion" class="custom-accordion">
+                <div class="card">
+                    <a href="#addproduct-billinginfo-collapse" class="text-reset" data-bs-toggle="collapse"
+                        aria-expanded="true" aria-controls="addproduct-billinginfo-collapse">
+                        <div class="p-4">
 
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <div class="avatar">
-                                            <div class="avatar-title rounded-circle bg-primary-subtle text-primary">
-                                                03
-                                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="avatar">
+                                        <div class="avatar-title rounded-circle bg-primary-subtle text-primary">
+                                            03
                                         </div>
                                     </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="font-size-16 mb-1">Edit 3D-Wallpaper</h5>
-                                        <p class="text-muted text-truncate mb-0">Fill all information below</p>
-                                    </div>
-                                    <div class="flex-shrink-0">
-                                        <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
-                                    </div>
-
+                                </div>
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <h5 class="font-size-16 mb-1">Edit 3D-Wallpaper</h5>
+                                    <p class="text-muted text-truncate mb-0">Fill all information below</p>
+                                </div>
+                                <div class="flex-shrink-0">
+                                    <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
                                 </div>
 
                             </div>
-                        </a>
 
-                        <div id="addproduct-billinginfo-collapse" class="collapse show"
-                            data-bs-parent="#addproduct-accordion">
-                            <div class="p-4 border-top">
-                                <form method="POST" action={{ route('edit-wallpaper') }} enctype="multipart/form-data">
-                                    @csrf
+                        </div>
+                    </a>
+
+                    <div id="addproduct-billinginfo-collapse" class="collapse show"
+                        data-bs-parent="#addproduct-accordion">
+                        <div class="p-4 border-top">
+                            <form method="POST" action={{ route('edit-wallpaper') }} enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="choices-single-default" class="form-label">Category</label>
                                     <div class="mb-3">
-                                        <label for="choices-single-default" class="form-label">Category</label>
-                                        <div class="mb-3">
-                                            <select class="form-control" name="category"
-                                                id="choices-single-no-sorting">
-                                                @foreach ($categories as $category)
-                                                    <option value="{{ $category->name }}"
-                                                        {{ $data->cat_id == $category->id ? 'selected' : '' }}>
-                                                        {{ $category->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                        <select class="form-control" name="category"
+                                            id="choices-single-no-sorting">
+                                            @foreach ($categories as $category)
+                                            <option value="{{ $category->name }}"
+                                                {{ $data->cat_id == $category->id ? 'selected' : '' }}>
+                                                {{ $category->name }}
+                                            </option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                    <div class="mb-3">
-                                        <div>
-                                            <label for="formFileLg" class="form-label">Zip file</label>
-                                            <input class="form-control form-control" id="formFileLg" accept=".zip"
-                                                name="zip" type="file">
-                                            <div id="file-size-error" class="text-danger mt-2" style="display:none;">
-                                                The file size exceeds the maximum allowed size of 10MB.
-                                            </div>
-                                            <a class="btn btn-primary-subtle my-1"
-                                                href="{{ asset('storage/' . $data->zip_path) }}" download>download
-                                                zip</a>
+                                </div>
+                                <div class="mb-3">
+                                    <div>
+                                        <label for="formFileLg" class="form-label">Zip file</label>
+                                        <input class="form-control form-control" id="formFileLg" accept=".zip"
+                                            name="zip" type="file">
+                                        <div id="file-size-error" class="text-danger mt-2" style="display:none;">
+                                            The file size exceeds the maximum allowed size of 10MB.
                                         </div>
+                                        <a class="btn btn-primary-subtle my-1"
+                                            href="{{ asset('storage/' . $data->zip_path) }}" download>download
+                                            zip</a>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="choices-single-default" class="form-label">Thumbnail File</label>
-                                        <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp">
-                                        <div>
-                                            <img style="width:5rem;" src="{{ asset('storage/' . $data->thumb_path) }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="choices-single-default" class="form-label">Blur File</label>
-                                        <input type="file" name="blur" class="form-control"  accept=".jpg,.jpeg,.png,.gif,.webp">
-                                        <img style="width:5rem;" src="{{ asset('storage/' . $data->blur_path) }}"
+                                </div>
+                                <div class="mb-3">
+                                    <label for="choices-single-default" class="form-label">Thumbnail File</label>
+                                    <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp">
+                                    <div>
+                                        <img style="width:5rem;" src="{{ asset('storage/' . $data->thumb_path) }}"
                                             alt="">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="editCategoryShow" class="form-label">Hash Tags</label>
-                                        <span><i>(Max 3 tags allowed)</i></span>
-                                        <input type="text" class="form-control" id="editCategoryShow"
-                                            placeholder="Enter tags separated by spaces" />
-                                        <div id="tags-container" class="mt-2 d-flex flex-wrap gap-2">
-                                            <!-- Tags will be preloaded here -->
-                                        </div>
-                                        <input type="hidden" id="tagsField" name="tags" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="choices-single-default" class="form-label">Blur File</label>
+                                    <input type="file" name="blur" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp">
+                                    <img style="width:5rem;" src="{{ asset('storage/' . $data->blur_path) }}"
+                                        alt="">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editCategoryShow" class="form-label">Hash Tags</label>
+                                    <span><i>(Max 3 tags allowed)</i></span>
+                                    <input type="text" class="form-control" id="editCategoryShow"
+                                        placeholder="Enter tags separated by spaces" />
+                                    <div id="tags-container" class="mt-2 d-flex flex-wrap gap-2">
+                                        <!-- Tags will be preloaded here -->
                                     </div>
-                                    <div class="mb-3 ">
+                                    <input type="hidden" id="tagsField" name="tags" required />
+                                </div>
+                                <div class="mb-3 ">
 
-                                        <div class="col-md-2 d-flex justify-content-between">
-                                            <div>
-                                                <input type="checkbox" class="form-check-input" id=""
-                                                    name="show">
-                                                <label for="editCategoryShow" class="form-label">Show</label>
-                                            </div>
-
-                                            <div>
-                                                <input type="checkbox" class="form-check-input" id=""
-                                                    name="featured">
-                                                <label for="editCategoryShow" class="form-label">Featured</label>
-                                            </div>
+                                    <div class="col-md-2 d-flex justify-content-between">
+                                        <div>
+                                            <input type="checkbox" class="form-check-input" id=""
+                                                name="show">
+                                            <label for="editCategoryShow" class="form-label">Show</label>
                                         </div>
-                                        <div class="col-md-10"></div>
 
+                                        <div>
+                                            <input type="checkbox" class="form-check-input" id=""
+                                                name="featured">
+                                            <label for="editCategoryShow" class="form-label">Featured</label>
+                                        </div>
                                     </div>
-                                    <input type="hidden" name="cat_id" value="{{ $data->id }}">
-                                    <input type="hidden" name="wallpaper_type" value="3d">
-                                    <button class="btn btn-primary mt-5" type="submit">Edit</button>
-                                </form>
-                            </div>
+                                    <div class="col-md-10"></div>
+
+                                </div>
+                                <input type="hidden" name="cat_id" value="{{ $data->id }}">
+                                <input type="hidden" name="wallpaper_type" value="3d">
+                                <button class="btn btn-primary mt-5" type="submit">Edit</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- end row -->
-        <!-- end row -->
-        <script>
-            new Choices(document.getElementById("choices-text-remove-button"), {
-                delimiter: ",",
-                editItems: !0,
-                maxItemCount: 5,
-                removeItemButton: !0,
-            })
-        </script>
-    </x-app-layout>
+    </div>
+    <!-- end row -->
+    <!-- end row -->
+    <script>
+        new Choices(document.getElementById("choices-text-remove-button"), {
+            delimiter: ",",
+            editItems: !0,
+            maxItemCount: 5,
+            removeItemButton: !0,
+        })
+    </script>
+</x-app-layout>
 @endif
 
 
@@ -315,5 +316,13 @@
                 errorMessage.style.display = 'none';
             }
         }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        new Choices(document.getElementById("choices-text-remove-button"), {
+            delimiter: ",",
+            editItems: !0,
+            maxItemCount: 5,
+            removeItemButton: !0,
+        });
     });
 </script>
