@@ -10,4 +10,6 @@ class event_category extends Model
 
     protected $fillable = ['event_id','cat_id','created'];
 
+
+
 }
