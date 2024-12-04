@@ -58,7 +58,7 @@ class FourDWallpaperController extends Controller
             $wallpaper = FourDwallpaper::findOrFail($validated['id']);
             $wallpaper->wp_show = $validated['show'];
             $wallpaper->save();
-
+            flash()->success('Show status updated successfully.');
             return response()->json(['success' => true, 'message' => 'Show status updated successfully.']);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
@@ -78,7 +78,7 @@ class FourDWallpaperController extends Controller
             $wallpaper = FourDwallpaper::findOrFail($validated['id']);
             $wallpaper->featured = $validated['featured'];
             $wallpaper->save();
-
+            flash()->success('featured status updated successfully.');
             return response()->json(['success' => true, 'message' => 'featured status updated successfully.']);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
@@ -166,6 +166,7 @@ class FourDWallpaperController extends Controller
         }
         $wallpaper->fill($request->except(['mask', 'imgs', 'thumbPath', 'existing_masks', 'existing_images']));
         $wallpaper->save();
+        flash()->success('Wallpaper updated successfully.');
         return redirect()->back()->with('success', 'Wallpaper updated successfully.');
     }
     public function create()

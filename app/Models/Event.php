@@ -13,6 +13,6 @@ class Event extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Categories::class, 'category_event')->withTimestamps();
+        return $this->belongsToMany(Categories::class, 'category_event', 'event_id', 'category_id')->withTimestamps();
     }
 }

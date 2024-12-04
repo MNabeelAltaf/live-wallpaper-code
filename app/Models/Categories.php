@@ -21,6 +21,7 @@ class Categories extends Model
     }
     public function events()
     {
-        return $this->belongsToMany(Event::class, 'category_event')->withTimestamps();
+        return $this->belongsToMany(Event::class, 'category_event')
+            ->withTimestamps();
     }
 }
