@@ -19,7 +19,7 @@ class FourDwallpaper extends Model
         'bg_zoom_intensity',
         'background_rotation_xaxis',
         'background_rotation_yaxis',
-        'category_id',
+        'cat_id',
         'featured',
         'tags',
         'wp_show',

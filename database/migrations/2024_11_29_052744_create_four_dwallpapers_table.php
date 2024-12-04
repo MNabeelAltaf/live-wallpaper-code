@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('four_dwallpapers', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
+            $table->integer('cat_id');
             $table->text('thumbPath');
             $table->integer('no_of_layers');
             $table->integer('likes')->default(0);

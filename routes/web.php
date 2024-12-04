@@ -6,6 +6,7 @@ use App\Http\Controllers\StaticWallpaperController;
 use App\Http\Controllers\LiveWallpaperController;
 use App\Http\Controllers\ThreeDWallpaperController;
 use App\Http\Controllers\AddWallpaperController;
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\FourDWallpaperController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,7 +59,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/3d-wallpapers/update-show', [ThreeDWallpaperController::class, 'updateShow'])->name('3d_wallpapers.updateShow');
     Route::post('/3d-wallpapers/update-featured', [ThreeDWallpaperController::class, 'updateFeatured'])->name('3d_wallpapers.updateFeatured');
     Route::get('/3d-wallpapers/show-category-records', [ThreeDWallpaperController::class, 'showCategoryRecords'])->name('3d_wallpapers.showRecords');
-
+    
+    // 4d wallpapers routes
     Route::get('/4d-wallpapers', [FourDWallpaperController::class, 'index'])->name('4d_wallpapers.index');
     Route::post('/4d-wallpapers/update-show', [FourDWallpaperController::class, 'updateShow'])->name('4d_wallpapers.updateShow');
     Route::post('/4d-wallpapers/update-featured', [FourDWallpaperController::class, 'updateFeatured'])->name('4d_wallpapers.updateFeatured');
@@ -67,6 +69,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/4d-wallpapers/create', [FourDWallpaperController::class, 'create'])->name('4d_wallpapers.create');
     Route::put('/4d-wallpapers/{id}', [FourDWallpaperController::class, 'update'])->name('4d_wallpapers.update');
     Route::post('/4d-wallpapers/store', [FourDWallpaperController::class, 'store'])->name('4d_wallpapers.store');
+    
+    // events routes
+    Route::get('/events', [EventsController::class, 'index'])->name('events.index');
+    Route::get('/events/{id}/edit', [EventsController::class, 'edit']);
+    Route::post('/events/update', [EventsController::class, 'update'])->name('events.update');
+
 
     Route::post('/wallpaper-create',[AddWallpaperController::class, 'addWallpaper'])->name('create-wallpaper');
     Route::post('/wallpaper-edit',[AddWallpaperController::class, 'editWallpaper'])->name('edit-wallpaper');

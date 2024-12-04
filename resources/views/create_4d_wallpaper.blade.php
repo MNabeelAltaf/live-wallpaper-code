@@ -34,7 +34,7 @@
                                 <!-- Category -->
                                 <div class="mb-3">
                                     <label for="choices-single-default" class="form-label">Category</label>
-                                    <select class="form-control" data-trigger name="category_id"
+                                    <select class="form-control" data-trigger name="cat_id"
                                         id="choices-single-default">
                                         @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">
