@@ -24,6 +24,11 @@ class ThreeDWallpaper_Panel extends Model
         'featured',
     ];
 
-    public $timestamps = false;
+    public function category()
+    {
+        return $this->belongsTo(Categories::class, 'cat_id');
+    }
+
+
 
 }
