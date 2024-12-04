@@ -71,10 +71,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/4d-wallpapers/store', [FourDWallpaperController::class, 'store'])->name('4d_wallpapers.store');
     
     // events routes
+    Route::post('/events_update', [EventsController::class, 'update'])->name('events_update');
     Route::get('/events', [EventsController::class, 'index'])->name('events.index');
     Route::get('/events/{id}/edit', [EventsController::class, 'edit']);
-    Route::post('/events/update', [EventsController::class, 'update'])->name('events.update');
-
+    Route::post('/events/store', [EventsController::class, 'store'])->name('events.store');
+    Route::get('/events/{id}/delete', [EventsController::class, 'delete'])->name('events.delete');
 
     Route::post('/wallpaper-create',[AddWallpaperController::class, 'addWallpaper'])->name('create-wallpaper');
     Route::post('/wallpaper-edit',[AddWallpaperController::class, 'editWallpaper'])->name('edit-wallpaper');
