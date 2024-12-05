@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\LiveWallpapers_Panel;
 use App\Models\StaticWallpaper;
 use App\Models\ThreeDWallpaper_Panel;
+use App\Models\FourDwallpaper;
+
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function static_wallpaper(Request $request)
+    public function search_all_category_api(Request $request)
     {
         $searchValue = $request->query('search');
         if (!$searchValue) {
@@ -19,74 +21,111 @@ class SearchController extends Controller
                 'status' => false,
             ], 400);
         }
+
         $baseUrl = url('/');
+
+        // Static wallpapers
         $wallpapers = StaticWallpaper::where('hash_tags', 'LIKE', '%' . $searchValue . '%')
             ->with('category')
             ->get()
             ->map(function ($wallpaper) use ($baseUrl) {
-                $wallpaper->img_path = $baseUrl . '/storage/' . $wallpaper->img_path;
-                $wallpaper->thumb_path = $baseUrl . '/storage/' . $wallpaper->thumb_path;
-
-                if (!empty($wallpaper->blur_path)) {
-                    $wallpaper->blur_path = $baseUrl . '/storage/' . $wallpaper->blur_path;
-                }
-                if ($wallpaper->category) {
-                    $wallpaper->category = $wallpaper->category->name; // Get category name only
-                } else {
-                    $wallpaper->category = null;
-                }
-                unset($wallpaper->cat_id);
-                unset($wallpaper->created_at, $wallpaper->updated_at);
-                $wallpaper->Category = $wallpaper->category;
-                unset($wallpaper->category);
-                return $wallpaper;
+                return [
+                    'id' => (string) $wallpaper->id,
+                    'thumb_url' => $baseUrl . '/storage/' . $wallpaper->thumb_path,
+                    'blurPath' => $baseUrl . '/storage/' . $wallpaper->blur_path,
+                    'img_url' => $baseUrl . '/storage/' . $wallpaper->img_path,
+                    'likes' => (string) $wallpaper->likes,
+                    'Downloads' => (string) $wallpaper->downloads,
+                    'category' => $wallpaper->category ? $wallpaper->category->name : null,
+                ];
             });
 
-
-        if ($wallpapers->isEmpty()) {
-            return response()->json([
-                'message' => 'No Search Found.',
-                'status' => false,
-            ]);
-        }
-
-        return response()->json($wallpapers, 200, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
-    }
-
-    public function three_d_wallpaper(Request $request)
-    {
-        $searchValue = $request->query('search');
-        if (!$searchValue) {
-            return response()->json([
-                'message' => 'Search value is required.',
-                'status' => false,
-            ], 400);
-        }
-        $baseUrl = url('/');
-        $wallpapers = ThreeDWallpaper_Panel::where('hash_tags', 'LIKE', '%' . $searchValue . '%')
+        // Live wallpapers
+        $live_wallpapers = LiveWallpapers_Panel::where('hash_tags', 'LIKE', '%' . $searchValue . '%')
+            ->with('category')
             ->get()
             ->map(function ($wallpaper) use ($baseUrl) {
-                $wallpaper->zip = $baseUrl . '/storage/' . $wallpaper->zip_path;
-                $wallpaper->thumb_path = $baseUrl . '/storage/' . $wallpaper->thumb_path;
-                if (!empty($wallpaper->blur_path)) {
-                    $wallpaper->blur_path = $baseUrl . '/storage/' . $wallpaper->blur_path;
-                }
-                $zipFilePath = public_path('storage/' . $wallpaper->zip_path);
-                if (file_exists($zipFilePath)) {
-                    $wallpaper->size = number_format(filesize($zipFilePath) / 1048576, 2).'M';
-                } else {
-                    $wallpaper->size = 0; // If file doesn't exist, set size to 0
-                }
-                unset($wallpaper->zip_path, $wallpaper->category, $wallpaper->cat_id, $wallpaper->created_at, $wallpaper->updated_at, $wallpaper->Category);
-                return $wallpaper;
+                return [
+                    'id' => (string) $wallpaper->id,
+                    'thumb_url' => $baseUrl . '/storage/' . $wallpaper->thumb_path,
+                    'blurPath' => $baseUrl . '/storage/' . $wallpaper->blur_path,
+                    'img_url' => $baseUrl . '/storage/' . $wallpaper->video_path,
+                    'likes' => (string) $wallpaper->likes,
+                    'Downloads' => (string) $wallpaper->downloads,
+                    'Category' => $wallpaper->category ? $wallpaper->category->name : null,
+                ];
             });
-        if ($wallpapers->isEmpty()) {
-            return response()->json([
-                'message' => 'No Search Found.',
-                'status' => false,
-            ]);
-        }
 
-        return response()->json($wallpapers, 200, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        // 3D wallpapers
+        $three_d_wallpapers = ThreeDWallpaper_Panel::where('hash_tags', 'LIKE', '%' . $searchValue . '%')
+            ->with('category')
+            ->get()
+            ->map(function ($three_d_wallpaper) use ($baseUrl) {
+                return [
+                    'id' => (string) $three_d_wallpaper->id,
+                    'asset' => '3D',
+                    'thumb_url' => $baseUrl . '/storage/' . $three_d_wallpaper->thumb_path,
+                    'blurPath' => $baseUrl . '/storage/' . $three_d_wallpaper->blur_path,
+                    'zip' => $baseUrl . '/storage/' . $three_d_wallpaper->zip_path,
+                    'likes' => (string) $three_d_wallpaper->likes,
+                    'Downloads' => (string) $three_d_wallpaper->downloads,
+                    'Category' => $three_d_wallpaper->category ? $three_d_wallpaper->category->name : null,
+                    'size' => number_format(filesize(public_path('storage/' . $three_d_wallpaper->zip_path)) / 1048576, 2),
+                ];
+            });
+
+        // 4D wallpapers
+        $four_d_wallpapers = FourDwallpaper::where('tags', 'LIKE', '%' . $searchValue . '%')
+            ->with('category')
+            ->get()
+            ->map(function ($four_d_wallpaper) use ($baseUrl) {
+                return [
+                    'id' => (string) $four_d_wallpaper->id,
+                    'asset' => '4D',
+                    'uni' => $four_d_wallpaper->uni ?? 'N/A',
+                    'category_name' => $four_d_wallpaper->category ? $four_d_wallpaper->category->name : 'Uncategorized',
+                    'likes' => (string) $four_d_wallpaper->likes,
+                    'no_of_layers' => (string) $four_d_wallpaper->no_of_layers,
+                    'thumb_url' => $baseUrl . '/storage/' . $four_d_wallpaper->thumbPath,
+                    'Downloads' => (string) $four_d_wallpaper->downloads,
+                    'settings' => [
+                        [
+                            '_4d_effect' => $four_d_wallpaper->effect,
+                        ],
+                        [
+                            'bg_zoom_speed' => $four_d_wallpaper->bg_zoom_speed,
+                        ],
+                        [
+                            'bg_zoom_intensity' => $four_d_wallpaper->bg_zoom_intensity,
+                        ],
+                        [
+                            'background_rotation_xaxis' => $four_d_wallpaper->background_rotation_xaxis,
+                        ],
+                        [
+                            'background_rotation_yaxis' => $four_d_wallpaper->background_rotation_yaxis,
+                        ]
+                    ],
+                ];
+            });
+        $combined_wallpapers = $three_d_wallpapers->merge($four_d_wallpapers)->shuffle();
+        $response = [
+            [
+                'name' => 'live',
+                'layout' => 3,
+                'data' => $live_wallpapers->toArray(),
+            ],
+            [
+                'name' => 'static',
+                'layout' => 2,
+                'data' => $wallpapers->toArray(),
+            ],
+            [
+                'name' => '3D',
+                'layout' => 4,
+                'data' => $combined_wallpapers->toArray(),
+            ],
+        ];
+
+        return response()->json($response, 200, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 }
