@@ -107,7 +107,9 @@ class SearchController extends Controller
                     ],
                 ];
             });
-        $combined_wallpapers = $three_d_wallpapers->merge($four_d_wallpapers)->shuffle();
+        $combined_wallpapers = collect($three_d_wallpapers)
+            ->merge(collect($four_d_wallpapers))
+            ->shuffle();
         $response = [
             [
                 'name' => 'live',
