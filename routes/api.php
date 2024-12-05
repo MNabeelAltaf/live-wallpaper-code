@@ -20,5 +20,5 @@ Route::prefix('v2')->group(function () {
     Route::get('/like_static_wp', [LikesController::class, 'static_wallpaper']);
 
     // search apis
-    Route::get('/search_all_category_api', [SearchController::class, 'static_wallpaper']);
+    Route::get('/search_all_category_api', [SearchController::class, 'search_all_category_api']);
 });
