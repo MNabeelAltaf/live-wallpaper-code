@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\event_category as event;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
-use App\Models\Categories as ModelsCategories;
-use App\Models\StaticWallpaper;
+use App\Models\{
+    event_category as event,
+    Categories as ModelsCategories,
+    StaticWallpaper
+};
 use Illuminate\Http\Request;
 
 class StaticWallpaperController extends Controller

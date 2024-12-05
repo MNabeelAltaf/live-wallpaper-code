@@ -186,7 +186,6 @@ class AddWallpaperController extends Controller
         $featured_wp = $request->has('featured') ? 1 : 0;
         $tags = $request->tags;
 
-
         $category_id = $request->category_id;
         $cat_name = Categories::where('id', $category_id)->value('name');
 
@@ -210,12 +209,10 @@ class AddWallpaperController extends Controller
         }
 
 
-
         $categoryTable = LiveWallpapers_Panel::create([
             'video_path' => $videoPath,
             'thumb_path' => $thumbPath,
             'blur_path' => $live_blur_folder,
-            'category' => $cat_name,
             'cat_id' => $category_id,
             'likes' => 0,
             'downloads' => 0,

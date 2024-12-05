@@ -3,6 +3,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\event_category;
+
 
 class LiveWallpapers_Panel extends Model
 {
@@ -13,7 +15,6 @@ class LiveWallpapers_Panel extends Model
         'blur_path',
         'thumb_path',
         'video_path',
-        'category',
         'cat_id',
         'likes',
         'downloads',
@@ -34,6 +35,10 @@ class LiveWallpapers_Panel extends Model
     public function events()
     {
         return $this->belongsToMany(Event::class, 'category_event', 'category_id', 'event_id');
+    }
+
+    public function category_event(){
+        return $this->belongsTo(event_category::class, 'cat_id');
     }
 }
 

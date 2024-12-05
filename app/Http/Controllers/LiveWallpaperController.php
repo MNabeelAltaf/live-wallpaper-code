@@ -10,7 +10,8 @@ class LiveWallpaperController extends Controller
     public function index()
     {
         $categories = ModelsCategories::all();
-        $lwp_wallpapers = lwp_model::all();
+        $lwp_wallpapers = lwp_model::with('category')->get();
+
 
         $data = $lwp_wallpapers->map(function ($wallpaper) {
             return [
@@ -18,7 +19,7 @@ class LiveWallpaperController extends Controller
                 'blur_path' => $wallpaper->blur_path,
                 'thumb_path' => $wallpaper->thumb_path,
                 'video_path' => $wallpaper->video_path,
-                'category' => $wallpaper->category,
+                'category' => $wallpaper->category ? $wallpaper->category->name : '---',
                 'cat_id' => $wallpaper->cat_id,
                 'likes' => $wallpaper->likes,
                 'downloads' => $wallpaper->downloads,
