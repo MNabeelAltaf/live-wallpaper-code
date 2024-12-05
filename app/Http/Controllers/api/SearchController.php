@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function search_all_category_api(Request $request)
+    public function static_wallpaper(Request $request)
     {
         $searchValue = $request->query('search');
         if (!$searchValue) {
