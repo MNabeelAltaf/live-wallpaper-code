@@ -160,7 +160,6 @@ class AddWallpaperController extends Controller
             'blur_path' => $blurPath,
             'thumb_path' => $thumbPath,
             'zip_path' =>  $zipPath,
-            'category' => $cat_name,
             'cat_id' => $category_id,
             'likes' => 0,
             'downloads' => 0,

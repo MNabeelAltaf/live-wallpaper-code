@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\LiveWallpapers_Panel;
 use App\Models\StaticWallpaper;
@@ -31,9 +32,9 @@ class SearchController extends Controller
             ->map(function ($wallpaper) use ($baseUrl) {
                 return [
                     'id' => (string) $wallpaper->id,
-                    'thumb_url' => $baseUrl . '/storage/' . $wallpaper->thumb_path,
-                    'blurPath' => $baseUrl . '/storage/' . $wallpaper->blur_path,
-                    'img_url' => $baseUrl . '/storage/' . $wallpaper->img_path,
+                    'thumb_url' =>  url(Storage::url($wallpaper->thumb_path)),
+                    'blurPath' =>url(Storage::url($wallpaper->blur_path)),
+                    'img_url' => url(Storage::url( $wallpaper->img_path)),
                     'likes' => (string) $wallpaper->likes,
                     'Downloads' => (string) $wallpaper->downloads,
                     'category' => $wallpaper->category ? $wallpaper->category->name : null,
@@ -47,9 +48,9 @@ class SearchController extends Controller
             ->map(function ($wallpaper) use ($baseUrl) {
                 return [
                     'id' => (string) $wallpaper->id,
-                    'thumb_url' => $baseUrl . '/storage/' . $wallpaper->thumb_path,
-                    'blurPath' => $baseUrl . '/storage/' . $wallpaper->blur_path,
-                    'img_url' => $baseUrl . '/storage/' . $wallpaper->video_path,
+                    'thumb_url' => url(Storage::url($wallpaper->thumb_path)),
+                    'blurPath' => url(Storage::url($wallpaper->blur_path)),
+                    'img_url' => url(Storage::url( $wallpaper->video_path)),
                     'likes' => (string) $wallpaper->likes,
                     'Downloads' => (string) $wallpaper->downloads,
                     'Category' => $wallpaper->category ? $wallpaper->category->name : null,
@@ -64,9 +65,9 @@ class SearchController extends Controller
                 return [
                     'id' => (string) $three_d_wallpaper->id,
                     'asset' => '3D',
-                    'thumb_url' => $baseUrl . '/storage/' . $three_d_wallpaper->thumb_path,
-                    'blurPath' => $baseUrl . '/storage/' . $three_d_wallpaper->blur_path,
-                    'zip' => $baseUrl . '/storage/' . $three_d_wallpaper->zip_path,
+                    'thumb_url' => url(Storage::url($three_d_wallpaper->thumb_path)),
+                    'blurPath' => url(Storage::url($three_d_wallpaper->blur_path)),
+                    'zip' => url(Storage::url($three_d_wallpaper->zip_path)),
                     'likes' => (string) $three_d_wallpaper->likes,
                     'Downloads' => (string) $three_d_wallpaper->downloads,
                     'Category' => $three_d_wallpaper->category ? $three_d_wallpaper->category->name : null,
@@ -86,7 +87,7 @@ class SearchController extends Controller
                     'category_name' => $four_d_wallpaper->category ? $four_d_wallpaper->category->name : 'Uncategorized',
                     'likes' => (string) $four_d_wallpaper->likes,
                     'no_of_layers' => (string) $four_d_wallpaper->no_of_layers,
-                    'thumb_url' => $baseUrl . '/storage/' . $four_d_wallpaper->thumbPath,
+                    'thumb_url' => url(Storage::url($four_d_wallpaper->thumbPath)),
                     'Downloads' => (string) $four_d_wallpaper->downloads,
                     'settings' => [
                         [

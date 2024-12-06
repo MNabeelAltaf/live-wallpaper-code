@@ -24,6 +24,7 @@ class LiveWallpaperController extends Controller
 
             return [
                 'id' => (string) $wallpaper->id,
+                'cat_id'=> (string) $wallpaper->cat_id,
                 'cat_name' => $category ? $category->name : '',
                 'thumbPath' => url(Storage::url($wallpaper->thumb_path)),
                 'has_event' => $category && $category->events->isNotEmpty(),
@@ -101,7 +102,19 @@ class LiveWallpaperController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $single_cat_wlp = LiveWallpapers_Panel::where('cat_id', $id)->get()->map(function ($wallpaper) {
+            return [
+                'id' => (string) $wallpaper->id,
+                'blurPath' => url(Storage::url( $wallpaper->blur_path)),
+                'asset_type'=>'O',
+                'likes' => (string) $wallpaper->likes,
+                'downloads' => (string) $wallpaper->Downloads,
+                'thumbPath' => url(Storage::url($wallpaper->thumb_path)),
+                'img_path' => url(Storage::url($wallpaper->video_path)),
+            ];
+        });
+
+        return response()->json($single_cat_wlp);
     }
 
     /**

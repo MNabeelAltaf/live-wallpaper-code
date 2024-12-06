@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('hash_tags', 255);
             $table->integer('wp_show');
             $table->integer('featured');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
             $table->timestamps();
         });
     }
