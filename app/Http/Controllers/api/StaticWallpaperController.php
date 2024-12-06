@@ -41,13 +41,13 @@ class StaticWallpaperController extends Controller
 
         $response = [];
 
-        $first_item_wallpapers = $grouped_wallpapers->map(function ($wallpapers) {
+        $item_wallpapers = $grouped_wallpapers->map(function ($wallpapers) {
             return $wallpapers->first();
         })->values()->all();
 
         $response[] = [
             'viewType' => '1',
-            'wallpapers' => $first_item_wallpapers,
+            'wallpapers' => $item_wallpapers,
         ];
 
 
@@ -65,8 +65,8 @@ class StaticWallpaperController extends Controller
                     'category' => $category->name,
                     'cat_id' => (string) $wallpaper->cat_id,
                     'tags' => $wallpaper->hash_tags,
-                    'thumbPath' => url(Storage::url('Static_Wallpapers/' . $category->name . '/thumb/' . $wallpaper->thumb_path)),
-                    'img_path' => url(Storage::url('Static_Wallpapers/' . $category->name . '/wallpaper/' . $wallpaper->img_path)),
+                    'thumbPath' => url(Storage::url($wallpaper->thumb_path)),
+                    'img_path' => url(Storage::url($wallpaper->img_path)),
                 ];
             });
 

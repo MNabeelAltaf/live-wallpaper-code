@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\api;
+
 use Illuminate\Support\Facades\Storage;
 
 use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ use App\Models\{
     Categories as ModelsCategories,
     LiveWallpapers_Panel
 };
+
 class LiveWallpaperController extends Controller
 {
     /**
@@ -19,7 +21,6 @@ class LiveWallpaperController extends Controller
     {
         $live_wallpapers = LiveWallpapers_Panel::with('category.events')->get()->map(function ($wallpaper) {
             $category = $wallpaper->category;
-
 
             return [
                 'id' => (string) $wallpaper->id,
@@ -34,7 +35,49 @@ class LiveWallpaperController extends Controller
                 return $wallpaper;
             });
 
-        return response()->json($live_wallpapers);
+        $grouped_wallpapers = $live_wallpapers->groupBy('cat_name');
+
+        $response = [];
+
+        $item_wallpapers = $grouped_wallpapers->map(function ($wallpapers) {
+            return $wallpapers->first();
+        })->values()->all();
+
+        $response[] = [
+            'viewType' => '1',
+            'wallpapers' => $item_wallpapers,
+        ];
+
+        $categories = ModelsCategories::all();
+
+        foreach ($categories as $category) {
+            $category_wallpapers = LiveWallpapers_Panel::whereHas('category', function ($query) use ($category) {
+                $query->where('name', $category->name);
+            })->get()->map(function ($wallpaper) use ($category) {
+                return [
+                    'id' => (string) $wallpaper->id,
+                    'blurPath' => url(Storage::url('Live_Wallpapers/' . $category->name . '/blur/' . $wallpaper->blur_path)),
+                    'likes' => (string) $wallpaper->likes,
+                    'downloads' => (string) $wallpaper->downloads,
+                    'cat_name' => $category->name,
+                    'cat_id' => (string) $wallpaper->cat_id,
+                    'tags' => $wallpaper->hash_tags,
+                    'thumbPath' => url(Storage::url( $wallpaper->thumb_path)),
+                    'img_path' => url(Storage::url( $wallpaper->img_path)),
+                ];
+            });
+
+            if ($category_wallpapers->isNotEmpty()) {
+                $response[] = [
+                    'viewType' => '4',
+                    'wallpapers' => $category_wallpapers,
+                ];
+            }
+        }
+
+        return response()->json([
+            'response' => $response,
+        ]);
     }
 
     /**
