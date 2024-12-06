@@ -56,7 +56,7 @@ class LiveWallpaperController extends Controller
             })->get()->map(function ($wallpaper) use ($category) {
                 return [
                     'id' => (string) $wallpaper->id,
-                    'blurPath' => url(Storage::url('Live_Wallpapers/' . $category->name . '/blur/' . $wallpaper->blur_path)),
+                    'blurPath' => url(Storage::url( $wallpaper->blur_path)),
                     'likes' => (string) $wallpaper->likes,
                     'downloads' => (string) $wallpaper->downloads,
                     'cat_name' => $category->name,
