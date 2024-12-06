@@ -24,7 +24,7 @@ class StaticWallpaperController extends Controller
 
             return [
                 'id' => (string) $wallpaper->id,
-                'cat_id'=> $wallpaper->cat_id,
+                'cat_id'=> (string) $wallpaper->cat_id,
                 'cat_name' => $category ? $category->name : '',
                 'thumbPath' => url(Storage::url($wallpaper->thumb_path)),
                 'has_event' => $category && $category->events->isNotEmpty(),
