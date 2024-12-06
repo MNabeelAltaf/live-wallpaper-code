@@ -63,7 +63,7 @@ class LiveWallpaperController extends Controller
                     'cat_id' => (string) $wallpaper->cat_id,
                     'tags' => $wallpaper->hash_tags,
                     'thumbPath' => url(Storage::url( $wallpaper->thumb_path)),
-                    'img_path' => url(Storage::url( $wallpaper->img_path)),
+                    'img_path' => url(Storage::url( $wallpaper->video_path)),
                 ];
             });
 
