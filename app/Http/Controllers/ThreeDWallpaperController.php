@@ -13,13 +13,13 @@ class ThreeDWallpaperController extends Controller
     {
         $categories = ModelsCategories::all();
 
-        $wallpapers = threeD_table::all();
+        $wallpapers = threeD_table::with('category')->get();
 
         $data = $wallpapers->map(function ($wallpaper) {
             return [
                 'id' => $wallpaper->id,
                 'thumb_path' => $wallpaper->thumb_path,
-                'category' => $wallpaper->category,
+                'category' => $wallpaper->category->name,
                 'likes' => $wallpaper->likes,
                 'downloads' => $wallpaper->downloads,
                 'hash_tags' => $wallpaper->hash_tags,

@@ -14,7 +14,6 @@ class ThreeDWallpaper_Panel extends Model
         'blur_path',
         'thumb_path',
         'zip_path',
-        'category',
         'cat_id',
         'likes',
         'downloads',

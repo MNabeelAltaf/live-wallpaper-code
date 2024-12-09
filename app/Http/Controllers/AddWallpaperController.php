@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use App\Models\Categories;
 use App\Models\LiveWallpapers_Panel;
 use App\Models\StaticWallpaper;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 
 class AddWallpaperController extends Controller
 {
+    // add + edit  wallpaper controller
     public function addWallpaper(Request $request)
     {
 
@@ -322,60 +324,132 @@ class AddWallpaperController extends Controller
     public function edit_3d_wallpaper($request)
     {
 
+
+        // Validate the request
         $validated = $request->validate([
             'zip' => 'mimes:zip|max:10240',
             'blur' => 'mimes:jpeg,jpg,png,gif,webp|max:2048',
             'thumbnail' => 'mimes:jpeg,jpg,png,gif,webp|max:2048',
             'tags' => 'required|string',
             'wallpaper_type' => 'required|string',
-            'cat_id' => 'required',
+            'category_id' => 'required',
         ]);
 
 
-        $wallpaper = ThreeDWallpaper_Panel::findOrFail($request->cat_id);
+        $wallpaper = ThreeDWallpaper_Panel::findOrFail($request->wlp_id);
 
-        $cat_name = $request->category;
+        $old_category = ModelsCategories::where('id', $wallpaper->cat_id)->first();
+        $category = ModelsCategories::where('id', $request->category_id)->first();
 
-        // Define folder paths
-        $threeD_blur_folder = '3D_Wallpapers/' . $cat_name . '/blur';
-        $threeD_thumb_folder = '3D_Wallpapers/' . $cat_name . '/thumb';
-        $threeD_zip_folder = '3D_Wallpapers/' . $cat_name . '/zip';
+        $old_cat_id = $wallpaper->cat_id;
+        $new_cat_id = $request->category_id;
 
-        // Handle file uploads
+
+
+        $cate_id = null;
+
+        // Old and new category names
+        $cat_name = $old_category->name;
+        $new_cat_name = $category->name;
+
+
+
+        // Define folder paths for old and new categories
+        $threeD_blur_folder = '3D_Wallpapers/' . $new_cat_name . '/blur';
+        $threeD_thumb_folder = '3D_Wallpapers/' . $new_cat_name . '/thumb';
+        $threeD_zip_folder = '3D_Wallpapers/' . $new_cat_name . '/zip';
+
+        // ZIP file
         if ($request->hasFile('zip')) {
             $zip_file = $request->file('zip');
-            $zipName = $cat_name . '_' . uniqid() . '_' . $zip_file->getClientOriginalName();
+            $zipName = $new_cat_name . '_' . uniqid() . '_' . $zip_file->getClientOriginalName();
             $zipPath = $zip_file->storeAs($threeD_zip_folder, $zipName, 'public');
         } else {
-            $zipPath = $wallpaper->zip_path;
+            // if category changed
+            if ($cat_name !== $new_cat_name) {
+                $old_threeD_Path = storage_path('app/public/' . $wallpaper->zip_path);
+                $new_threeD_Path = $threeD_zip_folder . '/' . basename($wallpaper->zip_path);
+
+                if (!file_exists(storage_path('app/public/' . $threeD_zip_folder))) {
+                    mkdir(storage_path('app/public/' . $threeD_zip_folder), 0755, true);
+                }
+                if (file_exists($old_threeD_Path)) {
+                    rename($old_threeD_Path, storage_path('app/public/' . $new_threeD_Path));
+                }
+                $cate_id = $new_cat_id;
+                $zipPath = $new_threeD_Path;
+            } else {
+                // if category has not changed
+                $cate_id = $old_cat_id;
+                $zipPath = $wallpaper->zip_path;
+            }
         }
 
+        // Thumbnail file
         if ($request->hasFile('thumbnail')) {
             $thumb_file = $request->file('thumbnail');
-            $thumbName = $cat_name . '_' . uniqid() . '_' . $thumb_file->getClientOriginalName();
+            $thumbName = $new_cat_name . '_' . uniqid() . '_' . $thumb_file->getClientOriginalName();
             $thumbPath = $thumb_file->storeAs($threeD_thumb_folder, $thumbName, 'public');
         } else {
-            $thumbPath = $wallpaper->thumb_path;
+            // if category has  changed
+            if ($cat_name !== $new_cat_name) {
+                $old_thumb_Path = storage_path('app/public/' . $wallpaper->thumb_path);
+                $new_thumb_Path = $threeD_thumb_folder . '/' . basename($wallpaper->thumb_path);
+
+                if (!file_exists(storage_path('app/public/' . $threeD_thumb_folder))) {
+                    mkdir(storage_path('app/public/' . $threeD_thumb_folder), 0755, true);
+                }
+                if (file_exists($old_thumb_Path)) {
+                    rename($old_thumb_Path, storage_path('app/public/' . $new_thumb_Path));
+                }
+                $cate_id = $new_cat_id;
+                $thumbPath = $new_thumb_Path;
+            } else {
+                // if category has not changed
+                $cate_id = $old_cat_id;
+                $thumbPath = $wallpaper->thumb_path;
+            }
         }
 
+        // Blur file
         if ($request->hasFile('blur')) {
             $blur_file = $request->file('blur');
-            $blurName = $cat_name . '_' . uniqid() . '_' . $blur_file->getClientOriginalName();
+            $blurName = $new_cat_name . '_' . uniqid() . '_' . $blur_file->getClientOriginalName();
             $blurPath = $blur_file->storeAs($threeD_blur_folder, $blurName, 'public');
         } else {
-            $blurPath = $wallpaper->blur_path;
+            // if category has  changed
+            if ($cat_name !== $new_cat_name) {
+                $old_blur_Path = storage_path('app/public/' . $wallpaper->blur_path);
+                $new_blur_Path = $threeD_blur_folder . '/' . basename($wallpaper->blur_path);
+
+                if (!file_exists(storage_path('app/public/' . $threeD_blur_folder))) {
+                    mkdir(storage_path('app/public/' . $threeD_blur_folder), 0755, true);
+                }
+                if (file_exists($old_blur_Path)) {
+                    rename($old_blur_Path, storage_path('app/public/' . $new_blur_Path));
+                }
+                $cate_id = $new_cat_id;
+                $blurPath = $new_blur_Path;
+            } else {
+                // if category has not changed
+                $cate_id = $old_cat_id;
+                $blurPath = $wallpaper->blur_path;
+            }
         }
 
+
+        // Update the wallpaper with the new paths
         $updated = $wallpaper->update([
             'blur_path' => $blurPath,
             'thumb_path' => $thumbPath,
             'zip_path' => $zipPath,
-            'category' => $request->category,
+            'cat_id' => $cate_id == null ? $request->category_id : $cate_id,
             'hash_tags' => $request->tags,
             'wp_show' => $request->has('show') ? 1 : 0,
             'featured' => $request->has('featured') ? 1 : 0,
         ]);
 
+        // Return response
         if ($updated) {
             return true;
         } else {

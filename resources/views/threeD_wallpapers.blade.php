@@ -88,7 +88,7 @@
                 `);
                     }
                 },
-                // 'Category',
+                'Category',
                 'likes',
                 'downloads',
                 {

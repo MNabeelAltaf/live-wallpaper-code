@@ -150,10 +150,10 @@
                                     <div class="mb-3">
                                         <label for="choices-single-default" class="form-label">Category</label>
                                         <div class="mb-3">
-                                            <select class="form-control" name="category"
+                                            <select class="form-control" name="category_id"
                                                 id="choices-single-no-sorting">
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->name }}"
+                                                    <option value="{{ $category->id }}"
                                                         {{ $data->cat_id == $category->id ? 'selected' : '' }}>
                                                         {{ $category->name }}
                                                     </option>
@@ -218,7 +218,7 @@
                                         <div class="col-md-10"></div>
 
                                     </div>
-                                    <input type="hidden" name="cat_id" value="{{ $data->id }}">
+                                    <input type="hidden" name="wlp_id" value="{{ $data->id }}">
                                     <input type="hidden" name="wallpaper_type" value="3d">
                                     <button class="btn btn-primary mt-5" type="submit">Edit</button>
                                 </form>
