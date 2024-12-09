@@ -26,7 +26,15 @@ class FourDwallpaper extends Model
     ];
     public function category()
     {
-        return $this->belongsTo(Categories::class);
+        return $this->belongsTo(Categories::class, 'cat_id');
+    }
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'category_event', 'cat_id', 'event_id');
+    }
+    public function category_event()
+    {
+        return $this->belongsTo(event_category::class, 'cat_id');
     }
     // Relationship with Masks
     public function masks()
@@ -38,8 +46,5 @@ class FourDwallpaper extends Model
     public function images()
     {
         return $this->hasMany(FourDImages::class, 'wallpaper_id');
-    }
-    public function events(){
-        return $this->belongsTo(event::class, 'cat_id');
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\api\{
     SearchController,
     StaticWallpaperController as apiStaticWallpaperController,
     LiveWallpaperController as apiLiveWallpaperController,
+    threeD_fourD_wallpaper as apiThreeFourDController,
 };
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,7 @@ Route::prefix('v2')->group(function () {
 
     Route::resource('static-wallpaper', apiStaticWallpaperController::class);
     Route::resource('live-wallpaper', apiLiveWallpaperController::class);
+    Route::resource('three-four-d-wallpaper', apiThreeFourDController::class);
 
 
     Route::get('/static_download_wp', [DownloadsController::class, 'static_wallpaper']);
