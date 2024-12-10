@@ -82,8 +82,7 @@ class threeD_fourD_wallpaper extends Controller
             "wallpapers" => $three_four_d_wlp,
         ];
 
-        $all_three_four_d_wlp = $three_d_wlp->merge($four_d_wlp);
-
+        $all_three_four_d_wlp = $three_d_wlp->merge($four_d_wlp)->shuffle();
 
 
         foreach ($all_three_four_d_wlp as $wallpaper) {

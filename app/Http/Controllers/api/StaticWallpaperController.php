@@ -72,6 +72,8 @@ class StaticWallpaperController extends Controller
             });
 
 
+            $category_wallpapers = $category_wallpapers->shuffle();
+
             if ($category_wallpapers->isNotEmpty()) {
                 $response[] = [
                     'viewType' => '4',
