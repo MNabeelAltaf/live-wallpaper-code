@@ -47,7 +47,7 @@ class threeD_fourD_wallpaper extends Controller
         })->values()->all();
 
         $response[] = [
-            "viewType"=>"1",
+            "viewType" => "1",
             "category" => "Categories",
             'wallpapers' => $item_wallpapers,
         ];
@@ -63,7 +63,7 @@ class threeD_fourD_wallpaper extends Controller
         $trending_wlp = $three_d_featured_wlp->merge($four_d_featured_wlp);
 
         $response[] = [
-            "viewType"=>"3",
+            "viewType" => "3",
             "category" => "Featured",
             "wallpapers" => $trending_wlp,
         ];
@@ -77,19 +77,36 @@ class threeD_fourD_wallpaper extends Controller
         $three_four_d_wlp = $three_d_wlp->merge($four_d_wlp)->shuffle()->take(3);
 
         $response[] = [
-            "viewType"=>"4",
+            "viewType" => "4",
             "category" => "Trending",
             "wallpapers" => $three_four_d_wlp,
         ];
 
         $all_three_four_d_wlp = $three_d_wlp->merge($four_d_wlp);
 
+
+
         foreach ($all_three_four_d_wlp as $wallpaper) {
+            // Check if $wallpaper is an object
             $response[] = [
                 "viewType" => "4",
-                "wallpapers" => [$wallpaper],
+                "wallpapers" => [
+                    [
+                        "id" => (string)$wallpaper['id'],
+                        "asset" => $wallpaper['asset'] ?? '',
+                        "category_name" => $wallpaper['category_name'] ?? '',
+                        "blurPath" => url(Storage::url($wallpaper['blurPath'] ?? '')),  // Null handling for optional properties
+                        "zip" => url(Storage::url($wallpaper['zip'] ?? '')),
+                        "thumbPath" => url(Storage::url($wallpaper['thumbPath'] ?? '')),
+                        "downloads" => (string)$wallpaper['downloads'],
+                        "likes" => (string)$wallpaper['likes'],
+                    ]
+                ],
             ];
         }
+
+
+
 
 
 
