@@ -375,32 +375,32 @@
 						<div class="carousel" data-slide="4" data-slide-res="2" data-autoplay="true" data-nav="false" data-dots="false" data-space="30" data-loop="true" data-speed="1000">
 							<!-- screenshot #1 -->
 							<div class="screenshot">
-								<img class="center-block" src="assets/images/screenshots/1.jpg" alt="client">
+								<img class="center-block" src="{{ asset('assets2/images/screenshots/1.jpg') }}" alt="client">
 							</div>
 
 							<!-- screenshot #2 -->
 							<div class="screenshot">
-								<img class="center-block" src="assets/images/screenshots/2.jpg" alt="client">
+								<img class="center-block" src="{{ asset('assets2/images/screenshots/2.jpg') }}" alt="client">
 							</div>
 
 							<!-- screenshot #3 -->
 							<div class="screenshot">
-								<img class="center-block" src="assets/images/screenshots/3.jpg" alt="client">
+								<img class="center-block" src="{{ asset('assets2/images/screenshots/3.jpg') }}" alt="client">
 							</div>
 
 							<!-- screenshot #4 -->
 							<div class="screenshot">
-								<img class="center-block" src="assets/images/screenshots/4.jpg" alt="client">
+								<img class="center-block" src="{{ asset('assets2/images/screenshots/4.jpg') }}" alt="client">
 							</div>
 
 							<!-- screenshot #5 -->
 							<div class="screenshot">
-								<img class="center-block" src="assets/images/screenshots/3.jpg" alt="clclientient">
+								<img class="center-block" src="{{ asset('assets2/images/screenshots/3.jpg') }}" alt="clclientient">
 							</div>
 
 							<!-- screenshot #6 -->
 							<div class="screenshot">
-								<img class="center-block" src="assets/images/screenshots/2.jpg" alt="screenshot">
+								<img class="center-block" src="{{ asset('assets2/images/screenshots/2.jpg') }}" alt="screenshot">
 							</div>
 						</div>
 					</div>
@@ -504,7 +504,7 @@
 		============================================= -->
 		<section id="pricing" class="section pricing pricing-1 bg-overlay bg-overlay-dark bg-parallex">
 			<div class="bg-section">
-				<img src="assets/images/background/bg-4.jpg" alt="background">
+				<img src="{{ asset('assets2/images/background/bg-4.jpg') }}" alt="background">
 			</div>
 			<div class="container">
 				<div class="row clearfix">
@@ -608,8 +608,8 @@
 				<!-- .row end -->
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 mb-100 wow fadeInUp" data-wow-duration="1s">
-						<a class="btn-hover" href="#"><img src="assets/images/appstore.png" alt="download appstore"></a>
-						<a class="btn-hover" href="#"><img src="assets/images/playstore.png" alt="download playstore"></a>
+						<a class="btn-hover" href="#"><img src="{{ asset('assets2/images/appstore.png') }}" alt="download appstore"></a>
+						<a class="btn-hover" href="#"><img src="{{ asset('assets2/images/playstore.png') }}" alt="download playstore"></a>
 					</div>
 					<!-- .col-md-12 end -->
 					<div class="col-xs-12 col-sm-12 col-md-12 wow fadeInUp" data-wow-duration="1s">
@@ -627,7 +627,7 @@
 		============================================= -->
 		<section id="newsletter" class="section newsletter text-center bg-overlay bg-overlay-dark">
 			<div class="bg-section">
-				<img src="assets/images/background/bg-3.jpg" alt="Background"/>
+				<img src="{{ asset('assets2/images/background/bg-3.jpg') }}" alt="Background"/>
 			</div>
 			<div class="container">
 				<div class="row clearfix">

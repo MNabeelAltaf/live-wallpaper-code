@@ -77,7 +77,7 @@ class threeD_fourD_wallpaper extends Controller
         $three_four_d_wlp = $three_d_wlp->merge($four_d_wlp)->shuffle()->take(3);
 
         $response[] = [
-            "viewType" => "3",
+            "viewType" => "4",
             "category" => "Trending",
             "wallpapers" => $three_four_d_wlp,
         ];
@@ -95,7 +95,7 @@ class threeD_fourD_wallpaper extends Controller
                         "id" => (string)$wallpaper['id'],
                         "asset" => $wallpaper['asset'] ?? '',
                         "category_name" => $wallpaper['category_name'] ?? '',
-                        "blurPath" => $wallpaper['blurPath'] ?? '',  // Null handling for optional properties
+                        "blurPath" => $wallpaper['blurPath'] ?? '',
                         "zip" => $wallpaper['zip'] ?? '',
                         "thumbPath" => $wallpaper['thumbPath'] ?? '',
                         "downloads" => (string)$wallpaper['downloads'],
