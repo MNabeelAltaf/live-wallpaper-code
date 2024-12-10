@@ -20,71 +20,6 @@ class threeD_fourD_wallpaper extends Controller
     {
 
         $baseUrl = url('/');
-        // 3D wallpapers
-        // $three_d_wallpapers = threeD_table::with('category')
-        //     ->get()
-        //     ->map(function ($three_d_wallpaper) use ($baseUrl) {
-        //         return [
-        //             'id' => (string) $three_d_wallpaper->id,
-        //             'asset' => '3D',
-        //             'thumb_url' => url(Storage::url($three_d_wallpaper->thumb_path)),
-        //             'blurPath' => url(Storage::url($three_d_wallpaper->blur_path)),
-        //             'zip' => url(Storage::url($three_d_wallpaper->zip_path)),
-        //             'likes' => (string) $three_d_wallpaper->likes,
-        //             'Downloads' => (string) $three_d_wallpaper->downloads,
-        //             'Category' => $three_d_wallpaper->category ? $three_d_wallpaper->category->name : null,
-        //             'size' => number_format(filesize(public_path('storage/' . $three_d_wallpaper->zip_path)) / 1048576, 2),
-        //         ];
-        //     });
-
-        // // 4D wallpapers
-        // $four_d_wallpapers = fourD_table::with('category')
-        //     ->get()
-        //     ->map(function ($four_d_wallpaper) use ($baseUrl) {
-        //         return [
-        //             'id' => (string) $four_d_wallpaper->id,
-        //             'asset' => '4D',
-        //             'uni' => $four_d_wallpaper->uni ?? 'N/A',
-        //             'category_name' => $four_d_wallpaper->category ? $four_d_wallpaper->category->name : 'Uncategorized',
-        //             'likes' => (string) $four_d_wallpaper->likes,
-        //             'no_of_layers' => (string) $four_d_wallpaper->no_of_layers,
-        //             'thumb_url' => url(Storage::url($four_d_wallpaper->thumbPath)),
-        //             'Downloads' => (string) $four_d_wallpaper->downloads,
-        //             'settings' => [
-        //                 [
-        //                     '_4d_effect' => $four_d_wallpaper->effect,
-        //                 ],
-        //                 [
-        //                     'bg_zoom_speed' => $four_d_wallpaper->bg_zoom_speed,
-        //                 ],
-        //                 [
-        //                     'bg_zoom_intensity' => $four_d_wallpaper->bg_zoom_intensity,
-        //                 ],
-        //                 [
-        //                     'background_rotation_xaxis' => $four_d_wallpaper->background_rotation_xaxis,
-        //                 ],
-        //                 [
-        //                     'background_rotation_yaxis' => $four_d_wallpaper->background_rotation_yaxis,
-        //                 ]
-        //             ],
-        //         ];
-        //     });
-        // $combined_wallpapers = collect($three_d_wallpapers)
-        //     ->merge(collect($four_d_wallpapers))
-        //     ->shuffle();
-        // $response = [
-        //     [
-        //         'name' => '3D',
-        //         'layout' => 4,
-        //         'data' => $combined_wallpapers->toArray(),
-        //     ],
-        // ];
-
-        // return response()->json($response, 200, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
-
-
-
-
         // category wlp
         $category_wallpapers = threeD_table::with('category.events')->get()->map(function ($wallpaper) {
             $category = $wallpaper->category;
@@ -132,7 +67,7 @@ class threeD_fourD_wallpaper extends Controller
         ];
 
 
-        // get trending wallpaper
+        // trending wallpaper
         $three_d_wlp = $this->get_3d_wlp();
         $four_d_wlp = $this->get_4d_wlp();
 
