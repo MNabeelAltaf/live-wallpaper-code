@@ -95,9 +95,9 @@ class threeD_fourD_wallpaper extends Controller
                         "id" => (string)$wallpaper['id'],
                         "asset" => $wallpaper['asset'] ?? '',
                         "category_name" => $wallpaper['category_name'] ?? '',
-                        "blurPath" => url(Storage::url($wallpaper['blurPath'] ?? '')),  // Null handling for optional properties
-                        "zip" => url(Storage::url($wallpaper['zip'] ?? '')),
-                        "thumbPath" => url(Storage::url($wallpaper['thumbPath'] ?? '')),
+                        "blurPath" => $wallpaper['blurPath'] ?? '',  // Null handling for optional properties
+                        "zip" => $wallpaper['zip'] ?? '',
+                        "thumbPath" => $wallpaper['thumbPath'] ?? '',
                         "downloads" => (string)$wallpaper['downloads'],
                         "likes" => (string)$wallpaper['likes'],
                     ]

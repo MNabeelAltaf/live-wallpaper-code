@@ -69,8 +69,8 @@
 							<span class="icon-bar"></span>
 						</button>
 						<a class="logo" href="index.html">
-							<img class="logo-dark" src="assets/images/logo/logo-dark.png" alt="appy Logo">
-							<img class="logo-light" src="assets/images/logo/logo-light.png" alt="appy Logo">
+							<img class="logo-dark" src="{{ asset('assets2/images/logo/logo-dark.png') }}" alt="appy Logo">
+							<img class="logo-light" src="{{ asset('assets2/images/logo/logo-light.png') }}" alt="appy Logo">
 						</a>
 					</div>
 					<div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
@@ -101,13 +101,13 @@
 		<section id="slider" class="section slider">
 			<div class="slide--item bg-overlay bg-overlay-dark">
 				<div class="bg-section">
-					<img src="assets/images/background/bg-1.jpg" alt="background">
+					<img src="{{ asset('assets2/images/background/bg-1.jpg') }}" alt="background">
 				</div>
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<div class="slide--logo mt-100 hidden-xs wow fadeInUp" data-wow-duration="1s">
-								<img src="assets/images/logo/logo-light.png" alt="logo hero">
+								<img src="{{ asset('assets2/images/logo/logo-light.png') }}" alt="logo hero">
 							</div>
 						</div>
 					</div>
@@ -130,7 +130,7 @@
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 wow fadeInUp" data-wow-duration="1s">
-							<img class="img-responsive pull-right" src="assets/images/mockup/iphone-7-black.png" alt="screens">
+							<img class="img-responsive pull-right" src="{{ asset('assets2/images/mockup/iphone-7-black.png') }}" alt="screens">
 						</div>
 					</div>
 					<!-- .row end -->
@@ -271,7 +271,7 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<div class="center-block text-center mb-100 wow fadeInUp" data-wow-duration="1s">
-							<img src="assets/images/mockup/iphone.png" alt="screenshots">
+							<img src="{{ asset('assets2/images/mockup/iphone.png') }}" alt="screenshots">
 						</div>
 					</div>
 				</div>
@@ -332,7 +332,7 @@
 		============================================= -->
 		<section id="video" class="section video bg-overlay bg-overlay-dark bg-parallex">
 			<div class="bg-section">
-				<img src="assets/images/background/bg-2.jpg" alt="background">
+				<img src="{{ asset('assets2/images/background/bg-2.jpg') }}" alt="background">
 			</div>
 			<div class="container">
 				<div class="row clearfix">
