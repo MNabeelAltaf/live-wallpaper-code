@@ -77,7 +77,7 @@ class threeD_fourD_wallpaper extends Controller
         $three_four_d_wlp = $three_d_wlp->merge($four_d_wlp)->shuffle()->take(3);
 
         $response[] = [
-            "viewType" => "4",
+            "viewType" => "3",
             "category" => "Trending",
             "wallpapers" => $three_four_d_wlp,
         ];
@@ -87,7 +87,7 @@ class threeD_fourD_wallpaper extends Controller
 
 
         foreach ($all_three_four_d_wlp as $wallpaper) {
-            // Check if $wallpaper is an object
+
             $response[] = [
                 "viewType" => "4",
                 "wallpapers" => [
@@ -104,10 +104,6 @@ class threeD_fourD_wallpaper extends Controller
                 ],
             ];
         }
-
-
-
-
 
 
         return response()->json([

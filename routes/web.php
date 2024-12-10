@@ -1,20 +1,29 @@
 <?php
 
-use App\Http\Controllers\Categories;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StaticWallpaperController;
-use App\Http\Controllers\LiveWallpaperController;
-use App\Http\Controllers\ThreeDWallpaperController;
-use App\Http\Controllers\AddWallpaperController;
-use App\Http\Controllers\EventsController;
-use App\Http\Controllers\FourDWallpaperController;
+
+use App\Http\Controllers\{
+    Categories,
+    ProfileController,
+    StaticWallpaperController,
+    LiveWallpaperController,
+    ThreeDWallpaperController,
+    AddWallpaperController,
+    EventsController,
+    FourDWallpaperController,
+};
+use App\Http\Controllers\page\StaticPageController;
+
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
 Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/login', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -59,7 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/3d-wallpapers/update-show', [ThreeDWallpaperController::class, 'updateShow'])->name('3d_wallpapers.updateShow');
     Route::post('/3d-wallpapers/update-featured', [ThreeDWallpaperController::class, 'updateFeatured'])->name('3d_wallpapers.updateFeatured');
     Route::get('/3d-wallpapers/show-category-records', [ThreeDWallpaperController::class, 'showCategoryRecords'])->name('3d_wallpapers.showRecords');
-    
+
     // 4d wallpapers routes
     Route::get('/4d-wallpapers', [FourDWallpaperController::class, 'index'])->name('4d_wallpapers.index');
     Route::post('/4d-wallpapers/update-show', [FourDWallpaperController::class, 'updateShow'])->name('4d_wallpapers.updateShow');
@@ -69,7 +78,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/4d-wallpapers/create', [FourDWallpaperController::class, 'create'])->name('4d_wallpapers.create');
     Route::put('/4d-wallpapers/{id}', [FourDWallpaperController::class, 'update'])->name('4d_wallpapers.update');
     Route::post('/4d-wallpapers/store', [FourDWallpaperController::class, 'store'])->name('4d_wallpapers.store');
-    
+
     // events routes
     Route::post('/events_update', [EventsController::class, 'update'])->name('events_update');
     Route::get('/events', [EventsController::class, 'index'])->name('events.index');
@@ -81,5 +90,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/wallpaper-edit',[AddWallpaperController::class, 'editWallpaper'])->name('edit-wallpaper');
 
 });
+
+
+// static page routes
+Route::get('/',[StaticPageController::class, 'index'])->name('index');
+
+
+
 
 require __DIR__.'/auth.php';
