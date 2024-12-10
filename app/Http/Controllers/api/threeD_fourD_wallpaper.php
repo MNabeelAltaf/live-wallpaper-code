@@ -86,7 +86,7 @@ class threeD_fourD_wallpaper extends Controller
 
         foreach ($all_three_four_d_wlp as $wallpaper) {
             $response[] = [
-                "viewType" => "3",
+                "viewType" => "4",
                 "wallpapers" => [$wallpaper],
             ];
         }
