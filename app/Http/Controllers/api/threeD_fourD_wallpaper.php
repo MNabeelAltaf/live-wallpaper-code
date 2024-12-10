@@ -72,12 +72,18 @@ class threeD_fourD_wallpaper extends Controller
         $four_d_wlp = $this->get_4d_wlp();
 
 
-        $three_foud_d_wlp = $three_d_wlp->merge($four_d_wlp);
+        $three_four_d_wlp = $three_d_wlp->merge($four_d_wlp)->shuffle()->take(3);
 
         $response[] = [
             "category" => "Trending",
-            "wallpapers" => $three_foud_d_wlp,
+            "wallpapers" => $three_four_d_wlp,
         ];
+
+        $all_three_four_d_wlp = $three_d_wlp->merge($four_d_wlp);
+
+        foreach ($all_three_four_d_wlp as $wallpaper) {
+            $response[] = $wallpaper;
+        }
 
         return response()->json([
             'response' => $response
