@@ -87,6 +87,7 @@ class threeD_fourD_wallpaper extends Controller
 
         return response()->json([
             'response' => $response
+
         ]);
     }
 
