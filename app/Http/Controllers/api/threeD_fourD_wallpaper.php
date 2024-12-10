@@ -136,12 +136,13 @@ class threeD_fourD_wallpaper extends Controller
         $three_d_wlp = $this->get_3d_wlp();
         $four_d_wlp = $this->get_4d_wlp();
 
-        $three_four_d_wlp = $three_d_wlp->merge($four_d_wlp);
 
+        $three_foud_d_wlp = $three_d_wlp->merge($four_d_wlp);
 
-        foreach ($three_four_d_wlp as $wallpaper) {
-            $response[] = $wallpaper;
-        }
+        $response[] = [
+            "category" => "Trending",
+            "wallpapers" => $three_foud_d_wlp,
+        ];
 
         return response()->json([
             'response' => $response
