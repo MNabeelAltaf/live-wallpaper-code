@@ -85,7 +85,6 @@
 							</li>
 							<li><a data-scroll="scrollTo" href="#reviews">reviews</a>
 							</li>
-							<li><a data-scroll="scrollTo" href="#pricing">pricing</a>
 							</li>
 							<li><a data-scroll="scrollTo" href="#cta">download</a>
 							</li>
@@ -147,8 +146,8 @@
 				<div class="row clearfix">
 					<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 						<div class="heading heading-1 mb-80 text--center wow fadeInUp" data-wow-duration="1s">
-							<h2 class="heading--title">Headline of benefits</h2>
-							<p class="heading--desc">we shows only the best websites, portfolios ans landing pages built completely with passion, simplicity & creativity !</p>
+							<h2 class="heading--title">3D Live Wallpapers Overview</h2>
+							<p class="heading--desc">Elevate your phone screen with moving wallpapers that allow you to make your own wallpaper choice in the 4d wallpaper live free app.</p>
 						</div>
 					</div>
 					<!-- .col-md-6 end -->
@@ -162,8 +161,8 @@
 								<i class="lnr lnr-users"></i>
 							</div>
 							<div class="feature--content">
-								<h3>Stay Connected</h3>
-								<p>Appy impresses you with fully responsiveness and highly customization. We did it in combination of very clean and flexible design.</p>
+								<h3>Stunning 4D live wallpaper</h3>
+								<p>Enjoy captivating app wallpaper themes that bring fun and fit your style in changing cool wallpapers with a 4D wallpaper live free app.</p>
 							</div>
 						</div>
 						<!-- .feature-panel end -->
@@ -177,8 +176,8 @@
 								<i class="lnr lnr-cog"></i>
 							</div>
 							<div class="feature--content">
-								<h3>Easy Unlock</h3>
-								<p>Appy impresses you with fully responsiveness and highly customization. We did it in combination of very clean and flexible design.</p>
+								<h3>Add Gallery Wallpapers</h3>
+								<p>You can make your screen exciting by your own visuals or favorite memories adding it manually from your gallery in a homescreen theme free app.</p>
 							</div>
 						</div>
 						<!-- .feature-panel end -->
@@ -192,8 +191,8 @@
 								<i class="lnr lnr-lock"></i>
 							</div>
 							<div class="feature--content">
-								<h3>Secure Data</h3>
-								<p>Appy impresses you with fully responsiveness and highly customization. We did it in combination of very clean and flexible design.</p>
+								<h3>Dynamic Wallpapers for Every Mood</h3>
+								<p>Whether you are into 3D wallpapers, 4D wallpapers, supercars, space adventure or animated wallpaper you got everything in the uhd wallpaper app.</p>
 							</div>
 						</div>
 						<!-- .feature-panel end -->
@@ -209,8 +208,8 @@
 								<i class="lnr lnr-clock"></i>
 							</div>
 							<div class="feature--content">
-								<h3>Save Your Time</h3>
-								<p>Appy impresses you with fully responsiveness and highly customization. We did it in combination of very clean and flexible design.</p>
+								<h3>4K Live Wallpaper Maker</h3>
+								<p>Choose your lively wallpaper from multiple categories in the free wallpaper themes app. From different type of wallpaper.</p>
 							</div>
 						</div>
 						<!-- .feature-panel end -->
@@ -224,8 +223,8 @@
 								<i class="lnr lnr-star"></i>
 							</div>
 							<div class="feature--content">
-								<h3>High Rating</h3>
-								<p>Appy impresses you with fully responsiveness and highly customization. We did it in combination of very clean and flexible design.</p>
+								<h3>Inspiring 3D Wallpapers</h3>
+								<p>With our 4D moving wallpaper, it will become the perfect source of inspiration for people to use phones and change their cool wallpaper.</p>
 							</div>
 						</div>
 						<!-- .feature-panel end -->
@@ -239,8 +238,8 @@
 								<i class="lnr lnr-bug"></i>
 							</div>
 							<div class="feature--content">
-								<h3>Free Updates</h3>
-								<p>Appy impresses you with fully responsiveness and highly customization. We did it in combination of very clean and flexible design.</p>
+								<h3>Customization</h3>
+								<p>You can add live wallpaper anime for the elegant look of your phone, it makes it a piece of art by using a live wallpaper maker 4k app.</p>
 							</div>
 						</div>
 						<!-- .feature-panel end -->
