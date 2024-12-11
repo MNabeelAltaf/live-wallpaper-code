@@ -50,9 +50,7 @@
             <li data-value="{{ asset('assets2/css/themes/theme-yellow.html') }}"></li>
 		</ul>
 	</div>
-	<div class="gear-check">
-		<i class="fa fa-cog"></i>
-	</div>
+
 </section>
 <!-- End Switcher Box -->
 
@@ -158,7 +156,7 @@
 					<div class="col-xs-12 col-sm-4 col-md-4">
 						<div class="feature-panel wow fadeInUp" data-wow-duration="1s">
 							<div class="feature--icon">
-								<i class="lnr lnr-users"></i>
+								<img src="{{ asset('assets2/images/page/icon-1.png') }}" alt="">
 							</div>
 							<div class="feature--content">
 								<h3>Stunning 4D live wallpaper</h3>
@@ -173,7 +171,7 @@
 					<div class="col-xs-12 col-sm-4 col-md-4">
 						<div class="feature-panel wow fadeInUp" data-wow-duration="1s">
 							<div class="feature--icon">
-								<i class="lnr lnr-cog"></i>
+								<img src="{{ asset('assets2/images/page/icon-2.png') }}" alt="">
 							</div>
 							<div class="feature--content">
 								<h3>Add Gallery Wallpapers</h3>
@@ -188,7 +186,7 @@
 					<div class="col-xs-12 col-sm-4 col-md-4">
 						<div class="feature-panel wow fadeInUp" data-wow-duration="1s">
 							<div class="feature--icon">
-								<i class="lnr lnr-lock"></i>
+								<img src="{{ asset('assets2/images/page/icon-3.png') }}" alt="">
 							</div>
 							<div class="feature--content">
 								<h3>Dynamic Wallpapers for Every Mood</h3>
@@ -205,7 +203,7 @@
 					<div class="col-xs-12 col-sm-4 col-md-4">
 						<div class="feature-panel wow fadeInUp" data-wow-duration="1s">
 							<div class="feature--icon">
-								<i class="lnr lnr-clock"></i>
+                                <img src="{{ asset('assets2/images/page/icon-4.png') }}" alt="">
 							</div>
 							<div class="feature--content">
 								<h3>4K Live Wallpaper Maker</h3>
@@ -220,7 +218,7 @@
 					<div class="col-xs-12 col-sm-4 col-md-4">
 						<div class="feature-panel wow fadeInUp" data-wow-duration="1s">
 							<div class="feature--icon">
-								<i class="lnr lnr-star"></i>
+                                <img src="{{ asset('assets2/images/page/icon-5.png') }}" alt="">
 							</div>
 							<div class="feature--content">
 								<h3>Inspiring 3D Wallpapers</h3>
@@ -235,7 +233,7 @@
 					<div class="col-xs-12 col-sm-4 col-md-4">
 						<div class="feature-panel wow fadeInUp" data-wow-duration="1s">
 							<div class="feature--icon">
-								<i class="lnr lnr-bug"></i>
+                                <img src="{{ asset('assets2/images/page/icon-6.png') }}" alt="">
 							</div>
 							<div class="feature--content">
 								<h3>Customization</h3>

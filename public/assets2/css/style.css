@@ -1795,7 +1795,7 @@ section {
 
 .header-fixed .navbar.affix .module .module-icon i,
 .header-fixed .navbar.affix .navbar-nav > li > a {
-	color: #222222;
+	color: #000000;
 }
 
 .header-fixed .navbar.affix .navbar-nav > li > a:hover::before,
