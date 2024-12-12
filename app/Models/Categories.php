@@ -15,6 +15,10 @@ class Categories extends Model
     {
         return $this->hasMany(StaticWallpaper::class, 'cat_id');
     }
+    public function threeDwallpapers()
+    {
+        return $this->hasMany(ThreeDWallpaper_Panel::class, 'cat_id');
+    }
     public function fourDwallpapers()
     {
         return $this->hasMany(FourDwallpaper::class, 'cat_id');
