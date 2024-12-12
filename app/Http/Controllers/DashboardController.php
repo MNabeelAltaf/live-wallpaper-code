@@ -50,7 +50,6 @@ class DashboardController extends Controller
 
         $most_liked_download_wallpaper = $this->get_most_liked_download_wallpaper();
 
-
         $data = [
             'categories' => $categoriesCount,
             'wallpapers' => $wallpapersCount,
@@ -66,7 +65,6 @@ class DashboardController extends Controller
             'most_liked_download_wallpaper'=>$most_liked_download_wallpaper,
         ];
 
-        // dd( $data['most_liked_download_wallpaper']);
 
         return view('dashboard', compact('data'));
     }
@@ -119,12 +117,15 @@ class DashboardController extends Controller
             $maxDownloads = collect($likes)->max('downloads');
             $maxLikesWallpaper = collect($likes)->firstWhere('likes', $maxLikes);
             $maxDownloadsWallpaper = collect($likes)->firstWhere('downloads', $maxDownloads);
+            $allThumbnails = collect($likes)->pluck('thumbnail')->take(20)->shuffle();
+
 
             return [
                 'max_likes' => $maxLikes,
                 'max_likes_wallpaper' =>  url(Storage::url($maxLikesWallpaper['thumbnail'])),
                 'max_downloads' => $maxDownloads,
-                'max_downloads_wallpaper' => url(Storage::url($maxDownloadsWallpaper['thumbnail']))
+                'max_downloads_wallpaper' => url(Storage::url($maxDownloadsWallpaper['thumbnail'])),
+                'all_thumbnails'=>$allThumbnails
             ];
         });
 

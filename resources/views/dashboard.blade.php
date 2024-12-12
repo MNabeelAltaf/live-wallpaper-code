@@ -286,8 +286,6 @@
                                 </div>
                             </div>
 
-                            <div id="chart-area" data-colors='["--bs-primary"]' class="apex-charts"></div>
-
                         </div>
                     </div>
                 </div>
@@ -319,7 +317,9 @@
                                                         <img src="{{ $data['most_liked_download_wallpaper']['max_likes_wallpaper'] }}"
                                                             class="img-fluid" alt="">
                                                     </div>
-                                                    <p><b>Likes: </b>  {{ $data['most_liked_download_wallpaper']['max_likes'] }} 👍</p>
+                                                    <p><b>Likes: </b>
+                                                        {{ $data['most_liked_download_wallpaper']['max_likes'] }} 👍
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -332,7 +332,9 @@
                                                         <img src="{{ $data['most_liked_download_wallpaper']['max_downloads_wallpaper'] }}"
                                                             class="img-fluid" alt="">
                                                     </div>
-                                                    <p><b>Downloads: </b>  {{ $data['most_liked_download_wallpaper']['max_downloads'] }} ⬇️</p>
+                                                    <p><b>Downloads: </b>
+                                                        {{ $data['most_liked_download_wallpaper']['max_downloads'] }}
+                                                        ⬇️</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -349,6 +351,23 @@
         </div>
     </div>
 
+
+    <div class="row my-5">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        @include('components.slider',['data'=> $data['most_liked_download_wallpaper']['all_thumbnails']])
+
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row-->
+
+
+    </div>
 
 
 </x-app-layout>

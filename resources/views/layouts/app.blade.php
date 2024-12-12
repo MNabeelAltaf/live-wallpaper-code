@@ -30,17 +30,20 @@
     <link href="{{ asset('assets/libs/flatpickr/flatpickr.min.css') }}" rel="stylesheet">
 
     <!-- One of the following themes -->
-    <link rel="stylesheet" href="{{ asset('assets/libs/%40simonwep/pickr/themes/classic.min.css') }}"/> <!-- 'classic' theme -->
-    <link rel="stylesheet" href="{{ asset('assets/libs/%40simonwep/pickr/themes/monolith.min.css') }}"/> <!-- 'monolith' theme -->
-    <link rel="stylesheet" href="{{ asset('assets/libs/%40simonwep/pickr/themes/nano.min.css') }}"/> <!-- 'nano' theme -->
+    <link rel="stylesheet" href="{{ asset('assets/libs/%40simonwep/pickr/themes/classic.min.css') }}" />
+    <!-- 'classic' theme -->
+    <link rel="stylesheet" href="{{ asset('assets/libs/%40simonwep/pickr/themes/monolith.min.css') }}" />
+    <!-- 'monolith' theme -->
+    <link rel="stylesheet" href="{{ asset('assets/libs/%40simonwep/pickr/themes/nano.min.css') }}" />
+    <!-- 'nano' theme -->
     <!-- gridjs js -->
     <script src="{{ asset('assets/libs/gridjs/gridjs.umd.js') }}"></script>
 
     <script src="{{ asset('assets/js/pages/gridjs.init.js') }}"></script>
     <!-- App Css-->
     <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-        <!-- Sweet Alerts js -->
-        <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+    <!-- Sweet Alerts js -->
+    <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
     <!-- apexcharts -->
     <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
