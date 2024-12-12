@@ -12,26 +12,12 @@
     <div class="carousel">
         <ul class="carousel__list">
 
-
-
-
             @foreach ($data as $index => $thumbs)
 
             <li class="carousel__item"  data-pos="{{ $index - 2 }}">
                 <img src="{{ url(Storage::url($thumbs)) }}" alt="{{ $thumbs }}">
             </li>
             @endforeach
-
-
-
-        {{-- <li class="carousel__item" data-pos="-2">
-            <img src="" alt="">
-        </li>
-        <li class="carousel__item" data-pos="-1">2</li>
-        <li class="carousel__item" data-pos="0">3</li>
-        <li class="carousel__item" data-pos="1">4</li>
-        <li class="carousel__item" data-pos="2">5</li> --}}
-
 
         </ul>
     </div>
