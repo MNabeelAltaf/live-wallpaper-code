@@ -70,6 +70,7 @@ class AddWallpaperController extends Controller
 
     public function add_static_wallpapers(Request $request)
     {
+
         $show_wp = 1;
         $featured = 1;
         $hash_tags = $request->hash_tags;
@@ -78,50 +79,74 @@ class AddWallpaperController extends Controller
         $cat_id = $request->cat_id;
         $cat_name = Categories::where('id', $cat_id)->value('name');
 
+        $static_wlp_blur_folder = 'Static_Wallpapers/' . $cat_name . '/blur';
+        $static_wlp_thumb_folder = 'Static_Wallpapers/' . $cat_name . '/thumb';
+        $static_wlp_folder = 'Static_Wallpapers/' . $cat_name . '/wallpaper';
 
-        $threeD_blur_folder = 'Static_Wallpapers/' . $cat_name . '/blur';
-        $threeD_thumb_folder = 'Static_Wallpapers/' . $cat_name . '/thumb';
-        $threeD_zip_folder = 'Static_Wallpapers/' . $cat_name . '/wallpaper';
+        $uploaded_multi_filePaths = [
+            'wallpapers' => [],
+            'blurs' => []
+        ];
+
 
         if ($request->hasFile('img_path')) {
-
-            $zip_file = $request->file('img_path');
-            $zipName =  $cat_name . '_' . uniqid() . '_' . $zip_file->getClientOriginalName();
-            $img_path = $zip_file->storeAs($threeD_zip_folder, $zipName, 'public');
+            foreach ($request->file('img_path') as $wallpaper_image) {
+                $wallpaperName = $cat_name . '_' . uniqid() . '_' . $wallpaper_image->getClientOriginalName();
+                $img_path = $wallpaper_image->storeAs($static_wlp_folder, $wallpaperName, 'public');
+                $uploaded_multi_filePaths['wallpapers'][] = $img_path;
+            }
         }
         if ($request->hasFile('thumb_path')) {
 
             $thumb_file = $request->file('thumb_path');
             $thumbName =  $cat_name . '_' . uniqid() . '_' . $thumb_file->getClientOriginalName();
-            $thumb_path = $thumb_file->storeAs($threeD_thumb_folder, $thumbName, 'public');
+            $thumb_path = $thumb_file->storeAs($static_wlp_thumb_folder, $thumbName, 'public');
         }
         if ($request->hasFile('blur_path')) {
-
-            $blur_file = $request->file('blur_path');
-            $blurName =  $cat_name . '_' . uniqid() . '_' . $blur_file->getClientOriginalName();
-            $blur_path = $blur_file->storeAs($threeD_blur_folder, $blurName, 'public');
+            foreach ($request->file('blur_path') as $blur_image) {
+                $blurName = $cat_name . '_' . uniqid() . '_' . $blur_image->getClientOriginalName();
+                $blur_path = $blur_image->storeAs($static_wlp_blur_folder, $blurName, 'public');
+                $uploaded_multi_filePaths['blurs'][] = $blur_path;
+            }
         }
-        $categoryTable = StaticWallpaper::create([
-            'blur_path' => $blur_path,
-            'thumb_path' => $thumb_path,
-            'img_path' =>  $img_path,
-            'category' => $cat_name,
-            'cat_id' => $cat_id,
-            'likes' => 0,
-            'downloads' => 0,
-            'set_wp' => 0,
-            'unlike' => 0,
-            'hash_tags' => $hash_tags,
-            'wp_show' => $show_wp,
-            'featured' =>  $featured,
-        ]);
+
+        $dataToInsert = [];
 
 
-        if ($categoryTable) {
-            return True;
-        } else {
-            return False;
+        $dataToInsert = [];
+
+        $totalFiles = count($uploaded_multi_filePaths['wallpapers']);
+
+        for ($i = 0; $i < $totalFiles; $i++) {
+            $img_path = $uploaded_multi_filePaths['wallpapers'][$i] ?? null;
+            $blur_path = $uploaded_multi_filePaths['blurs'][$i] ?? null;
+
+            if ($img_path && $blur_path) {
+                $dataToInsert[] = [
+                    'blur_path' => $blur_path,
+                    'thumb_path' => $thumb_path,
+                    'img_path' => $img_path,
+                    'cat_id' => $cat_id,
+                    'likes' => 0,
+                    'downloads' => 0,
+                    'set_wp' => 0,
+                    'unlike' => 0,
+                    'hash_tags' => $hash_tags,
+                    'wp_show' => $show_wp,
+                    'featured' => $featured,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
         }
+
+
+        if (!empty($dataToInsert)) {
+            StaticWallpaper::insert($dataToInsert);
+        }
+
+        return !empty($dataToInsert);
+
     }
     public function add_3d_wallpapers(Request $request)
     {

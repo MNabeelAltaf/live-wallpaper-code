@@ -80,6 +80,13 @@
                                         <span data-key="t-dashboard">Events</span>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-toggle arrow-none" href="{{ route('wallpapers.advance_options') }}" id="topnav-dashboard" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bx bx-cog icon"></i>
+                                        <span data-key="t-dashboard">Advance Options</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </nav>

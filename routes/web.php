@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
     *   categories
     */
     Route::get('/categories', [Categories::class, 'index'])->name('categories.index');
-    Route::get('/category/add',[Categories::class, 'addCategoryView'])->name('category.addView');
-    Route::post('/category/add',[Categories::class, 'addCategory'])->name('category.add');
+    Route::get('/category/add', [Categories::class, 'addCategoryView'])->name('category.addView');
+    Route::post('/category/add', [Categories::class, 'addCategory'])->name('category.add');
     Route::post('/categories/update-show', [Categories::class, 'updateShow'])->name('categories.updateShow');
     Route::get('/categories/{id}/edit', [Categories::class, 'edit']);
     Route::get('/categories/{id}/delete', [Categories::class, 'delete']);
@@ -46,6 +46,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/wallpapers/{id}/delete', [StaticWallpaperController::class, 'delete']);
     Route::get('/wallpapers/{id}/edit', [StaticWallpaperController::class, 'edit'])->name('wallpapers.edit');
     Route::get('/wallpapers/create', [StaticWallpaperController::class, 'create'])->name('wallpapers.create');
+
+    // advance options (static wallpaper)
+    Route::get('/wallpapers/advance-options', [StaticWallpaperController::class, 'advanceOptions'])->name('wallpapers.advance_options');
+    Route::post('/wallpapers/advance-options', [StaticWallpaperController::class, 'advanceOptionsData'])->name('wallpapers.advance_options_data');
+
+    Route::get('/wallpapers/get-elements-orders',[StaticWallpaperController::class, 'advanceOptionsOrders'])->name('wallpapers.advance_options_orders');
 
     // live wallpapers
     Route::get('/live-wallpapers', [LiveWallpaperController::class, 'index'])->name('live_wallpapers.index');
@@ -83,16 +89,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/events/store', [EventsController::class, 'store'])->name('events.store');
     Route::get('/events/{id}/delete', [EventsController::class, 'delete'])->name('events.delete');
 
-    Route::post('/wallpaper-create',[AddWallpaperController::class, 'addWallpaper'])->name('create-wallpaper');
-    Route::post('/wallpaper-edit',[AddWallpaperController::class, 'editWallpaper'])->name('edit-wallpaper');
-
+    Route::post('/wallpaper-create', [AddWallpaperController::class, 'addWallpaper'])->name('create-wallpaper');
+    Route::post('/wallpaper-edit', [AddWallpaperController::class, 'editWallpaper'])->name('edit-wallpaper');
 });
 
 
 // static page routes
-Route::get('/',[StaticPageController::class, 'index'])->name('index');
+Route::get('/', [StaticPageController::class, 'index'])->name('index');
 
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

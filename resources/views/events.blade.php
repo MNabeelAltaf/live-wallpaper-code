@@ -54,7 +54,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
                 </div>
@@ -140,7 +140,7 @@
             axios.get(`/events/${id}/edit`)
                 .then(response => {
                     console.log(response.data.id);
-                    
+
                     const event = response.data;
                     document.getElementById('eventsId').value = event.id;
                     document.getElementById('editEventName').value = event.name;
