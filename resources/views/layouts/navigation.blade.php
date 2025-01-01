@@ -105,7 +105,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end pt-0">
                     <h6 class="dropdown-header">Welcome {{ Auth::user()->name }}!</h6>
-                    <a class="dropdown-item" href="{{route('profile.edit')}}"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                    {{-- <a class="dropdown-item" href="{{route('profile.edit')}}"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a> --}}
                     <div class="dropdown-divider"></div>
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">
@@ -132,7 +132,6 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item page-head"><a href="javascript: void(0);">Dashboard</a></li>
                                     <li class="breadcrumb-item page-head active">Welcome !</li>
                                 </ol>
                             </div>

@@ -11,6 +11,7 @@
                     <form method="GET" id="categoryForm" action="{{ route('live_wallpapers.showRecords') }}">
                         <select class="form-control" name="category" id="choices-single-no-sorting"
                             onchange="filterCategory()">
+                            <option value="" selected>Select Category</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}"
                                     {{ request('category') == $category->id ? 'selected' : '' }}>
@@ -31,7 +32,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <h5 class="card-title">Live WallPapers List</h5>
+                                <h5 class="card-title">Live WallPapers Table</h5>
                             </div>
                         </div><!-- end col -->
 
@@ -82,15 +83,39 @@
                     name: 'thumb_path',
                     formatter: (cell) => {
                         return gridjs.html(`
-                <a href="javascript:void(0);" onclick="openImageModal('{{ asset('storage/${cell}') }}')">
-                    <img src="{{ asset('storage/${cell}') }}" alt="${cell}" class="avatar-xl" />
-                </a>
-                `);
+                        <a href="javascript:void(0);" onclick="openImageModal('{{ asset('storage/${cell}') }}')">
+                            <img src="{{ asset('storage/${cell}') }}" alt="${cell}" class="avatar-xl" />
+                        </a>
+                        `);
                     }
                 },
-                'Category',
+                // {
+                //     name: 'blur_path',
+                //     formatter: (cell) => {
+                //         return gridjs.html(`
+                //         <a href="javascript:void(0);" onclick="openImageModal('{{ asset('storage/${cell}') }}')">
+                //             <img src="{{ asset('storage/${cell}') }}" alt="${cell}" class="avatar-xl" />
+                //         </a>
+                //         `);
+                //     }
+                // },
+                {
+                    name: 'video_path',
+                    formatter: (cell) => {
+                        return gridjs.html(`
+                        <a href="javascript:void(0);" onclick="openVideoModal('{{ asset('storage/${cell}') }}') " class="avatar-xl" >
+                            <video width="100" height="100" controls>
+                                <source src="{{ asset('storage/${cell}') }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </a>
+                    `);
+                    }
+                },
+                // 'Category',
                 'likes',
                 'downloads',
+                'created_at',
                 {
                     name: 'hash_tags',
                     formatter: (cell) => {
@@ -104,13 +129,13 @@
                     formatter: (cell, row) => {
                         const isChecked = cell === 1 ? 'checked' : '';
                         return gridjs.html(`
-                <div class="square-switch">
-                    <input type="checkbox" id="wp-show-${row.cells[0].data}" switch="info" ${isChecked}
-                           onchange="updateShowStatus(${row.cells[0].data}, this.checked)" />
-                    <label for="wp-show-${row.cells[0].data}" data-on-label="Yes"
-                           data-off-label="No" class="mb-0"></label>
-                </div>
-                `);
+                        <div class="square-switch">
+                            <input type="checkbox" id="wp-show-${row.cells[0].data}" switch="info" ${isChecked}
+                                onchange="updateShowStatus(${row.cells[0].data}, this.checked)" />
+                            <label for="wp-show-${row.cells[0].data}" data-on-label="Yes"
+                                data-off-label="No" class="mb-0"></label>
+                        </div>
+                        `);
                     }
                 },
                 {
@@ -158,7 +183,7 @@
                 show: status ? 1 : 0
             }); // Log the payload
 
-            axios.post('{{ route("live_wallpapers.updateShow") }}', {
+            axios.post('{{ route('live_wallpapers.updateShow') }}', {
                     id: id,
                     show: status ? 1 : 0, // Ensure `show` matches server expectations
                 })
@@ -185,7 +210,7 @@
         }
 
         function updateFeaturedStatus(id, status) {
-            axios.post('{{ route("live_wallpapers.updateFeatured") }}', {
+            axios.post('{{ route('live_wallpapers.updateFeatured') }}', {
                     id: id,
                     featured: status ? 1 : 0,
                 })
@@ -209,7 +234,7 @@
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#f34e4e",
-                cancelButtonColor:  "#786ACF",
+                cancelButtonColor: "#786ACF",
                 confirmButtonText: "Yes, delete it!",
             }).then(function(t) {
                 if (t.value) {

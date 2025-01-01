@@ -15,7 +15,7 @@
                             <span class="d-none d-sm-block">Static Wallpaper</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" href="#profile1" role="tab">
                             <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
                             <span class="d-none d-sm-block">Live Wallpaper</span>
@@ -32,7 +32,7 @@
                             <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
                             <span class="d-none d-sm-block">4D Wallpaper</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
 
                 <!-- Tab panes -->
@@ -42,7 +42,7 @@
                             @include('advanceOptions.static_wlp_view')
                         </p>
                     </div>
-                    <div class="tab-pane" id="profile1" role="tabpanel">
+                    {{-- <div class="tab-pane" id="profile1" role="tabpanel">
                         <p class="mb-0">
                             Food truck fixie locavore, accusamus mcsweeney's marfa nulla
                             single-origin coffee squid. Exercitation +1 labore velit, blog
@@ -73,7 +73,7 @@
                             vinyl keffiyeh DIY salvia PBR, banh mi before they sold out
                             farm-to-table VHS viral locavore cosby sweater, mustache readymade keffiyeh craft.
                         </p>
-                    </div>
+                    </div> --}}
                 </div>
             </div><!-- end card body -->
         </div><!-- end card -->

@@ -42,7 +42,7 @@ class AddWallpaperController extends Controller
 
             $validated = $request->validate([
                 'category_id' => 'required|exists:categories,id',
-                'category_video' => 'required|mimes:mp4,mov|max:12048',
+                'category_video' => 'required|mimetypes:video/*|max:12048',
                 'category_thumbnail' => 'required|mimes:jpeg,jpg,png,gif,webp|max:2048',
                 'tags' => 'required|string',
                 'wallpaper_type' => 'required|string',
@@ -61,6 +61,7 @@ class AddWallpaperController extends Controller
         } elseif ($request->wallpaper_type == 'static') {
             $isAdded = $this->add_static_wallpapers($request);
             if ($isAdded) {
+                flash()->success('Wallpaper created successfully!');
                 return redirect()->back()->with([
                     'success' => 'Wallpaper Added successfully!',
                 ]);
@@ -284,6 +285,7 @@ class AddWallpaperController extends Controller
         if ($request->wallpaper_type == 'static') {
             $isEdited = $this->edit_static_wallpaper($request);
             if ($isEdited) {
+                flash()->success('Wallpaper Edit successfully!');
                 return redirect()->route('wallpapers.index')->with([
                     'success' => 'Wallpaper Edit successfully!',
                 ]);
@@ -489,7 +491,7 @@ class AddWallpaperController extends Controller
 
         $validated = $request->validate([
             'category_id' => 'required',
-            'video' => 'mimes:mp4,mov|max:12048',
+            'video' => 'mimetypes:video/*|max:12048',
             'thumbnail' => 'mimes:jpeg,jpg,png,gif,webp|max:2048',
             'tags' => 'required|string',
             'wallpaper_type' => 'required|string',

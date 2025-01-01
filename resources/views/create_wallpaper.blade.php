@@ -1,6 +1,12 @@
 @if ($wallpaper_type == 'static')
     <x-app-layout>
         <div class="row">
+            {{-- loader on form submission --}}
+            <div class="custom-loader" id="loader">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
             <div class="col-xl-12">
                 <div class="card card-h-100">
                     <div class="card-header justify-content-between d-flex align-items-center">
@@ -26,7 +32,8 @@
                         @endif
 
                         <div>
-                            <form action="{{ route('create-wallpaper') }}" method="POST" enctype="multipart/form-data">
+                            <form id="create-wallpaper-form" action="{{ route('create-wallpaper') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label" for="formrow-firstname-input"> Category</label>
@@ -44,7 +51,8 @@
                                         <div class="mb-3">
                                             <div>
                                                 <label for="formFileLg" class="form-label"
-                                                    title="Single file per upload." data-bs-toggle="tooltip" data-bs-placement="right" title="Single file per-upload">
+                                                    title="Single file per upload." data-bs-toggle="tooltip"
+                                                    data-bs-placement="right" title="Single file per-upload">
                                                     Thumbnail
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                         height="16" fill="currentColor" class="bi bi-info-circle"
@@ -57,7 +65,8 @@
                                                 </label>
 
                                                 <input class="form-control form-control-lg" id="formFileLg"
-                                                    accept=".jpg,.jpeg,.png,.gif" name="thumb_path" type="file">
+                                                    accept=".jpg,.jpeg,.png,.gif" name="thumb_path" type="file"
+                                                    required>
                                             </div>
                                         </div>
                                     </div><!-- end col -->
@@ -66,21 +75,23 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <div>
-                                                <label for="formFileLg" class="form-label" data-bs-toggle="tooltip"   data-bs-placement="right" title="Multiple files (10) per-upload">Wallpaper
+                                                <label for="formFileLg" class="form-label" data-bs-toggle="tooltip"
+                                                    data-bs-placement="right"
+                                                    title="Multiple files (10) per-upload">Wallpaper
 
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                    height="16" fill="currentColor" class="bi bi-info-circle"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                                    <path
-                                                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-                                                </svg>
+                                                        height="16" fill="currentColor" class="bi bi-info-circle"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                                        <path
+                                                            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                                                    </svg>
 
                                                 </label>
                                                 <input class="form-control form-control-lg"
                                                     id="formFileLg_static_wallpaper" accept=".jpg,.jpeg,.png,.gif"
-                                                    name="img_path[]" type="file" multiple>
+                                                    name="img_path[]" type="file" multiple required>
                                             </div>
 
                                         </div>
@@ -90,8 +101,9 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="choices-single-default" class="form-label">Tags</label>
+                                            <span><i>(Use Enter to separate tags) </i></span>
                                             <input class="form-control" id="choices-text-remove-button" name="hash_tags"
-                                                type="text" />
+                                                type="text" required />
                                         </div>
                                     </div><!-- end col -->
                                 </div><!-- end row -->
@@ -99,21 +111,23 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <div>
-                                                <label for="formFileLg" class="form-label" data-bs-toggle="tooltip"   data-bs-placement="right" title="Multiple files (10) per-upload">Blur
+                                                <label for="formFileLg" class="form-label" data-bs-toggle="tooltip"
+                                                    data-bs-placement="right"
+                                                    title="Multiple files (10) per-upload">Blur
 
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                    height="16" fill="currentColor" class="bi bi-info-circle"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                                                    <path
-                                                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-                                                </svg>
+                                                        height="16" fill="currentColor" class="bi bi-info-circle"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                                        <path
+                                                            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                                                    </svg>
 
                                                 </label>
                                                 <input class="form-control form-control-lg" id="formFileLg_static_blur"
                                                     accept=".jpg,.jpeg,.png,.gif" name="blur_path[]" type="file"
-                                                    multiple>
+                                                    multiple required>
                                             </div>
 
                                         </div>
@@ -133,6 +147,12 @@
 @elseif ($wallpaper_type == '3d')
     <x-app-layout>
         <div class="row">
+             {{-- loader on form submission --}}
+             <div class="custom-loader" id="loader">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
             <div class="col-xl-12">
                 <div class="card card-h-100">
                     <div class="card-header justify-content-between d-flex align-items-center">
@@ -151,7 +171,8 @@
                         @endif
 
                         <div>
-                            <form action="{{ route('create-wallpaper') }}" method="POST" enctype="multipart/form-data">
+                            <form id="create-wallpaper-form" action="{{ route('create-wallpaper') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <select class="form-control" name="category" id="choices-single-no-sorting">
@@ -170,7 +191,7 @@
                                             <div>
                                                 <label for="formFileLg" class="form-label">Zip file</label>
                                                 <input class="form-control form-control-lg" id="formFileLg"
-                                                    accept=".zip" name="zip" type="file">
+                                                    accept=".zip" name="zip" type="file" required>
                                                 <div id="file-size-error" class="text-danger mt-2"
                                                     style="display:none;">
                                                     The file size exceeds the maximum allowed size of 10MB.
@@ -187,7 +208,7 @@
                                                     Blur Image</label>
                                                 <input class="form-control form-control-lg"
                                                     accept=".jpg,.jpeg,.png,.gif,.webp" name="blur"
-                                                    type="file">
+                                                    type="file" required>
                                             </div>
 
                                         </div>
@@ -200,7 +221,7 @@
                                                     Thumbnail Image</label>
                                                 <input class="form-control form-control-lg"
                                                     accept=".jpg,.jpeg,.png,.gif,.webp" name="thumbnail"
-                                                    type="file">
+                                                    type="file" required>
                                             </div>
 
                                         </div>
@@ -209,12 +230,18 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="editCategoryShow" class="form-label">Hash Tags</label>
-                                            <span><i>(Use spacebar to separate tags | Max 3 tags) </i></span>
+                                            {{-- <label for="editCategoryShow" class="form-label">Hash Tags</label>
+                                            <span><i>(Use spacebar to separate tags) </i></span>
                                             <input type="text" class="form-control" id="editCategoryShow"
                                                 placeholder="Enter tags separated by spaces" />
                                             <div id="tags-container" class="mt-2 d-flex flex-wrap gap-2"></div>
-                                            <input type="hidden" id="tagsField" name="tags" required />
+                                            <input type="hidden" id="tagsField" name="tags" required /> --}}
+
+                                            <label for="editCategoryShow" class="form-label">Hash Tags</label>
+                                            <span><i>(Use Enter to make a tags) </i></span>
+                                            <input class="form-control" id="choices-text-remove-button"
+                                                name="tags" type="text" required />
+
                                         </div>
                                     </div>
                                 </div>
@@ -258,6 +285,12 @@
 @elseif ($wallpaper_type == 'live')
     <x-app-layout>
         <div class="row">
+            {{-- loader on form submission --}}
+            <div class="custom-loader" id="loader">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
             <div class="col-xl-12">
                 <div class="card card-h-100">
                     <div class="card-header justify-content-between d-flex align-items-center">
@@ -283,7 +316,7 @@
                         @endif
 
                         <div>
-                            <form action="{{ route('create-wallpaper') }}" method="POST"
+                            <form id="create-wallpaper-form" action="{{ route('create-wallpaper') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
@@ -331,11 +364,18 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="editCategoryShow" class="form-label">Hash Tags</label>
-                                            <span><i>(Use spacebar to separate tags | Max 3 tags) </i></span>
-                                            <input type="text" class="form-control" id="editCategoryShow"
+
+                                            {{-- <input type="text" class="form-control" id="editCategoryShow"
                                                 placeholder="Enter tags separated by spaces" />
                                             <div id="tags-container" class="mt-2 d-flex flex-wrap gap-2"></div>
-                                            <input type="hidden" id="tagsField" name="tags" required />
+                                            <input type="hidden" id="tagsField" name="tags" required /> --}}
+
+
+                                            <span><i>(Use Enter to separate tags) </i></span>
+                                            <input class="form-control" id="choices-text-remove-button"
+                                                name="tags" type="text" required />
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -390,8 +430,8 @@
     });
 
     function addTag(tag) {
-        if (tagsContainer.children.length >= 3) {
-            alert("You can only add up to 3 tags.");
+        if (tagsContainer.children.length >= 80) {
+            alert("You can only add up to 80 tags.");
             return;
         }
         const tagWithHash = `#${tag}`;
@@ -450,16 +490,39 @@
     });
 
     document.addEventListener("DOMContentLoaded", function() {
+
+        document.getElementById('create-wallpaper-form').addEventListener('submit', function(e) {
+            document.getElementById('loader').style.display = 'block';
+        });
+
+        const inputField = document.getElementById("choices-text-remove-button");
         new Choices(document.getElementById("choices-text-remove-button"), {
             delimiter: ",",
             editItems: !0,
-            maxItemCount: 5,
+            maxItemCount: 80,
             removeItemButton: !0,
         });
+
+        // allow multple tags to be added by pressing enter
+        inputField.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                const inputValue = inputField.value;
+                const tags = inputValue.split(",").map(tag => tag.trim()).filter(Boolean);
+                tags.forEach((tag) => {
+                    choices.setValue([{
+                        value: tag,
+                        label: tag
+                    }]);
+                });
+                inputField.value = "";
+            }
+        });
+
     });
 
 
-    // max 20 items allowed to upload once
+    // max 10 items allowed to upload once
     document.getElementById('formFileLg_static_wallpaper').addEventListener('change', function(e) {
         if (e.target.files.length > 10) {
             alert("You can only select up to 10 files.");

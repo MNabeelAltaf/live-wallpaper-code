@@ -98,6 +98,4 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [StaticPageController::class, 'index'])->name('index');
 
 
-
-
 require __DIR__ . '/auth.php';

@@ -4,12 +4,14 @@
             <div class="col-lg-12 col-md-12">
                 <div class="mb-3 mt-3">
                     <form method="GET" id="categoryForm">
-                        <select class="form-control" name="category" id="choices-single-no-sorting" onchange="filterCategory()">
+                        <select class="form-control" name="category" id="choices-single-no-sorting"
+                            onchange="filterCategory()">
+                            <option value="" selected>Select Category</option>
                             @foreach ($categories as $category)
-                            <option value="{{ $category->id }}"
-                                {{ request('category') == $category->id ? 'selected' : '' }}>
-                                {{ $category->name }}
-                            </option>
+                                <option value="{{ $category->id }}"
+                                    {{ request('category') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
                             @endforeach
                         </select>
                     </form>
@@ -30,9 +32,11 @@
                         </div><!-- end col -->
 
                         <div class="col-md-6">
-                            <div class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
+                            <div
+                                class="d-flex flex-wrap align-items-start justify-content-md-end mt-2 mt-md-0 gap-2 mb-3">
                                 <div>
-                                    <a href="{{route('wallpapers.create')}}" class="btn btn-light"><i class="uil uil-plus me-1"></i> Add New</a>
+                                    <a href="{{ route('wallpapers.create') }}" class="btn btn-light"><i
+                                            class="uil uil-plus me-1"></i> Add New</a>
                                 </div>
                             </div>
                         </div><!-- end col -->
@@ -58,7 +62,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <img id="modalImage" src="" alt="Thumbnail" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                    <img id="modalImage" src="" alt="Thumbnail"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;" />
                 </div>
             </div>
         </div>
@@ -94,10 +99,12 @@
                 {
                     name: 'hash_tags',
                     formatter: (cell) => {
-                        const tags = cell.split(',').map(tag => `<span class="badge bg-primary mx-1">${tag.trim()}</span>`).join('');
+                        const tags = cell.split(',').map(tag =>
+                            `<span class="badge bg-primary mx-1">${tag.trim()}</span>`).join('');
                         return gridjs.html(tags);
                     }
                 },
+                'created_at',
                 {
                     name: 'wp_show',
                     formatter: (cell, row) => {
@@ -157,7 +164,7 @@
                 show: status ? 1 : 0
             }); // Log the payload
 
-            axios.post('{{ route("wallpapers.updateShow") }}', {
+            axios.post('{{ route('wallpapers.updateShow') }}', {
                     id: id,
                     show: status ? 1 : 0, // Ensure `show` matches server expectations
                 })
@@ -184,7 +191,7 @@
         }
 
         function updateFeaturedStatus(id, status) {
-            axios.post('{{ route("wallpapers.updateFeatured") }}', {
+            axios.post('{{ route('wallpapers.updateFeatured') }}', {
                     id: id,
                     featured: status ? 1 : 0,
                 })

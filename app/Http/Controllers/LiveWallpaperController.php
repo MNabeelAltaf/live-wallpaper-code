@@ -23,6 +23,7 @@ class LiveWallpaperController extends Controller
                 'cat_id' => $wallpaper->cat_id,
                 'likes' => $wallpaper->likes,
                 'downloads' => $wallpaper->downloads,
+                'created_at' =>  \Carbon\Carbon::parse($wallpaper->created_at)->format('M d Y'),
                 'hash_tags' => $wallpaper->hash_tags,
                 'wp_show' => $wallpaper->wp_show,
                 'featured' => $wallpaper->featured,
@@ -33,8 +34,6 @@ class LiveWallpaperController extends Controller
             'categories' => $categories,
             'data' => $data
         ]);
-
-
 
     }
 

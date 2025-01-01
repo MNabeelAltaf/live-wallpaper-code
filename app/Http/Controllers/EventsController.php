@@ -70,3 +70,5 @@ class EventsController extends Controller
         return redirect()->back()->with('success', 'Event created successfully!');
     }
 }
+
+

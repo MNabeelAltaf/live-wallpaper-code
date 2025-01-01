@@ -1,8 +1,15 @@
 @if ($wallpaper_type == 'static')
     <x-app-layout>
-        <form method="POST" action="{{ route('edit-wallpaper') }}" enctype="multipart/form-data">
+        <form id="create-wallpaper-form" method="POST" action="{{ route('edit-wallpaper') }}"
+            enctype="multipart/form-data">
             @csrf
             <div class="row">
+                {{-- loader on form submission --}}
+                <div class="custom-loader" id="loader">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
                 <div class="col-lg-12">
                     <div id="addproduct-accordion" class="custom-accordion">
                         <div class="card">
@@ -19,8 +26,8 @@
                                             </div>
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-16 mb-1">Edit Wallpaper</h5>
-                                            <p class="text-muted text-truncate mb-0">Fill all information below</p>
+                                            <h5 class="font-size-16 mb-1">Edit</h5>
+                                            <p class="text-muted text-truncate mb-0">Static Wallpaper</p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
@@ -47,19 +54,22 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="choices-single-default" class="form-label">Wallpaper</label>
-                                        <input type="file" name="img_path" class="form-control">
+                                        <input type="file" name="img_path" class="form-control"
+                                            accept=".jpg, .png, .jpeg, .webp">
                                         <img class="img-thumbnail" src="{{ asset('storage/' . $data->img_path) }}"
                                             style="height:300px" alt="">
                                     </div>
                                     <div class="mb-3">
                                         <label for="choices-single-default" class="form-label">Thumbnail</label>
-                                        <input type="file" name="thumb_path" class="form-control">
+                                        <input type="file" name="thumb_path" class="form-control"
+                                            accept=".jpg, .png, .jpeg, .webp">
                                         <img class="img-thumbnail" src="{{ asset('storage/' . $data->thumb_path) }}"
                                             style="height:300px" alt="">
                                     </div>
                                     <div class="mb-3">
                                         <label for="choices-single-default" class="form-label">Blur</label>
-                                        <input type="file" name="blur_path" class="form-control">
+                                        <input type="file" name="blur_path" class="form-control"
+                                            accept=".jpg, .png, .jpeg, .webp">
                                         <img class="img-thumbnail" src="{{ asset('storage/' . $data->blur_path) }}"
                                             style="height:300px" alt="">
                                     </div>
@@ -78,26 +88,54 @@
 
             <div class="row mb-4">
                 <div class="col text-end">
-                    <a href="#" class="btn btn-danger"> <i class="bx bx-x me-1"></i> Cancel </a>
                     <button type="submit" class="btn btn-success"> <i class=" bx bx-file me-1"></i> Save </button>
                 </div> <!-- end col -->
             </div> <!-- end row-->
             <!-- end row -->
         </form>
         <script>
-            new Choices(document.getElementById("choices-text-remove-button"), {
-                delimiter: ",",
-                editItems: !0,
-                maxItemCount: 5,
-                removeItemButton: !0,
-            })
+            document.addEventListener("DOMContentLoaded", function() {
+                const inputField = document.getElementById("choices-text-remove-button");
+                new Choices(document.getElementById("choices-text-remove-button"), {
+                    delimiter: ",",
+                    editItems: !0,
+                    maxItemCount: 80,
+                    removeItemButton: !0,
+                })
+
+                inputField.addEventListener("keydown", function(event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        const inputValue = inputField.value;
+                        const tags = inputValue.split(",").map(tag => tag.trim()).filter(Boolean);
+                        tags.forEach((tag) => {
+                            choices.setValue([{
+                                value: tag,
+                                label: tag
+                            }]);
+                        });
+                        inputField.value = "";
+                    }
+                });
+
+                document.getElementById('create-wallpaper-form').addEventListener('submit', function(e) {
+                    document.getElementById('loader').style.display = 'block';
+                });
+            });
         </script>
     </x-app-layout>
 @elseif($wallpaper_type == '3d')
     <x-app-layout>
         <div class="row">
-            <div class="col-lg-12">
 
+            {{-- loader on form submission --}}
+            <div class="custom-loader" id="loader">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -119,7 +157,6 @@
                         <a href="#addproduct-billinginfo-collapse" class="text-reset" data-bs-toggle="collapse"
                             aria-expanded="true" aria-controls="addproduct-billinginfo-collapse">
                             <div class="p-4">
-
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar">
@@ -135,16 +172,14 @@
                                     <div class="flex-shrink-0">
                                         <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
                                     </div>
-
                                 </div>
-
                             </div>
                         </a>
 
                         <div id="addproduct-billinginfo-collapse" class="collapse show"
                             data-bs-parent="#addproduct-accordion">
                             <div class="p-4 border-top">
-                                <form method="POST" action={{ route('edit-wallpaper') }}
+                                <form id="create-wallpaper-form" method="POST" action={{ route('edit-wallpaper') }}
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
@@ -191,14 +226,19 @@
                                             alt="">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="editCategoryShow" class="form-label">Hash Tags</label>
+                                        {{-- <label for="editCategoryShow" class="form-label">Hash Tags</label>
                                         <span><i>(Max 3 tags allowed)</i></span>
                                         <input type="text" class="form-control" id="editCategoryShow"
                                             placeholder="Enter tags separated by spaces" />
                                         <div id="tags-container" class="mt-2 d-flex flex-wrap gap-2">
                                             <!-- Tags will be preloaded here -->
                                         </div>
-                                        <input type="hidden" id="tagsField" name="tags" required />
+                                        <input type="hidden" id="tagsField" name="tags" required /> --}}
+
+                                        <label for="choices-single-default" class="form-label">Tags</label>
+                                        <input class="form-control" id="choices-text-remove-button" name="tags"
+                                            value="{{ old('hash_tags', $data->hash_tags) }}" type="text" />
+
                                     </div>
                                     <div class="mb-3 ">
 
@@ -231,17 +271,49 @@
         <!-- end row -->
         <!-- end row -->
         <script>
-            new Choices(document.getElementById("choices-text-remove-button"), {
-                delimiter: ",",
-                editItems: !0,
-                maxItemCount: 5,
-                removeItemButton: !0,
-            })
+            document.addEventListener("DOMContentLoaded", function() {
+
+                document.getElementById('create-wallpaper-form').addEventListener('submit', function(e) {
+                    document.getElementById('loader').style.display = 'block';
+                });
+
+                const inputField = document.getElementById("choices-text-remove-button");
+                new Choices(document.getElementById("choices-text-remove-button"), {
+                    delimiter: ",",
+                    editItems: !0,
+                    maxItemCount: 80,
+                    removeItemButton: !0,
+                });
+
+                // allow multple tags to be added by pressing enter
+                inputField.addEventListener("keydown", function(event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        const inputValue = inputField.value;
+                        const tags = inputValue.split(",").map(tag => tag.trim()).filter(Boolean);
+                        tags.forEach((tag) => {
+                            choices.setValue([{
+                                value: tag,
+                                label: tag
+                            }]);
+                        });
+                        inputField.value = "";
+                    }
+                });
+
+            });
         </script>
     </x-app-layout>
 @elseif($wallpaper_type == 'live')
     <x-app-layout>
         <div class="row">
+
+            <div class="custom-loader" id="loader">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
             <div class="col-lg-12">
 
                 @if ($errors->any())
@@ -275,8 +347,8 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 overflow-hidden">
-                                        <h5 class="font-size-16 mb-1">Edit Live-Wallpaper</h5>
-                                        <p class="text-muted text-truncate mb-0">Fill all information below</p>
+                                        <h5 class="font-size-16 mb-1">Edit</h5>
+                                        <p class="text-muted text-truncate mb-0">Live Wallpaper</p>
                                     </div>
                                     <div class="flex-shrink-0">
                                         <i class="mdi mdi-chevron-up accor-down-icon font-size-24"></i>
@@ -290,7 +362,7 @@
                         <div id="addproduct-billinginfo-collapse" class="collapse show"
                             data-bs-parent="#addproduct-accordion">
                             <div class="p-4 border-top">
-                                <form method="POST" action={{ route('edit-wallpaper') }}
+                                <form id="create-wallpaper-form" method="POST" action={{ route('edit-wallpaper') }}
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
@@ -336,22 +408,21 @@
 
                                         </div>
                                     </div>
-                                    {{-- <div class="mb-3">
-                                        <label for="choices-single-default" class="form-label">Blur File</label>
-                                        <input type="file" name="blur" class="form-control"
-                                            accept=".jpg,.jpeg,.png,.gif,.webp">
-                                        <img style="width:5rem;" src="{{ asset('storage/' . $data->blur_path) }}"
-                                            alt="">
-                                    </div> --}}
+
                                     <div class="mb-3">
-                                        <label for="editCategoryShow" class="form-label">Hash Tags</label>
+                                        {{-- <label for="editCategoryShow" class="form-label">Hash Tags</label>
                                         <span><i>(Max 3 tags allowed)</i></span>
                                         <input type="text" class="form-control" id="editCategoryShow"
                                             placeholder="Enter tags separated by spaces" />
                                         <div id="tags-container" class="mt-2 d-flex flex-wrap gap-2">
                                             <!-- Tags will be preloaded here -->
                                         </div>
-                                        <input type="hidden" id="tagsField" name="tags" required />
+                                        <input type="hidden" id="tagsField" name="tags" required /> --}}
+
+                                        <label for="choices-single-default" class="form-label">Tags</label>
+                                        <input class="form-control" id="choices-text-remove-button" name="tags"
+                                            value="{{ old('hash_tags', $data->hash_tags) }}" type="text" />
+
                                     </div>
 
                                     <input type="hidden" name="cat_id" value="{{ $data->id }}">
@@ -367,12 +438,34 @@
         <!-- end row -->
         <!-- end row -->
         <script>
-            new Choices(document.getElementById("choices-text-remove-button"), {
-                delimiter: ",",
-                editItems: !0,
-                maxItemCount: 5,
-                removeItemButton: !0,
-            })
+            document.addEventListener("DOMContentLoaded", function() {
+                const inputField = document.getElementById("choices-text-remove-button");
+                new Choices(document.getElementById("choices-text-remove-button"), {
+                    delimiter: ",",
+                    editItems: !0,
+                    maxItemCount: 80,
+                    removeItemButton: !0,
+                })
+
+                inputField.addEventListener("keydown", function(event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        const inputValue = inputField.value;
+                        const tags = inputValue.split(",").map(tag => tag.trim()).filter(Boolean);
+                        tags.forEach((tag) => {
+                            choices.setValue([{
+                                value: tag,
+                                label: tag
+                            }]);
+                        });
+                        inputField.value = "";
+                    }
+                });
+
+                document.getElementById('create-wallpaper-form').addEventListener('submit', function(e) {
+                    document.getElementById('loader').style.display = 'block';
+                });
+            });
         </script>
     </x-app-layout>
 
@@ -461,13 +554,5 @@
                 errorMessage.style.display = 'none';
             }
         }
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-        new Choices(document.getElementById("choices-text-remove-button"), {
-            delimiter: ",",
-            editItems: !0,
-            maxItemCount: 5,
-            removeItemButton: !0,
-        });
     });
 </script>

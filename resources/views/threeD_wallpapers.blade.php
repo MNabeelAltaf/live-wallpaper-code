@@ -11,6 +11,7 @@
                     <form method="GET" id="categoryForm" action="{{ route('3d_wallpapers.showRecords') }}">
                         <select class="form-control" name="category" id="choices-single-no-sorting"
                             onchange="filterCategory()">
+                            <option value="" selected>Select Category</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}"
                                     {{ request('category') == $category->id ? 'selected' : '' }}>
